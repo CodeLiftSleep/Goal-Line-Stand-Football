@@ -1,10 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="14.0">
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.30729</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{53E12034-9659-47F5-9022-83FEF9EFBE48}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <StartupObject>Football2.My.MyApplication</StartupObject>
@@ -35,12 +33,13 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Football2.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <AdditionalParameters>
+    </AdditionalParameters>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -50,6 +49,8 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Football2.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <AdditionalParameters>
+    </AdditionalParameters>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -117,6 +118,7 @@
     <Compile Include="PBP.vb" />
     <Compile Include="Random.vb" />
     <Compile Include="Scheduler.vb" />
+    <Compile Include="FootballField.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DraftForm.resx">
