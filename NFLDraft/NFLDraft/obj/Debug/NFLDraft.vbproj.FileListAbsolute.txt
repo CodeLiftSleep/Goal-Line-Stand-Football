@@ -1,9 +1,0 @@
-c:\users\mnasty\documents\visual studio 2015\Projects\NFLDraft\NFLDraft\obj\Debug\NFLDraft.vbprojResolveAssemblyReference.cache
-c:\users\mnasty\documents\visual studio 2015\Projects\NFLDraft\NFLDraft\obj\Debug\NFLDraft.Resources.resources
-c:\users\mnasty\documents\visual studio 2015\Projects\NFLDraft\NFLDraft\obj\Debug\NFLDraft.vbproj.GenerateResource.Cache
-c:\users\mnasty\documents\visual studio 2015\Projects\NFLDraft\NFLDraft\bin\Debug\NFLDraft.dll
-c:\users\mnasty\documents\visual studio 2015\Projects\NFLDraft\NFLDraft\bin\Debug\NFLDraft.pdb
-c:\users\mnasty\documents\visual studio 2015\Projects\NFLDraft\NFLDraft\bin\Debug\NFLDraft.xml
-c:\users\mnasty\documents\visual studio 2015\Projects\NFLDraft\NFLDraft\obj\Debug\NFLDraft.dll
-c:\users\mnasty\documents\visual studio 2015\Projects\NFLDraft\NFLDraft\obj\Debug\NFLDraft.xml
-c:\users\mnasty\documents\visual studio 2015\Projects\NFLDraft\NFLDraft\obj\Debug\NFLDraft.pdb

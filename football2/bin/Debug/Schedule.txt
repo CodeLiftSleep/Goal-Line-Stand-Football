@@ -1,0 +1,506 @@
+-----------------------
+WEEK 1 SCHEDULE
+-----------------------
+IND(10) vs. TEN(12)
+JAX(11) vs. DEN(13)
+PIT(6) vs. KC (14)
+OAK(15) vs. TAM(28)
+NWO(27) vs. SD (16)
+WAS(17) vs. GB (22)
+PHI(18) vs. CIN(5)
+NYG(19) vs. MIN(21)
+DAL(20) vs. BAL(7)
+LAR(31) vs. DET(23)
+HOU(9) vs. CHI(24)
+ATL(26) vs. CAR(25)
+BUF(1) vs. ARI(29)
+SEA(30) vs. SFO(32)
+CLE(8) vs. NWE(2)
+MIA(4) vs. NYJ(3)
+-----------------------
+WEEK 2 SCHEDULE
+-----------------------
+DEN(13) vs. CAR(25)
+LAR(31) vs. ATL(26)
+SEA(30) vs. NWO(27)
+TAM(28) vs. ARI(29)
+SFO(32) vs. CHI(24)
+CLE(8) vs. BUF(1)
+MIA(4) vs. NWE(2)
+KC (14) vs. NYJ(3)
+NYG(19) vs. CIN(5)
+BAL(7) vs. PIT(6)
+HOU(9) vs. OAK(15)
+IND(10) vs. SD (16)
+MIN(21) vs. JAX(11)
+TEN(12) vs. GB (22)
+PHI(18) vs. WAS(17)
+DAL(20) vs. DET(23)
+-----------------------
+WEEK 3 SCHEDULE
+-----------------------
+BUF(1) vs. NWE(2)
+NYJ(3) vs. CLE(8)
+LAR(31) vs. MIA(4)
+DEN(13) vs. CIN(5)
+DAL(20) vs. PIT(6)
+BAL(7) vs. PHI(18)
+DET(23) vs. HOU(9)
+IND(10) vs. KC (14)
+JAX(11) vs. TEN(12)
+CAR(25) vs. OAK(15)
+TAM(28) vs. SD (16)
+WAS(17) vs. NYG(19)
+CHI(24) vs. MIN(21)
+GB (22) vs. SEA(30)
+ATL(26) vs. SFO(32)
+NWO(27) vs. ARI(29)
+-----------------------
+WEEK 4 SCHEDULE
+-----------------------
+NYJ(3) vs. MIA(4)
+CIN(5) vs. WAS(17)
+PIT(6) vs. BUF(1)
+BAL(7) vs. NYG(19)
+PHI(18) vs. CLE(8)
+HOU(9) vs. IND(10)
+JAX(11) vs. GB (22)
+DEN(13) vs. TEN(12)
+KC (14) vs. NWO(27)
+ATL(26) vs. OAK(15)
+SD (16) vs. CAR(25)
+CHI(24) vs. DAL(20)
+MIN(21) vs. DET(23)
+SFO(32) vs. TAM(28)
+ARI(29) vs. SEA(30)
+NWE(2) vs. LAR(31)
+-----------------------
+WEEK 5 SCHEDULE
+-----------------------
+Teams On Bye: PIT, BAL, HOU, TEN, NYG, ATL,
+CLE(8) vs. DAL(20)
+GB (22) vs. IND(10)
+JAX(11) vs. BUF(1)
+OAK(15) vs. DEN(13)
+CAR(25) vs. KC (14)
+MIA(4) vs. SD (16)
+MIN(21) vs. WAS(17)
+DET(23) vs. PHI(18)
+CHI(24) vs. TAM(28)
+NWO(27) vs. LAR(31)
+SFO(32) vs. ARI(29)
+NYJ(3) vs. SEA(30)
+NWE(2) vs. CIN(5)
+-----------------------
+WEEK 6 SCHEDULE
+-----------------------
+Teams On Bye: BUF, NWO, TAM, SEA,
+NYG(19) vs. DAL(20)
+DET(23) vs. MIN(21)
+ATL(26) vs. GB (22)
+PHI(18) vs. CHI(24)
+WAS(17) vs. CAR(25)
+NWE(2) vs. ARI(29)
+SFO(32) vs. LAR(31)
+CIN(5) vs. NYJ(3)
+MIA(4) vs. PIT(6)
+CLE(8) vs. BAL(7)
+HOU(9) vs. DEN(13)
+IND(10) vs. JAX(11)
+TEN(12) vs. SD (16)
+KC (14) vs. OAK(15)
+-----------------------
+WEEK 7 SCHEDULE
+-----------------------
+Teams On Bye: NWE, NYJ, IND, GB , CHI, ARI,
+PHI(18) vs. NYG(19)
+DAL(20) vs. WAS(17)
+MIN(21) vs. TEN(12)
+DET(23) vs. NWO(27)
+LAR(31) vs. CAR(25)
+TAM(28) vs. ATL(26)
+SEA(30) vs. BUF(1)
+MIA(4) vs. SFO(32)
+CLE(8) vs. CIN(5)
+PIT(6) vs. BAL(7)
+HOU(9) vs. JAX(11)
+DEN(13) vs. KC (14)
+OAK(15) vs. SD (16)
+-----------------------
+WEEK 8 SCHEDULE
+-----------------------
+Teams On Bye: CIN, DEN, KC , PHI, DAL, SFO,
+SD (16) vs. CLE(8)
+GB (22) vs. HOU(9)
+IND(10) vs. MIN(21)
+JAX(11) vs. OAK(15)
+TEN(12) vs. DET(23)
+WAS(17) vs. BAL(7)
+NYG(19) vs. CHI(24)
+NWO(27) vs. CAR(25)
+ATL(26) vs. SEA(30)
+TAM(28) vs. LAR(31)
+ARI(29) vs. NYJ(3)
+BUF(1) vs. MIA(4)
+PIT(6) vs. NWE(2)
+-----------------------
+WEEK 9 SCHEDULE
+-----------------------
+Teams On Bye: CLE, MIN, DET, CAR,
+WAS(17) vs. PIT(6)
+DAL(20) vs. PHI(18)
+NWO(27) vs. NYG(19)
+CHI(24) vs. GB (22)
+ATL(26) vs. TAM(28)
+ARI(29) vs. MIA(4)
+LAR(31) vs. SEA(30)
+SFO(32) vs. NWE(2)
+BUF(1) vs. CIN(5)
+BAL(7) vs. NYJ(3)
+JAX(11) vs. HOU(9)
+DEN(13) vs. IND(10)
+OAK(15) vs. TEN(12)
+SD (16) vs. KC (14)
+-----------------------
+WEEK 1 SCHEDULE
+-----------------------
+SD (16) vs. CAR(25)
+DEN(13) vs. ATL(26)
+KC (14) vs. NWO(27)
+SEA(30) vs. TAM(28)
+ARI(29) vs. WAS(17)
+BUF(1) vs. LAR(31)
+MIA(4) vs. SFO(32)
+NWE(2) vs. CIN(5)
+BAL(7) vs. NYJ(3)
+PIT(6) vs. NYG(19)
+CLE(8) vs. TEN(12)
+DET(23) vs. HOU(9)
+OAK(15) vs. IND(10)
+CHI(24) vs. JAX(11)
+PHI(18) vs. MIN(21)
+DAL(20) vs. GB (22)
+-----------------------
+WEEK 2 SCHEDULE
+-----------------------
+BUF(1) vs. NWE(2)
+NYJ(3) vs. SEA(30)
+CIN(5) vs. MIA(4)
+PIT(6) vs. PHI(18)
+DAL(20) vs. BAL(7)
+SD (16) vs. CLE(8)
+TEN(12) vs. HOU(9)
+IND(10) vs. CHI(24)
+JAX(11) vs. DET(23)
+DEN(13) vs. CAR(25)
+KC (14) vs. OAK(15)
+WAS(17) vs. GB (22)
+NYG(19) vs. MIN(21)
+TAM(28) vs. ATL(26)
+NWO(27) vs. LAR(31)
+ARI(29) vs. SFO(32)
+-----------------------
+WEEK 3 SCHEDULE
+-----------------------
+BUF(1) vs. BAL(7)
+PIT(6) vs. NWE(2)
+NYJ(3) vs. MIA(4)
+CIN(5) vs. CLE(8)
+HOU(9) vs. MIN(21)
+IND(10) vs. KC (14)
+JAX(11) vs. TEN(12)
+DEN(13) vs. SD (16)
+OAK(15) vs. NWO(27)
+DAL(20) vs. WAS(17)
+GB (22) vs. PHI(18)
+DET(23) vs. NYG(19)
+CHI(24) vs. TAM(28)
+ATL(26) vs. CAR(25)
+ARI(29) vs. SEA(30)
+SFO(32) vs. LAR(31)
+-----------------------
+WEEK 4 SCHEDULE
+-----------------------
+SFO(32) vs. TAM(28)
+LAR(31) vs. ARI(29)
+ATL(26) vs. SEA(30)
+CLE(8) vs. BUF(1)
+NWE(2) vs. NYJ(3)
+TEN(12) vs. MIA(4)
+CIN(5) vs. WAS(17)
+IND(10) vs. PIT(6)
+OAK(15) vs. BAL(7)
+HOU(9) vs. DEN(13)
+JAX(11) vs. GB (22)
+SD (16) vs. KC (14)
+PHI(18) vs. NYG(19)
+CHI(24) vs. DAL(20)
+MIN(21) vs. DET(23)
+CAR(25) vs. NWO(27)
+-----------------------
+WEEK 5 SCHEDULE
+-----------------------
+Teams On Bye: PIT, BAL, HOU, TEN, NYG, ATL,
+KC (14) vs. TAM(28)
+NWE(2) vs. ARI(29)
+SEA(30) vs. PHI(18)
+LAR(31) vs. NYJ(3)
+CAR(25) vs. SFO(32)
+BUF(1) vs. OAK(15)
+MIA(4) vs. SD (16)
+DEN(13) vs. CIN(5)
+CLE(8) vs. DAL(20)
+GB (22) vs. IND(10)
+MIN(21) vs. JAX(11)
+CHI(24) vs. WAS(17)
+DET(23) vs. NWO(27)
+-----------------------
+WEEK 6 SCHEDULE
+-----------------------
+Teams On Bye: BUF, NWO, TAM, SEA,
+PHI(18) vs. CLE(8)
+HOU(9) vs. JAX(11)
+IND(10) vs. MIN(21)
+TEN(12) vs. DET(23)
+OAK(15) vs. DEN(13)
+CAR(25) vs. KC (14)
+SD (16) vs. ATL(26)
+WAS(17) vs. NYG(19)
+DAL(20) vs. PIT(6)
+GB (22) vs. CHI(24)
+SFO(32) vs. ARI(29)
+NWE(2) vs. LAR(31)
+CIN(5) vs. NYJ(3)
+BAL(7) vs. MIA(4)
+-----------------------
+WEEK 7 SCHEDULE
+-----------------------
+Teams On Bye: NWE, NYJ, IND, GB , CHI, ARI,
+TAM(28) vs. DEN(13)
+LAR(31) vs. SEA(30)
+SFO(32) vs. BUF(1)
+MIA(4) vs. PIT(6)
+BAL(7) vs. CIN(5)
+NYG(19) vs. CLE(8)
+KC (14) vs. HOU(9)
+SD (16) vs. JAX(11)
+MIN(21) vs. TEN(12)
+ATL(26) vs. OAK(15)
+PHI(18) vs. WAS(17)
+DAL(20) vs. DET(23)
+NWO(27) vs. CAR(25)
+-----------------------
+WEEK 8 SCHEDULE
+-----------------------
+Teams On Bye: CIN, DEN, KC , PHI, DAL, SFO,
+LAR(31) vs. ATL(26)
+PIT(6) vs. BUF(1)
+MIA(4) vs. NWE(2)
+NYJ(3) vs. CLE(8)
+BAL(7) vs. NYG(19)
+HOU(9) vs. CHI(24)
+TEN(12) vs. IND(10)
+JAX(11) vs. OAK(15)
+TAM(28) vs. SD (16)
+MIN(21) vs. WAS(17)
+GB (22) vs. DET(23)
+ARI(29) vs. CAR(25)
+SEA(30) vs. NWO(27)
+-----------------------
+WEEK 9 SCHEDULE
+-----------------------
+Teams On Bye: CLE, MIN, DET, CAR,
+PHI(18) vs. CHI(24)
+ATL(26) vs. SFO(32)
+NWO(27) vs. ARI(29)
+TAM(28) vs. DAL(20)
+MIA(4) vs. SEA(30)
+NYG(19) vs. LAR(31)
+BUF(1) vs. CIN(5)
+HOU(9) vs. NWE(2)
+NYJ(3) vs. IND(10)
+PIT(6) vs. KC (14)
+WAS(17) vs. BAL(7)
+JAX(11) vs. DEN(13)
+TEN(12) vs. GB (22)
+SD (16) vs. OAK(15)
+-----------------------
+WEEK 1 SCHEDULE
+-----------------------
+ATL(26) vs. GB (22)
+NWO(27) vs. SD (16)
+TAM(28) vs. DAL(20)
+ARI(29) vs. MIA(4)
+NYJ(3) vs. SEA(30)
+NWE(2) vs. LAR(31)
+SFO(32) vs. BUF(1)
+CIN(5) vs. HOU(9)
+IND(10) vs. PIT(6)
+BAL(7) vs. JAX(11)
+PHI(18) vs. CLE(8)
+TEN(12) vs. KC (14)
+OAK(15) vs. DEN(13)
+WAS(17) vs. CAR(25)
+NYG(19) vs. CHI(24)
+DET(23) vs. MIN(21)
+-----------------------
+WEEK 2 SCHEDULE
+-----------------------
+BUF(1) vs. CIN(5)
+PIT(6) vs. KC (14)
+NWE(2) vs. BAL(7)
+NYG(19) vs. CLE(8)
+SD (16) vs. HOU(9)
+DET(23) vs. IND(10)
+CHI(24) vs. JAX(11)
+OAK(15) vs. TEN(12)
+NWO(27) vs. DEN(13)
+WAS(17) vs. GB (22)
+PHI(18) vs. ATL(26)
+DAL(20) vs. SFO(32)
+CAR(25) vs. MIN(21)
+TAM(28) vs. ARI(29)
+SEA(30) vs. LAR(31)
+NYJ(3) vs. MIA(4)
+-----------------------
+WEEK 3 SCHEDULE
+-----------------------
+BUF(1) vs. NWE(2)
+NYJ(3) vs. PIT(6)
+MIA(4) vs. SEA(30)
+CLE(8) vs. CIN(5)
+BAL(7) vs. NYG(19)
+HOU(9) vs. MIN(21)
+IND(10) vs. JAX(11)
+DEN(13) vs. TEN(12)
+ATL(26) vs. KC (14)
+OAK(15) vs. SD (16)
+ARI(29) vs. WAS(17)
+GB (22) vs. PHI(18)
+CHI(24) vs. DAL(20)
+DET(23) vs. NWO(27)
+LAR(31) vs. CAR(25)
+SFO(32) vs. TAM(28)
+-----------------------
+WEEK 4 SCHEDULE
+-----------------------
+DEN(13) vs. IND(10)
+JAX(11) vs. DET(23)
+MIN(21) vs. TEN(12)
+KC (14) vs. NYJ(3)
+CAR(25) vs. OAK(15)
+TAM(28) vs. SD (16)
+WAS(17) vs. DAL(20)
+SEA(30) vs. PHI(18)
+NWO(27) vs. NYG(19)
+GB (22) vs. HOU(9)
+SFO(32) vs. CHI(24)
+ARI(29) vs. ATL(26)
+BUF(1) vs. LAR(31)
+MIA(4) vs. NWE(2)
+BAL(7) vs. CIN(5)
+PIT(6) vs. CLE(8)
+-----------------------
+WEEK 5 SCHEDULE
+-----------------------
+Teams On Bye: PIT, BAL, HOU, TEN, NYG, ATL,
+SD (16) vs. CLE(8)
+MIN(21) vs. WAS(17)
+DAL(20) vs. PHI(18)
+CHI(24) vs. GB (22)
+LAR(31) vs. DET(23)
+CAR(25) vs. TAM(28)
+OAK(15) vs. NWO(27)
+ARI(29) vs. NYJ(3)
+SEA(30) vs. BUF(1)
+SFO(32) vs. NWE(2)
+CIN(5) vs. MIA(4)
+IND(10) vs. KC (14)
+JAX(11) vs. DEN(13)
+-----------------------
+WEEK 6 SCHEDULE
+-----------------------
+Teams On Bye: BUF, NWO, TAM, SEA,
+IND(10) vs. MIN(21)
+DAL(20) vs. GB (22)
+DET(23) vs. CHI(24)
+DEN(13) vs. CAR(25)
+LAR(31) vs. ATL(26)
+NWE(2) vs. ARI(29)
+NYJ(3) vs. SFO(32)
+MIA(4) vs. CLE(8)
+CIN(5) vs. WAS(17)
+BAL(7) vs. PIT(6)
+TEN(12) vs. HOU(9)
+KC (14) vs. JAX(11)
+SD (16) vs. OAK(15)
+PHI(18) vs. NYG(19)
+-----------------------
+WEEK 7 SCHEDULE
+-----------------------
+Teams On Bye: NWE, NYJ, IND, GB , CHI, ARI,
+SEA(30) vs. NWO(27)
+LAR(31) vs. MIA(4)
+CAR(25) vs. SFO(32)
+BUF(1) vs. OAK(15)
+DEN(13) vs. CIN(5)
+WAS(17) vs. PIT(6)
+CLE(8) vs. BAL(7)
+KC (14) vs. HOU(9)
+MIN(21) vs. JAX(11)
+TEN(12) vs. SD (16)
+DET(23) vs. PHI(18)
+NYG(19) vs. DAL(20)
+TAM(28) vs. ATL(26)
+-----------------------
+WEEK 8 SCHEDULE
+-----------------------
+Teams On Bye: CIN, DEN, KC , PHI, DAL, SFO,
+MIN(21) vs. ARI(29)
+GB (22) vs. DET(23)
+CHI(24) vs. TAM(28)
+SD (16) vs. CAR(25)
+ATL(26) vs. SEA(30)
+NWO(27) vs. LAR(31)
+NWE(2) vs. BUF(1)
+BAL(7) vs. NYJ(3)
+TEN(12) vs. MIA(4)
+PIT(6) vs. NYG(19)
+CLE(8) vs. WAS(17)
+HOU(9) vs. IND(10)
+JAX(11) vs. OAK(15)
+-----------------------
+WEEK 9 SCHEDULE
+-----------------------
+Teams On Bye: CLE, MIN, DET, CAR,
+JAX(11) vs. TEN(12)
+DEN(13) vs. KC (14)
+OAK(15) vs. BAL(7)
+MIA(4) vs. SD (16)
+PHI(18) vs. WAS(17)
+GB (22) vs. NYG(19)
+CIN(5) vs. DAL(20)
+IND(10) vs. CHI(24)
+ATL(26) vs. TAM(28)
+NWO(27) vs. ARI(29)
+SEA(30) vs. SFO(32)
+LAR(31) vs. NYJ(3)
+PIT(6) vs. BUF(1)
+HOU(9) vs. NWE(2)
+-----------------------
+WEEK 10 SCHEDULE
+-----------------------
+Teams On Bye: MIA, JAX, OAK, SD , WAS, LAR,
+NYG(19) vs. PHI(18)
+CLE(8) vs. DAL(20)
+CHI(24) vs. MIN(21)
+TEN(12) vs. GB (22)
+DET(23) vs. HOU(9)
+ATL(26) vs. CAR(25)
+SFO(32) vs. NWO(27)
+KC (14) vs. TAM(28)
+ARI(29) vs. SEA(30)
+BUF(1) vs. BAL(7)
+NWE(2) vs. DEN(13)
+NYJ(3) vs. IND(10)
+CIN(5) vs. PIT(6)

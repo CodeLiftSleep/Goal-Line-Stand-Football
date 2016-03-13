@@ -1,9 +1,0 @@
-C:\Users\MNasty\documents\visual studio 2015\Projects\Random\Random\bin\Debug\Mersenne.dll
-C:\Users\MNasty\documents\visual studio 2015\Projects\Random\Random\bin\Debug\Mersenne.pdb
-C:\Users\MNasty\documents\visual studio 2015\Projects\Random\Random\bin\Debug\Mersenne.xml
-C:\Users\MNasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\RandomNum.vbprojResolveAssemblyReference.cache
-C:\Users\MNasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\Mersenne.Resources.resources
-C:\Users\MNasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\RandomNum.vbproj.GenerateResource.Cache
-C:\Users\MNasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\Mersenne.dll
-C:\Users\MNasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\Mersenne.xml
-C:\Users\MNasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\Mersenne.pdb

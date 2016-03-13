@@ -1,8 +1,0 @@
-c:\users\mnasty\documents\visual studio 2015\Projects\SQLFunctions\SQLFunctions\bin\Debug\SQLFunctions.dll
-c:\users\mnasty\documents\visual studio 2015\Projects\SQLFunctions\SQLFunctions\bin\Debug\SQLFunctions.pdb
-c:\users\mnasty\documents\visual studio 2015\Projects\SQLFunctions\SQLFunctions\bin\Debug\SQLFunctions.xml
-c:\users\mnasty\documents\visual studio 2015\Projects\SQLFunctions\SQLFunctions\obj\Debug\SQLFunctions.Resources.resources
-c:\users\mnasty\documents\visual studio 2015\Projects\SQLFunctions\SQLFunctions\obj\Debug\SQLFunctions.vbproj.GenerateResource.Cache
-c:\users\mnasty\documents\visual studio 2015\Projects\SQLFunctions\SQLFunctions\obj\Debug\SQLFunctions.dll
-c:\users\mnasty\documents\visual studio 2015\Projects\SQLFunctions\SQLFunctions\obj\Debug\SQLFunctions.xml
-c:\users\mnasty\documents\visual studio 2015\Projects\SQLFunctions\SQLFunctions\obj\Debug\SQLFunctions.pdb

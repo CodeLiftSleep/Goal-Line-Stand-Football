@@ -1,9 +1,0 @@
-c:\users\mnasty\documents\visual studio 2015\Projects\Random\Random\bin\Debug\Random.dll
-c:\users\mnasty\documents\visual studio 2015\Projects\Random\Random\bin\Debug\Random.pdb
-c:\users\mnasty\documents\visual studio 2015\Projects\Random\Random\bin\Debug\Random.xml
-c:\users\mnasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\Random.Resources.resources
-c:\users\mnasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\Random.vbproj.GenerateResource.Cache
-c:\users\mnasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\Random.dll
-c:\users\mnasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\Random.xml
-c:\users\mnasty\documents\visual studio 2015\Projects\Random\Random\obj\Debug\Random.pdb
-C:\Users\MNasty\Documents\Visual Studio 2015\Projects\Random\Random\obj\Debug\Random.vbprojResolveAssemblyReference.cache

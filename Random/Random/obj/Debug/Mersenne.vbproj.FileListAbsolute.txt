@@ -1,8 +1,0 @@
-C:\Users\MNasty\Documents\Visual Studio 2015\Projects\Random\Random\bin\Debug\Mersenne.dll
-C:\Users\MNasty\Documents\Visual Studio 2015\Projects\Random\Random\bin\Debug\Mersenne.pdb
-C:\Users\MNasty\Documents\Visual Studio 2015\Projects\Random\Random\bin\Debug\Mersenne.xml
-C:\Users\MNasty\Documents\Visual Studio 2015\Projects\Random\Random\obj\Debug\Mersenne.Resources.resources
-C:\Users\MNasty\Documents\Visual Studio 2015\Projects\Random\Random\obj\Debug\Mersenne.vbproj.GenerateResource.Cache
-C:\Users\MNasty\Documents\Visual Studio 2015\Projects\Random\Random\obj\Debug\Mersenne.dll
-C:\Users\MNasty\Documents\Visual Studio 2015\Projects\Random\Random\obj\Debug\Mersenne.xml
-C:\Users\MNasty\Documents\Visual Studio 2015\Projects\Random\Random\obj\Debug\Mersenne.pdb
