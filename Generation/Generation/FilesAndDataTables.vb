@@ -17,7 +17,14 @@ Public Module FilesAndDataTables
     Public Eval As New Evaluation
     Public MyDB As String = "Football"
     Public SQLiteTables As New SQLFunctions.SQLiteDataFunctions
-    Public ReadFName As StreamReader = New StreamReader("FName.txt")
-    Public ReadLName As StreamReader = New StreamReader("LName.txt")
-    Public ReadCollege As StreamReader = New StreamReader("Colleges.txt")
+    Dim filepath As String = "Project Files/"
+    Public ReadFName As StreamReader = New StreamReader(filepath + "FName.txt")
+    Public ReadLName As StreamReader = New StreamReader(filepath + "LName.txt")
+    Public ReadCollege As StreamReader = New StreamReader(filepath + "Colleges.txt")
+
+
+    Public Sub LoadFile(ByVal FileName As String)
+
+    End Sub
+
 End Module

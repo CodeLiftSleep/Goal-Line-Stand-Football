@@ -101,8 +101,9 @@ Public Class Person
                 DTOutputTo.Rows(Row).Item("LName") = String.Format("'{0}'", GetItem(LastNames, DTOutputTo))
                 DTOutputTo.Rows(Row).Item("College") = String.Format("'{0}'", GetItem(Colleges, DTOutputTo))
                 DTOutputTo.Rows(Row).Item("Age") = GenAge(PersonType, Position)
-                DTOutputTo.Rows(Row).Item("DOB") = String.Format("'{0}", GetDOB(DTOutputTo.Rows(Row).Item("Age")))
-            Catch ex As System.InvalidCastException
+            DTOutputTo.Rows(Row).Item("DOB") = String.Format("'{0}", GetDOB(DTOutputTo.Rows(Row).Item("Age")))
+
+        Catch ex As System.InvalidCastException
                 Console.WriteLine(ex.Message)
                 Console.WriteLine(ex.Data)
             End Try
@@ -111,6 +112,9 @@ Public Class Person
         If Position <> "" Then 'only generates this data if they are a player as its not relevant to the other people
             DTOutputTo.Rows(Row).Item("Height") = GetHeight(Position)
             DTOutputTo.Rows(Row).Item("Weight") = GetWeight(Position, DTOutputTo.Rows(Row).Item("Height"))
+            DTOutputTo.Rows(Row).Item("HandLength") = GetHandLength(DTOutputTo.Rows(Row).Item("Height"), DTOutputTo.Rows(Row).Item("Age"))
+            DTOutputTo.Rows(Row).Item("ArmLength") = GetArmLength(DTOutputTo.Rows(Row).Item("Height"))
+            Console.WriteLine("Height: {0}  ArmLength: {1}  Hand Length {2}", DTOutputTo.Rows(Row).Item("Height"), DTOutputTo.Rows(Row).Item("ArmLength"), DTOutputTo.Rows(Row).Item("HandLength"))
         End If
     End Sub
     ''' <summary>
@@ -743,6 +747,31 @@ Public Class Person
                     Case 63 : Return 79
                 End Select
         End Select
+    End Function
+    ''' <summary>
+    ''' An equation exists to get predicted HandLength in CM when you know a male's height:
+    ''' avg HL(cm)=(Height(cm)-80.4+(.195 x age in years) - 6.383)/5.122
+    ''' STDev was 4.4cm of their height and since average height is roughly around 9.08 times your hand length, I took roughly 4.4/9, and reduced
+    ''' it slightly because NFL players seemingly have larger hands for their bodies
+    ''' </summary>
+    ''' <param name="Height"></param>
+    ''' <param name="Age"></param>
+    ''' <returns></returns>
+    Private Function GetHandLength(Height As Integer, Age As Integer) As Double
+
+        Dim HeightinCM As Double = (Height * 2.54) 'converts to cm
+        Dim HLinCM As Double = (HeightinCM - 80.4 + (0.195 * Age) - 6.383) / 5.122 'gets avg HL in cm for that height
+        HLinCM /= 2.54
+        Return (Math.Round(MT.GetGaussian(HLinCM, 0.454), 2) + 0.75)
+
+    End Function
+    ''' <summary>
+    ''' Arm Length is on average A person's height * 0.45
+    ''' </summary>
+    ''' <param name="Height"></param>
+    ''' <returns></returns>
+    Private Function GetArmLength(Height As Integer) As Double
+        Return Math.Round(MT.GetGaussian((Height * 0.435), 0.55), 2)
     End Function
 
 End Class

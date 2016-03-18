@@ -111,11 +111,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Colleges.txt" />
-    <Content Include="FName.txt" />
-    <Content Include="LName.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\..\Random\Random\Mersenne.vbproj">
       <Project>{9fcefa45-842d-4c59-a1fd-35fd5e1bc55f}</Project>
       <Name>Mersenne</Name>

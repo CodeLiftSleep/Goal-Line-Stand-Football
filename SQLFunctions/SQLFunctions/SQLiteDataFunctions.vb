@@ -3,6 +3,7 @@ Imports System.Collections
 Imports System.Text
 Public Class SQLiteDataFunctions
     Dim Conn As SQLite.SQLiteConnection = New SQLite.SQLiteConnection()
+    Dim filepath As String = "Project Files/"
     ''' <summary>
     ''' Opens a connection to this DB--Must Explicitly pass the connection string before returning it, otherwise it will throw a Null exception as the connection string will be Nothing.
     ''' </summary>
@@ -10,11 +11,11 @@ Public Class SQLiteDataFunctions
     ''' <returns></returns>
     Public Function GetConnectionString(ByVal DBName As String) As String
         If Conn.State <> ConnectionState.Open Then
-            Conn.ConnectionString = "Data Source=|DataDirectory|\" & DBName & ".sqlite;Version=3"
+            Conn.ConnectionString = "Data Source=" & filepath & DBName & ".sqlite;Version=3"
             Return Conn.ConnectionString '= "Data Source=|DataDirectory|\" & DBName & ".sqlite;Version=3"
             Conn.Open()
         Else
-            Conn.ConnectionString = "Data Source=|DataDirectory|\" & DBName & ".sqlite;Version=3"
+            Conn.ConnectionString = "Data Source=" & filepath & DBName & ".sqlite;Version=3"
         End If
 
     End Function

@@ -272,6 +272,9 @@ Public Class NFLPlayers
                 PlayerDT.Rows(i).Item("DLBurst") = MT.GetGaussian(49.5, 16.5)
                 PlayerDT.Rows(i).Item("DLPressure") = MT.GetGaussian(49.5, 16.5)
                 PlayerDT.Rows(i).Item("DLFinish") = MT.GetGaussian(49.5, 16.5)
+                PlayerDT.Rows(i).Item("DLContain") = MT.GetGaussian(49.5, 16.5)
+                PlayerDT.Rows(i).Item("DLStayAtHome") = MT.GetGaussian(49.5, 16.5)
+
             Case "OLB", "ILB"
                 PlayerDT.Rows(i).Item("LBDropDepth") = MT.GetGaussian(49.5, 16.5)
                 PlayerDT.Rows(i).Item("LBCoverage") = MT.GetGaussian(49.5, 16.5)
@@ -286,6 +289,7 @@ Public Class NFLPlayers
                 PlayerDT.Rows(i).Item("LBOutsideTackle") = MT.GetGaussian(49.5, 16.5)
                 PlayerDT.Rows(i).Item("LBFillGaps") = MT.GetGaussian(49.5, 16.5)
                 PlayerDT.Rows(i).Item("LBContain") = MT.GetGaussian(49.5, 16.5)
+
             Case "CB", "FS", "SS"
                 PlayerDT.Rows(i).Item("DBPressBailCoverage") = MT.GetGaussian(49.5, 16.5)
                 PlayerDT.Rows(i).Item("DBBallReaction") = MT.GetGaussian(49.5, 16.5)

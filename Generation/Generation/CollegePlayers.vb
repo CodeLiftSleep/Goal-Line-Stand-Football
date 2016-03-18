@@ -14,25 +14,52 @@ Public Class CollegePlayers
         DraftDT.Rows.Add(0)
 
         For i As Integer = 1 To NumPlayers
-            DraftDT.Rows.Add(i)
-            MyPos = GetCollegePos()
-            DraftDT.Rows(i).Item("CollegePOS") = String.Format("'{0}'", MyPos)
-            GenNames(DraftDT, i, "CollegePlayer", MyPos)
-            GetDraftGrades(i, MyPos) '#### TODO---> Convert from a sub to a function since it's returning a value
-            'DraftDT.Rows(i).Item("ArmLength")=
-            'DraftDT.Rows(i).Item("HandLength")=
-            DraftDT.Rows(i).Item("FortyYardTime") = Get40Time(MyPos)
-            DraftDT.Rows(i).Item("TwentyYardTime") = Get20Time(MyPos)
-            DraftDT.Rows(i).Item("TenYardTime") = Get10Time(MyPos)
-            DraftDT.Rows(i).Item("ShortShuttle") = GetShortShuttle(MyPos)
-            DraftDT.Rows(i).Item("BroadJump") = GetBroadJump(MyPos)
-            DraftDT.Rows(i).Item("VertJump") = GetVertJump(MyPos)
-            DraftDT.Rows(i).Item("ThreeConeDrill") = Get3Cone(MyPos)
-            DraftDT.Rows(i).Item("BenchPress") = GetBenchPress(MyPos)
-            DraftDT.Rows(i).Item("InterviewSkills") = CInt(MT.GetGaussian(49.5, 16.5))
-            DraftDT.Rows(i).Item("WonderlicTest") = GetWonderlic(MyPos)
-            DraftDT.Rows(i).Item("SkillsTranslateToNFL") = GetSkillsTranslate(MyPos)
-            DraftDT.Rows(i).Item("ProjNFLPos") = GetNFLPos(String.Format("'{0}'", MyPos))
+            Try
+                DraftDT.Rows.Add(i)
+                MyPos = GetCollegePos()
+                DraftDT.Rows(i).Item("CollegePOS") = String.Format("'{0}'", MyPos)
+                GenNames(DraftDT, i, "CollegePlayer", MyPos)
+                GetDraftGrades(i, MyPos) '#### TODO---> Convert from a sub to a function since it's returning a value         
+                DraftDT.Rows(i).Item("FortyYardTime") = Get40Time(MyPos)
+                DraftDT.Rows(i).Item("TwentyYardTime") = Get20Time(MyPos)
+                DraftDT.Rows(i).Item("TenYardTime") = Get10Time(MyPos)
+                DraftDT.Rows(i).Item("ShortShuttle") = GetShortShuttle(MyPos)
+                DraftDT.Rows(i).Item("BroadJump") = GetBroadJump(MyPos)
+                DraftDT.Rows(i).Item("VertJump") = GetVertJump(MyPos)
+                DraftDT.Rows(i).Item("ThreeConeDrill") = Get3Cone(MyPos)
+                DraftDT.Rows(i).Item("BenchPress") = GetBenchPress(MyPos)
+                DraftDT.Rows(i).Item("InterviewSkills") = CInt(MT.GetGaussian(49.5, 16.5))
+                DraftDT.Rows(i).Item("WonderlicTest") = GetWonderlic(MyPos)
+                DraftDT.Rows(i).Item("SkillsTranslateToNFL") = GetSkillsTranslate(MyPos)
+                DraftDT.Rows(i).Item("ProjNFLPos") = GetNFLPos(String.Format("'{0}'", MyPos), i)
+                DraftDT.Rows(i).Item("Flexibility") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Clutch") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Production") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Consistency") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("TeamPlayer") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Instincts") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Focus") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("PlayStrength") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Explosion") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("DeliversBlow") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Leadership") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Character") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Toughness") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("InjuryProne") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Fearless") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Aggressive") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("RiskTaker") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("FilmStudy") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("WorkEthic") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("BallSecurity") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("FieldAwareness") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("JumpingAbility") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("Timing") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(i).Item("PlaybookKnowledge") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+            Catch ex As System.InvalidCastException
+                Console.WriteLine(ex.Data)
+                Console.WriteLine(ex.Message)
+            End Try
         Next i
         For row As Integer = 0 To DraftDT.Rows.Count - 1
             For col As Integer = 0 To DraftDT.Columns.Count - 1
@@ -60,17 +87,50 @@ Public Class CollegePlayers
     ''' Need to figure out how often and under what circumstances a player would have a different position---currently it sets it to the same position as they are in college
     ''' 
     ''' on offense: QB > WR(RB) > RB > FB > TE > OT > OG > OC
+    ''' QB--->WR: Athleticism, speed, quickness, catching ability/QB Traits: Arm strength, height, 
     ''' 
-    ''' CB > S > LB > DE > DT
+    ''' 
+    ''' 
+    ''' 
+    ''' On Defense: CB > S > LB > DE > DT
     '''
     ''' players are able To move up Or down 1 slot - so starting from most athletic To least athletic defensively you'd have CB > S > LB > DE > DT. 
     ''' So all a corner could do Is move DOWN. Safeties can move UP Or DOWN to corner Or LB. Any player moving UP would need to have considerable athleticism.
     '''</summary>
     ''' <param name="Pos"></param>
     ''' <returns></returns>
-    Private Function GetNFLPos(ByVal Pos As String) As String '####TODO: Determine how often and waht percentage of players would play a different position ni the NFL than in college(I'm thinking maybe 5-7%, most common is OT to OG and CB to SF
+    Private Function GetNFLPos(ByVal Pos As String, ByVal PlayerNum As Integer) As String '####TODO: Determine how often and what percentage of players would play a different position in the NFL than in college(I'm thinking maybe 5-7%, most common is OT to OG and CB to SF
         'Players who are too small/light/slow for their current college positions
         'can be projected to play a different position in the NFL
+
+        Select Case Pos
+            Case "QB"
+                If DraftDT.Rows(PlayerNum).Item("Athleticism") > 7.0 And DraftDT.Rows(PlayerNum).Item("FortyYardTime") < 4.5 And DraftDT.Rows(PlayerNum).Item("QAB") > 7.0 And
+                   DraftDT.Rows(PlayerNum).Item("COD") > 7.0 And DraftDT.Rows(PlayerNum).Item("ShortAcc") < 6.0 And DraftDT.Rows(PlayerNum).Item("QBDecisionMaking") < 6.0 Then
+                    'change pos to WR
+                    DraftDT.Rows(PlayerNum).Item("NFLPos") = "WR"
+                Else : Return "'QB'"
+                End If
+            Case "RB" : Return "'RB'"
+            Case "FB" : Return "'FB'"
+            Case "TE" : Return "'TE'"
+            Case "WR" : Return "'WR'"
+            Case "OT" : Return "'OT'"
+            Case "OG" : Return "'OG'"
+            Case "C" : Return "'C'"
+            Case "DE" : Return "'DE'"
+            Case "DT" : Return "'DT'"
+            Case "OLB" : Return "'OLB'"
+            Case "ILB" : Return "'ILB'"
+            Case "SF" : Return "'SF'"
+            Case "CB" : Return "'CB'"
+            Case "P" : Return "'P'"
+            Case "K" : Return "'K'"
+        End Select
+
+
+
+
         Return Pos
     End Function
 
@@ -444,6 +504,12 @@ Public Class CollegePlayers
             Case "FS" : Return Math.Round(MT.GetGaussian(1.51, 0.0386), 2)
         End Select
     End Function
+
+    ''' <summary>
+    ''' Types of drafts---Normal, Top Heavy(high quality players at the top not good depth), Deep Draft(Not as many high quality top players but more good players than normal in later
+    ''' rounds, Stacked Draft(High Quality and Deep---very rare), need to be position specific
+    ''' </summary>
+    ''' <param name="NumPlayers"></param>
     Public Sub GenDraftClass(ByVal NumPlayers As Integer)
 
         'Generates a draft class
@@ -1345,7 +1411,8 @@ Public Class CollegePlayers
                 DraftDT.Rows(Num).Item("DLShedVsRunAway") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
                 DraftDT.Rows(Num).Item("DLTackleVsRunAway") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
                 DraftDT.Rows(Num).Item("DLChangeDirection") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-
+                DraftDT.Rows(Num).Item("DLContain") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+                DraftDT.Rows(Num).Item("DLStayAtHome") = Math.Round(MT.GetGaussian(6, 0.6667), 1)
                 Select Case Grade
                     Case Is > 7.49
                         DraftDT.Rows(Num).Item("DLReleaseOffBall") = Math.Round(MT.GetGaussian(6.5, 0.416667), 1)
@@ -1833,39 +1900,7 @@ Public Class CollegePlayers
                 End Select
         End Select
 
-        DraftDT.Rows(Num).Item("Flexibility") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Clutch") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Production") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Consistency") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("TeamPlayer") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Instincts") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Focus") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("PlayStrength") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Explosion") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("DeliversBlow") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Leadership") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Character") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Toughness") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("InjuryProne") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Fearless") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Aggressive") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("RiskTaker") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("FilmStudy") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("WorkEthic") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("BallSecurity") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("FieldAwareness") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("JumpingAbility") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("Timing") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
-        DraftDT.Rows(Num).Item("PlaybookKnowledge") = Math.Round(MT.GetGaussian(6, 0.66667), 1)
+
     End Sub
-    Public Function GetArmLength(ByVal Pos As String)
-
-
-    End Function
-
-    Public Function GetHandLength(Pos As String) As String
-
-    End Function
-
 
 End Class
