@@ -63,6 +63,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PommaLabs.Thrower, Version=2.0.1.0, Culture=neutral, PublicKeyToken=2f204b7110a52060, processorArchitecture=MSIL">
+      <HintPath>packages\Thrower.2.0.1\lib\net46\PommaLabs.Thrower.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -75,6 +79,10 @@
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Troschuetz.Random, Version=4.0.3.0, Culture=neutral, PublicKeyToken=2f204b7110a52060, processorArchitecture=MSIL">
+      <HintPath>packages\Troschuetz.Random.4.0.3\lib\net46\Troschuetz.Random.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -138,9 +146,21 @@
       <CustomToolNamespace>My</CustomToolNamespace>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
+    <None Include="packages.config" />
+    <None Include="Project Files\Football.sqlite">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DraftScoutNotes.txt" />
+    <Content Include="Project Files\Colleges.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Files\FName.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Project Files\LName.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -179,6 +199,10 @@
       <Project>{daea933c-6441-46a4-9f89-b012bae9a27a}</Project>
       <Name>Generation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LeagueCalendar\LeagueCalendar\LeagueCalendar.vbproj">
+      <Project>{9c902e87-3016-425f-a581-95dfdce5bd7f}</Project>
+      <Name>LeagueCalendar</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NFLDraft\NFLDraft\NFLDraft.vbproj">
       <Project>{f8f1ebd4-a579-4c44-9d3d-c50a968ab535}</Project>
       <Name>NFLDraft</Name>
@@ -196,6 +220,7 @@
       <Name>SQLFunctions</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
