@@ -15,7 +15,7 @@ Public Class NFLPlayers
         'Dim SelectTeam As Integer
         Dim Count As Integer
         Dim i As Integer
-        Dim PosString As String
+        Dim PosString As String = ""
         Dim RowArray As New ArrayList
 
         i = 1
@@ -87,7 +87,7 @@ Public Class NFLPlayers
             MyPos = GetCollegePos() 'returns the "normal" version without the  ' '
             PlayerDT.Rows(i).Item("POS") = String.Format("'{0}'", MyPos)
             GenNames(PlayerDT, i, "NFLPlayer", MyPos)
-            GetPosSkills(MyPos, i)
+            'GetPosSkills(MyPos, i, PlayerDT)
             PlayerDT.Rows(i).Item("Explosion") = MT.GetGaussian(49.5, 16.5)
             PlayerDT.Rows(i).Item("Athleticism") = MT.GetGaussian(49.5, 16.5)
             PlayerDT.Rows(i).Item("JumpingAbility") = MT.GetGaussian(49.5, 16.5)
@@ -136,215 +136,26 @@ Public Class NFLPlayers
 
 
     End Sub
-    Public Sub GetPosSkills(ByVal Pos As String, ByVal i As Integer)
-        Select Case Pos
-            Case "QB"
-                PlayerDT.Rows(i).Item("QBDropQuickness") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBSetUpQuickness") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBReleaseQuickness") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBShortAcc") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBMedAcc") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBLongAcc") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBDecMaking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBFieldVision") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBPoise") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBBallHandling") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBTiming") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBDelivery") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBFollowThrough") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBAvoidRush") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBEscape") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBScrambling") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBRolloutRight") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBRolloutLeft") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBArmStrength") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBZip") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBTouchScreenPass") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBTouchSwingPass") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBEffectiveShortOut") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBEffectiveDeepOut") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBEffectiveGoRoute") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBEffectivePostRoute") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("QBEffectiveCornerRoute") = MT.GetGaussian(49.5, 16.5)
-
-            Case "RB", "FB"
-                PlayerDT.Rows(i).Item("RBHands") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBEffortBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBRunBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBDurability") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBPowerAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBRouteRunning") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBRunningStyle") = "'NONE'"
-                PlayerDT.Rows(i).Item("RBPassBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBStart") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBRunVision") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBInsideAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBOutsideAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBElusiveAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("RBBallAdjust") = MT.GetGaussian(49.5, 16.5)
 
 
-            Case "WR"
-                PlayerDT.Rows(i).Item("WRShortRoute") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRCrowdReaction") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRCatchWhenHit") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRConcentration") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRFieldAwareness") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRBodyCatch") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRRelease") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRRunDBOff") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRAcrobaticCatches") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRStart") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRPatterns") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRMedRoute") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRDeepRoute") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRBallAdjust") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRHandCatch") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("WRRAC") = MT.GetGaussian(49.5, 16.5)
+End Class
 
+''' <summary>
+''' This specifies contract data for the players
+''' </summary>
+Public Class Contracts
+    Inherits NFLPlayers
+    Dim TotalValue As Integer
+    Dim SigningBonus As Integer 'prorated over the length of the contract---each year is the same amount
+    Dim GuarenteedMoney As Integer
+    Dim LengthOfYears As Integer
+    Dim SalaryCapHit As Integer
+    Dim YearlyBaseSalary(10) As Integer 'Base salary for contract in each possible year of the contract
+    Dim YearlyRosterBonus(10) As Integer 'Roster bonus for any given year of the contract
+    Dim YearlyWorkoutBonus(10) As Integer 'Workout Bonus for any given year of the contract--typically the same for each year of the contract--only paid if player chooses to participate in offseason workouts with team.
+    Dim YearlyOptionBonus(10) As Integer 'Option Bonus for any given year of the contract---this bonus acts like a signing bonus and pro-rates over remaining years of the contract if the team decides to exercise it---must make decision by first date of new season
+    Dim YearlyPerGameRosterBonus(10) As Integer 'Roster Bonus in any given year of the contract that is pro-rated for each game of the season the player remains on the 53 man roster.  Is not guarenteed and team can get out of remainder by cutting player after any given week
+    Dim PlayerCanVoidContract(10) As Boolean 'boolean as to whether the player is able to void their contract in the given year---either negotiated as part of the contract or typically in relation to a player hitting certain incentives
 
-            Case "TE"
-                PlayerDT.Rows(i).Item("TEGetOffLineRunBlock") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEOneOnOneBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEDoubleTeamBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEDownBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TETurnAndWallBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TESustainBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TECrowdReaction") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TECatchWhenHit") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEConcentration") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEBodyCatch") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEFieldAwareness") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEPassProtect") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEDriveIntoPassRoute") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEPatterns") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEShortRoute") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEMedRoute") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEDeepRoute") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEBallAdjust") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TEHandCatch") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("TERAC") = MT.GetGaussian(49.5, 16.5)
-
-
-            Case "OT", "OG", "C"
-                PlayerDT.Rows(i).Item("OLGetOutside") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLReachBlock") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLTurnDefender") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLPulling") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLTrapBlock") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OL2ndLevelPull") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLAdjustToLB") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLSlide") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLHandUse") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLHandPop") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLLongSnapPotential") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLGetOffLineRunBlock") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLOneOnOneBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLDriveBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLDownBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLSustainBlock") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLPassBlocking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLPassDrops") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLFeetSetup") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLAnchorAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLRecover") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("OLStrength") = MT.GetGaussian(49.5, 16.5)
-            Case "DE", "DL"
-                PlayerDT.Rows(i).Item("DLStyle") = "'NONE'"
-                PlayerDT.Rows(i).Item("DLRunAtHim") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLTackling") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLAgainstTrapAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLSlideAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLRunPursuit") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLPassRushTechnique") = "'NONE'"
-                PlayerDT.Rows(i).Item("DLHandUse") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLShedVsRunAway") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLTackleVsRunAway") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLChangeDirection") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLReleaseOffBall") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLOneOnOneAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLDoubleTeamAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLDefeatBlock") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLShedRunBlock") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLFirstStepPassRush") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLShedPassBlock") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLBurst") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLPressure") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLFinish") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLContain") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DLStayAtHome") = MT.GetGaussian(49.5, 16.5)
-
-            Case "OLB", "ILB"
-                PlayerDT.Rows(i).Item("LBDropDepth") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBCoverage") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBHands") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBBlitz") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBPassRushType") = "'NONE'"
-                PlayerDT.Rows(i).Item("LBRead") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBInstincts") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBDefeatBlocks") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBShedBlocks") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBInsideTackle") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBOutsideTackle") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBFillGaps") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("LBContain") = MT.GetGaussian(49.5, 16.5)
-
-            Case "CB", "FS", "SS"
-                PlayerDT.Rows(i).Item("DBPressBailCoverage") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBBallReaction") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBTackling") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBZoneCoverage") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBRunContain") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBWardOffBlockers") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBRunTackling") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBHands") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBBump") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBRunContain") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBBlitz") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBRead") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBInstincts") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBBackpedal") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBTurn") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBClose") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBRange") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBBurst") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBCatchupSpeed") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBManToManCoverage") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBCOBP") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("DBFeet") = MT.GetGaussian(49.5, 16.5)
-            Case "K"
-                PlayerDT.Rows(i).Item("KPlantRelationship") = "'NONE'"
-                PlayerDT.Rows(i).Item("KApproachAngle") = "'NONE'"
-                PlayerDT.Rows(i).Item("KBallFlight") = "'NONE'"
-                PlayerDT.Rows(i).Item("KSteppingPattern") = "'NONE'"
-                PlayerDT.Rows(i).Item("KKickingStyle") = "'NONE'"
-                PlayerDT.Rows(i).Item("KHandlingWind") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KTackling") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KRunAndPassAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KKOFootSpeed") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KFGOperationTimes") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KAccuracy") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KHandlingPressure") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KFootSpeed") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KKickQuickness") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KKickRise") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KKOProduction") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("KKOMentalStability") = MT.GetGaussian(49.5, 16.5)
-            Case "P"
-                PlayerDT.Rows(i).Item("PFootSpeed") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PApproachLine") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PHandlingTime") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PSteppingPattern") = "'NONE'"
-                PlayerDT.Rows(i).Item("PHands") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PTackling") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PRunAndPassAbility") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PDistance") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PHangTime") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PPressureKicking") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PBlockZone") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PHandToFootTime") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("PTiming") = MT.GetGaussian(49.5, 16.5)
-        End Select
-    End Sub
+    '###Need to research the various types of Incentive Bonuses and Base Salary Escalators used in contracts
 End Class

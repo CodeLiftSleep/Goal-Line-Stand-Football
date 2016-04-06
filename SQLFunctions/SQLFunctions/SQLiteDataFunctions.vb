@@ -12,8 +12,9 @@ Public Class SQLiteDataFunctions
     Public Function GetConnectionString(ByVal DBName As String) As String
         If Conn.State <> ConnectionState.Open Then
             Conn.ConnectionString = "Data Source=" & filepath & DBName & ".sqlite;Version=3"
-            Return Conn.ConnectionString '= "Data Source=|DataDirectory|\" & DBName & ".sqlite;Version=3"
+            '= "Data Source=|DataDirectory|\" & DBName & ".sqlite;Version=3"
             Conn.Open()
+            Return Conn.ConnectionString
         Else
             Conn.ConnectionString = "Data Source=" & filepath & DBName & ".sqlite;Version=3"
         End If
@@ -25,12 +26,17 @@ Public Class SQLiteDataFunctions
     ''' <param name="DBName"></param>
     Public Sub CreateTable(ByVal DBName As String, ByVal DT As DataTable, ByVal TableName As String, ByVal SQLFieldNames As String)
         GetConnectionString(DBName)
-        Conn.Open()
+        'Conn.Open()
         'Checks to see if the Table exists, if not create the table
-        Dim SQL As String = ("CREATE TABLE If Not EXISTS " & TableName & "(" & SQLFieldNames & ")")
-        Dim SQLCmd As SQLiteCommand = New SQLiteCommand(SQL, Conn)
-        SQLCmd.ExecuteNonQuery()
-        Conn.Close()
+        Try
+            Dim SQL As String = ("CREATE TABLE If Not EXISTS " & TableName & "(" & SQLFieldNames & ")")
+            Dim SQLCmd As SQLiteCommand = New SQLiteCommand(SQL, Conn)
+            SQLCmd.ExecuteNonQuery()
+            Conn.Close()
+        Catch ex As System.Data.SQLite.SQLiteException
+            Console.WriteLine(ex.Data)
+            Console.WriteLine(ex.Message)
+        End Try
     End Sub
     ''' <summary>
     ''' Loads a Table from the DB.  If the table does not exist, it creates one
@@ -101,7 +107,7 @@ Public Class SQLiteDataFunctions
                             MyList.Clear()
                         Next row
                         transaction.Commit() 'commits all changes to the DB
-                    Catch ex As System.InvalidCastException
+                    Catch ex As System.Data.SQLite.SQLiteException
                         Console.WriteLine(ex.ToString)
                         Console.WriteLine(ex.Message)
                     End Try

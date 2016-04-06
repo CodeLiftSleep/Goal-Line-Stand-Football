@@ -5,13 +5,9 @@
 
         Dim MyOPhil As String
         Dim MyDPhil As String
-        Dim SQLFieldNames As String = "ScoutID int NULL, TeamID int NULL, FName varchar(20) NULL, LName varchar(20) NULL, College varchar(50) NULL, Age int NULL, DOB varchar(12) NULL, Experience int NULL, OffPhil varchar(20) NULL,
-DefPhil varchar(20) NULL, JudgingAct int NULL, JudgingPot int NULL, JudgingQB Int NULL, JudgingRB int NULL, JudgingRec int NULL, JudgingOL int NULL, JudgingDL int NULL, JudgingLB int NULL, JudgingCB int NULL, 
-JudgingSF int NULL, FBInt int NULL, ValuesCharacter int NULL, ProductionVsCombine int NULL, AthleticismVsMental int NULL,  WorkEthic int NULL, CONSTRAINT Scout_ID PRIMARY KEY(ScoutID)"
 
-        SQLiteTables.CreateTable(MyDB, ScoutDT, "Scouts", SQLFieldNames)
-        'SQLiteTables.DeleteTable(MyDB, ScoutDT, "Scouts")
-        SQLiteTables.LoadTable(MyDB, ScoutDT, "Scouts")
+        SQLiteTables.CreateTable(MyDB, PersonnelDT, "Scouts", GetSQLFieldNames("Personnel"))
+        SQLiteTables.LoadTable(MyDB, PersonnelDT, "Scouts")
         ScoutDT.Rows.Add(0)
 
         For i As Integer = 1 To NumScouts

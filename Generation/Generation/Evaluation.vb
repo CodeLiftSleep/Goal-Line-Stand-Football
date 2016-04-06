@@ -740,26 +740,29 @@
     End Sub
     Private Function GetNewEval(ByVal Scout As Integer, ByVal Player As Integer, ByVal Pos As String) As Single
         Dim ActualGrade As Single = DraftDT.Rows(Player).Item("ActualGrade")
+        Dim result As Single
         Select Case Pos
             Case "QB"
-                Return Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingQB")) / 100) * 0.85), 2)
+                result = Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingQB")) / 100) * 0.85), 2)
             Case "RB", "FB"
-                Return Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingRB")) / 100) * 0.85), 2)
+                result = Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingRB")) / 100) * 0.85), 2)
             Case "WR", "TE"
-                Return Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingRec")) / 100) * 0.85), 2)
+                result = Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingRec")) / 100) * 0.85), 2)
             Case "OT", "OG", "C"
-                Return Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingOL")) / 100) * 0.85), 2)
+                result = Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingOL")) / 100) * 0.85), 2)
             Case "DE", "DT"
-                Return Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingDL")) / 100) * 0.85), 2)
+                result = Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingDL")) / 100) * 0.85), 2)
             Case "OLB", "ILB"
-                Return Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingLB")) / 100) * 0.85), 2)
+                result = Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingLB")) / 100) * 0.85), 2)
             Case "CB"
-                Return Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingCB")) / 100) * 0.85), 2)
+                result = Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingCB")) / 100) * 0.85), 2)
             Case "SS", "FS"
-                Return Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingSF")) / 100) * 0.85), 2)
+                result = Math.Round(MT.GetGaussian(DraftDT.Rows(Player).Item("ActualGrade"), ((100 - ScoutDT.Rows(Scout).Item("JudgingSF")) / 100) * 0.85), 2)
         End Select
+        Return result
     End Function
     Private Function GetScoutModification(ByVal Pos As String, ByVal Scout As Integer) As Integer
+        Dim result As Integer
         Select Case Pos
             Case "QB"
                 Select Case MT.GenerateDouble(1, 100)
@@ -767,32 +770,31 @@
                         Select Case MT.GenerateInt32(1, 100)
                             Case Is < ScoutDT.Rows(Scout).Item("JudgingQB") 'Scout off by more
                                 Select Case MT.GenerateDouble(1, 100)
-                                    Case 1 To 50 : Return MT.GetGaussian(1.75, 0.0833)
-                                    Case 51 To 100 : Return MT.GetGaussian(-1.75, 0.0833)
+                                    Case 1 To 50 : result = MT.GetGaussian(1.75, 0.0833)
+                                    Case 51 To 100 : result = MT.GetGaussian(-1.75, 0.0833)
                                 End Select
                             Case Else
                                 Select Case MT.GenerateDouble(1, 100)
-                                    Case 1 To 50 : Return MT.GetGaussian(1.25, 0.0833)
-                                    Case 51 To 100 : Return MT.GetGaussian(-1.25, 0.0833)
+                                    Case 1 To 50 : result = MT.GetGaussian(1.25, 0.0833)
+                                    Case 51 To 100 : result = MT.GetGaussian(-1.25, 0.0833)
                                 End Select
                         End Select
                     Case Else 'Scout Succeeds
                         Select Case MT.GenerateInt32(1, 100)
                             Case Is < ScoutDT.Rows(Scout).Item("JudgingQB") 'Scout off by more
                                 Select Case MT.GenerateDouble(1, 100)
-                                    Case 1 To 50 : Return MT.GetGaussian(0.375, 0.0833)
-                                    Case 51 To 100 : Return MT.GetGaussian(-0.375, 0.0833)
+                                    Case 1 To 50 : result = MT.GetGaussian(0.375, 0.0833)
+                                    Case 51 To 100 : result = MT.GetGaussian(-0.375, 0.0833)
                                 End Select
                             Case Else
                                 Select Case MT.GenerateDouble(1, 100)
-                                    Case 1 To 50 : Return MT.GetGaussian(0.125, 0.0833)
-                                    Case 51 To 100 : Return MT.GetGaussian(-0.125, 0.0833)
+                                    Case 1 To 50 : result = MT.GetGaussian(0.125, 0.0833)
+                                    Case 51 To 100 : result = MT.GetGaussian(-0.125, 0.0833)
                                 End Select
                         End Select
                 End Select
         End Select
-
-
+        Return result
     End Function
 
 End Class
