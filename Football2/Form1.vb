@@ -29,8 +29,8 @@ Public Class Form1
             CollegePlayer.GenDraftPlayers(3000)
             'NFLScout.GenScouts(800)
             'NFLOwner.GenOwners(100)
-            'NFLGM.GenGMs(100)
-            'NFLCoach.GenCoaches(800)
+            'NFLGM.GenPersonnel(850)
+            'NFLCoach.GenCoaches(1300)
             'NFLPlayer.GetRosterPlayers(2600)
         Catch ex As System.ArgumentException
             Console.WriteLine(ex.ToString)
@@ -38,5 +38,6 @@ Public Class Form1
         End Try
 
     End Sub
+
 
 End Class
