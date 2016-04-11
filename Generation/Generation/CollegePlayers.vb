@@ -2,73 +2,55 @@
 Imports System.Text.RegularExpressions
 Public Class CollegePlayers
     Inherits Players
-    Dim MyPlayer As New Players
-    Dim SQLFieldNames As String
     Dim MyPos As String
     Dim PosType As String
-    Dim DraftClassType As ArrayList = New ArrayList
-    Dim PlayerDict(16) As Dictionary(Of String, Integer) 'dictionary to hold the number of players at each round for each position
     Dim DraftRound As String
 
+    Public Sub GenDraftPlayers(ByVal PlayerNum As Integer, ByVal XCollegePlayer As CollegePlayers, ByVal DraftDT As DataTable, ByVal DraftClass As ArrayList)
 
+        XCollegePlayer = New CollegePlayers
 
+        Try
+            DraftDT.Rows.Add(PlayerNum)
+            MyPos = GetCollegePos(PlayerNum, DraftDT)
+            DraftDT.Rows(PlayerNum).Item("FortyYardTime") = Get40Time(MyPos, PlayerNum, DraftDT)
+            PosType = GetPosType(MyPos, PlayerNum, DraftDT)
+            DraftDT.Rows(PlayerNum).Item("CollegePOS") = String.Format("'{0}'", MyPos)
+            DraftDT.Rows(PlayerNum).Item("PosType") = String.Format("'{0}'", PosType)
+            GenNames(DraftDT, PlayerNum, "CollegePlayer", MyPos)
+            GetPersonalityStats(DraftDT, PlayerNum, XCollegePlayer)
+            DraftRound = GetDraftRound(MyPos, DraftClass)
+            DraftDT.Rows(PlayerNum).Item("TwentyYardTime") = Get20Time(MyPos)
+            DraftDT.Rows(PlayerNum).Item("TenYardTime") = Get10Time(MyPos)
+            DraftDT.Rows(PlayerNum).Item("ShortShuttle") = GetShortShuttle(MyPos)
+            DraftDT.Rows(PlayerNum).Item("BroadJump") = GetBroadJump(MyPos)
+            DraftDT.Rows(PlayerNum).Item("VertJump") = GetVertJump(MyPos)
+            DraftDT.Rows(PlayerNum).Item("ThreeConeDrill") = Get3Cone(MyPos)
+            DraftDT.Rows(PlayerNum).Item("BenchPress") = GetBenchPress(MyPos)
+            DraftDT.Rows(PlayerNum).Item("InterviewSkills") = CInt(MT.GetGaussian(49.5, 16.5))
+            DraftDT.Rows(PlayerNum).Item("WonderlicTest") = GetWonderlic(MyPos)
+            DraftDT.Rows(PlayerNum).Item("SkillsTranslateToNFL") = GetSkillsTranslate(MyPos)
+            DraftDT.Rows(PlayerNum).Item("ProjNFLPos") = GetNFLPos(String.Format("'{0}'", MyPos), PlayerNum)
+            DraftDT.Rows(PlayerNum).Item("DLPrimaryTech") = "'NONE'"
+            DraftDT.Rows(PlayerNum).Item("DLSecondaryTech") = "'NONE'"
+            DraftDT.Rows(PlayerNum).Item("DLPassRushTech") = "'NONE'"
+            DraftDT.Rows(PlayerNum).Item("RETKickReturn") = GetKickRetAbility(MyPos, PlayerNum)
+            DraftDT.Rows(PlayerNum).Item("RETPuntReturn") = GetPuntRetAbility(MyPos, PlayerNum, DraftDT)
+            GetSTAbility(MyPos, PlayerNum, DraftDT)
+            GetLSAbility(MyPos, PlayerNum, DraftDT)
+            GetKeyRatings(DraftDT, PlayerNum, MyPos, DraftRound) 'Assigns base ratings based on Round drafted using an Exponential Decay Function 
 
-    Public Sub GenDraftPlayers(ByVal NumPlayers As Integer)
+            For x As Integer = 0 To DraftDT.Columns.Count - 1 'cycles through the columns and assigns a rating to any of them that are still NULL values
+                If DraftDT.Rows(PlayerNum).Item(x) Is DBNull.Value Then
+                    DraftDT.Rows(PlayerNum).Item(x) = MT.GetGaussian(49.5, 16.5)
+                End If
+            Next x
+            GetPosRatings(MyPos, PosType, PlayerNum, DraftDT) 'Will get positional skills for players based on their position type
 
-        SQLFieldNames = GetSQLFields("College")
-        SQLiteTables.CreateTable(MyDB, DraftDT, "DraftPlayers", SQLFieldNames)
-        'SQLiteTables.DeleteTable(MyDB, DraftDT, "DraftPlayers")
-        SQLiteTables.LoadTable(MyDB, DraftDT, "DraftPlayers")
-        DraftDT.Rows.Add(0)
-        GenDraftClass() 'Generates the type of draft class it is at each position
-        'For i As Integer = 0 To DraftClassType.Count - 1
-        'DraftClassType(i) = New ArrayList
-        'Next i
-
-        For i As Integer = 1 To NumPlayers
-            Try
-                DraftDT.Rows.Add(i)
-                MyPos = GetCollegePos()
-                DraftDT.Rows(i).Item("FortyYardTime") = Get40Time(MyPos, i)
-                PosType = GetPosType(MyPos, i)
-                DraftDT.Rows(i).Item("CollegePOS") = String.Format("'{0}'", MyPos)
-                DraftDT.Rows(i).Item("PosType") = String.Format("'{0}'", PosType)
-                GenNames(DraftDT, i, "CollegePlayer", MyPos)
-                DraftRound = GetDraftRound(MyPos)
-                DraftDT.Rows(i).Item("TwentyYardTime") = Get20Time(MyPos)
-                DraftDT.Rows(i).Item("TenYardTime") = Get10Time(MyPos)
-                DraftDT.Rows(i).Item("ShortShuttle") = GetShortShuttle(MyPos)
-                DraftDT.Rows(i).Item("BroadJump") = GetBroadJump(MyPos)
-                DraftDT.Rows(i).Item("VertJump") = GetVertJump(MyPos)
-                DraftDT.Rows(i).Item("ThreeConeDrill") = Get3Cone(MyPos)
-                DraftDT.Rows(i).Item("BenchPress") = GetBenchPress(MyPos)
-                DraftDT.Rows(i).Item("InterviewSkills") = CInt(MT.GetGaussian(49.5, 16.5))
-                DraftDT.Rows(i).Item("WonderlicTest") = GetWonderlic(MyPos)
-                DraftDT.Rows(i).Item("SkillsTranslateToNFL") = GetSkillsTranslate(MyPos)
-                DraftDT.Rows(i).Item("ProjNFLPos") = GetNFLPos(String.Format("'{0}'", MyPos), i)
-                DraftDT.Rows(i).Item("Trait1") = "'NONE'"
-                DraftDT.Rows(i).Item("Trait2") = "'NONE'"
-                DraftDT.Rows(i).Item("Trait3") = "'NONE'"
-                DraftDT.Rows(i).Item("DLPrimaryTech") = "'NONE'"
-                DraftDT.Rows(i).Item("DLSecondaryTech") = "'NONE'"
-                DraftDT.Rows(i).Item("DLPassRushTech") = "'NONE'"
-
-                For x As Integer = 0 To DraftDT.Columns.Count - 1 'cycles through the columns and assigns a rating to any of them that are still NULL values
-                    If DraftDT.Rows(i).Item(x) Is DBNull.Value Then
-                        DraftDT.Rows(i).Item(x) = MT.GetGaussian(49.5, 16.5)
-                    End If
-                Next x
-
-                GetKeyRatings(DraftDT, i, MyPos, DraftRound) 'Assigns base ratings based on Round drafted using an Exponential Decay Function 
-                GetPosRatings(MyPos, PosType, i, DraftDT) 'Will get positional skills for players based on their position type
-
-            Catch ex As System.InvalidCastException
-                Console.WriteLine(ex.Data)
-                Console.WriteLine(ex.Message)
-            End Try
-        Next i
-
-        SQLiteTables.BulkInsert(MyDB, DraftDT, "DraftPlayers") 'Inserts into DB
+        Catch ex As System.InvalidCastException
+            Console.WriteLine(ex.Data)
+            Console.WriteLine(ex.Message)
+        End Try
     End Sub
 
     ''' <summary>
@@ -361,125 +343,7 @@ Public Class CollegePlayers
         End Select
         Return result
     End Function
-    Private Function Get40Time(ByVal Pos As String, ByVal IDNum As Integer) As Double
-        Dim result As Double
-        Select Case Pos
-            'Case "QB" : Return Math.Round(MT.GetGaussian(4.84335, 0.17588), 2)
-            Case "QB"
-                Select Case MT.GenerateInt32(1, 168)
-                    Case 1 : result = Math.Round(MT.GenerateDouble(4.37, 4.39), 2)
-                    Case 2 To 3 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
-                    Case 4 To 15 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 16 To 30 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                    Case 31 To 71 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
-                    Case 72 To 111 : result = Math.Round(MT.GenerateDouble(4.8, 4.89), 2)
-                    Case 112 To 135 : result = Math.Round(MT.GenerateDouble(4.9, 4.99), 2)
-                    Case 136 To 153 : result = Math.Round(MT.GenerateDouble(5, 5.09), 2)
-                    Case 154 To 163 : result = Math.Round(MT.GenerateDouble(5.1, 5.19), 2)
-                    Case 164 To 167 : result = Math.Round(MT.GenerateDouble(5.2, 5.29), 2)
-                    Case 168 : result = Math.Round(MT.GenerateDouble(5.4, 5.49), 2)
-                End Select
-                'Case "RB" : result = Math.Round(MT.GetGaussian(4.56, 0.097434), 2)
-            Case "RB"
-                Select Case MT.GenerateInt32(1, 144)
-                    Case 1 : result = Math.Round(MT.GenerateDouble(4.25, 4.29), 2)
-                    Case 2 To 5 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
-                    Case 6 To 37 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
-                    Case 38 To 102 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 103 To 135 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                    Case 136 To 143 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
-                    Case 144 : result = Math.Round(MT.GenerateDouble(4.8, 4.84), 2)
-                End Select
-            Case "FB" : result = Math.Round(MT.GetGaussian(4.76488, 0.1367), 2)
 
-            Case "WR"
-                Select Case MT.GenerateInt32(1, 305)
-                    Case 1 : result = Math.Round(MT.GenerateDouble(4.25, 4.29), 2)
-                    Case 2 To 16 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
-                    Case 17 To 75 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
-                    Case 76 To 203 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 204 To 293 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                    Case 294 To 305 : result = Math.Round(MT.GenerateDouble(4.7, 4.84), 2)
-                End Select
-                'Case "TE" : result = Math.Round(MT.GetGaussian(4.82, 0.132), 2)
-            Case "TE"
-                Select Case MT.GenerateInt32(1, 158)
-                    Case 1 : result = Math.Round(MT.GenerateDouble(4.37, 4.49), 2)
-                    Case 2 To 5 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 6 To 26 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                    Case 27 To 67 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
-                    Case 68 To 110 : result = Math.Round(MT.GenerateDouble(4.8, 4.89), 2)
-                    Case 111 To 141 : result = Math.Round(MT.GenerateDouble(4.9, 4.99), 2)
-                    Case 142 To 157 : result = Math.Round(MT.GenerateDouble(5, 5.09), 2)
-                    Case 158 : result = Math.Round(MT.GenerateDouble(5.1, 5.15), 2)
-                End Select
-            Case "OT" : result = Math.Round(MT.GetGaussian(5.30864, 0.180568), 2)
-            Case "OG" : result = Math.Round(MT.GetGaussian(5.32628, 0.192915), 2)
-            Case "C" : result = Math.Round(MT.GetGaussian(5.25084, 0.18133), 2)
-            Case "DE" : result = Math.Round(MT.GetGaussian(4.84454, 0.132509), 2)
-            Case "DT" : result = Math.Round(MT.GetGaussian(5.10542, 0.147088), 2)
-                'Case "OLB" : result = Math.Round(MT.GetGaussian(4.67983, 0.12102), 2)
-            Case "OLB"
-                Select Case MT.GenerateInt32(1, 177)
-                    Case 1 To 8 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
-                    Case 9 To 42 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 43 To 107 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                    Case 108 To 153 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
-                    Case 154 To 165 : result = Math.Round(MT.GenerateDouble(4.8, 4.89), 2)
-                    Case 166 To 174 : result = Math.Round(MT.GenerateDouble(4.9, 4.99), 2)
-                    Case 175 To 177 : result = Math.Round(MT.GenerateDouble(5.0, 5.09), 2)
-                End Select
-                'Case "ILB" : result = Math.Round(MT.GetGaussian(4.77248, 0.12737), 2)
-
-            Case "ILB"
-                Select Case MT.GenerateInt32(1, 126)
-                    Case 1 : result = Math.Round(MT.GenerateDouble(4.42, 4.49), 2)
-                    Case 2 To 11 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 12 To 37 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                    Case 38 To 73 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
-                    Case 74 To 106 : result = Math.Round(MT.GenerateDouble(4.8, 4.89), 2)
-                    Case 107 To 121 : result = Math.Round(MT.GenerateDouble(4.9, 4.99), 2)
-                    Case 122 To 124 : result = Math.Round(MT.GenerateDouble(5, 5.09), 2)
-                    Case 125 : result = Math.Round(MT.GenerateDouble(5.1, 5.19), 2)
-                    Case 126 : result = Math.Round(MT.GenerateDouble(5.2, 5.25), 2)
-                End Select
-                'Case "CB" : result = Math.Round(MT.GetGaussian(4.51607, 0.086921), 2)
-            Case "CB"
-                Select Case MT.GenerateInt32(1, 201)
-                    Case 1 To 4 : result = Math.Round(MT.GenerateDouble(4.25, 4.29), 2)
-                    Case 5 To 21 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
-                    Case 22 To 80 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
-                    Case 81 To 174 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 175 To 201 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                End Select
-                'Case "SS" : result = Math.Round(MT.GetGaussian(4.57, 0.08), 2)
-            Case "SS"
-                Select Case MT.GenerateInt32(1, 94)
-                    Case 1 : result = Math.Round(MT.GenerateDouble(4.35, 4.39), 2)
-                    Case 2 To 7 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
-                    Case 8 To 36 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 37 To 90 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                    Case 91 To 93 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
-                    Case 94 : result = Math.Round(MT.GenerateDouble(4.8, 4.85), 2)
-                End Select
-                'Case "FS" : result = Math.Round(MT.GetGaussian(4.56, 0.08), 2)
-            Case "FS"
-                Select Case MT.GenerateInt32(1, 102)
-                    Case 1 To 2 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
-                    Case 3 To 13 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
-                    Case 14 To 63 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 64 To 100 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                    Case 101 To 102 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
-                End Select
-            Case "K" : result = Math.Round(MT.GetGaussian(4.94, 0.114), 2)
-            Case "P" : result = Math.Round(MT.GetGaussian(4.93, 0.127), 2)
-        End Select
-
-        If result > 5.5 Then result = 5.5
-        DraftDT.Rows(IDNum).Item("PlaySpeed") = 100 - ((result - 4.3) * 83.333)
-        Return result
-
-    End Function
     Private Function Get20Time(ByVal Pos As String) As Double
         Dim result As Double
         Select Case Pos
@@ -523,6 +387,11 @@ Public Class CollegePlayers
         Return result
     End Function
 
+    Private Function GetExplosiveNumber(ByVal Pos As String, i As Integer, DT As DataTable) As Double
+        Dim result As Integer
+        result = DT.Rows(i).Item("VerticalJump") + DT.Rows(i).Item("BenchPressReps") + (DT.Rows(i).Item("BroadJump") / 12)
+        Return result
+    End Function
     ''' <summary>
     ''' Types of drafts---Poor--few good players and lack of depth, Shallow---lack of both depth and good players, Normal, Top Heavy(high quality players at the top not good depth), Deep Draft(Not as many high quality top players but more good players than normal in later
     ''' rounds, Stacked Draft(High Quality and Deep---very rare), need to be position specific
@@ -531,7 +400,7 @@ Public Class CollegePlayers
     ''' CBPrecentageTopEnd, CBPercentageMidRound,SFPercentageTopEnd, SFPercentageidRound)
     ''' </summary>
 
-    Public Function GenDraftClass() As ArrayList
+    Public Function GenDraftClass(ByVal DraftClassType As ArrayList) As ArrayList
         Dim result As Integer
         Dim TopEnd As Double
         Dim MidRound As Double
@@ -584,12 +453,12 @@ Public Class CollegePlayers
     ''' <summary>
     ''' Position numbers for PlayerDict: QB1,HB2,FB3,WR4,TE5,OT6,C7,OG8,DE9,DT10,OLB11,ILB12,CB13,FS13,SS14,K15,P16
     ''' </summary>
-    Private Function GetDraftRound(ByVal Pos As String) As String
+    Private Function GetDraftRound(ByVal Pos As String, ByVal DraftClassType As ArrayList) As String
         Dim TopEnd As Double
         Dim MidRound As Double
         Dim result As String = ""
         Dim CheckPos As Integer
-        Dim DraftPosEnd(14) As Integer
+        Dim DraftPosEnd(14) As Double
         Dim Remaining As Integer
         Dim RemainingPercentage(6) As Single
 
@@ -614,20 +483,20 @@ Public Class CollegePlayers
         End Select
 
         'These are the breakdowns of how players get created by rounds---the top 4 are all 1st round---top 5 talent, top 10 talent, mid first round talent, late first round talent
-        DraftPosEnd(1) = 5
-        DraftPosEnd(2) = 12
-        DraftPosEnd(3) = 21
-        DraftPosEnd(4) = 31
-        DraftPosEnd(5) = 73 '2nd
-        DraftPosEnd(6) = 131 '3rd
-        DraftPosEnd(7) = 204 '4th
-        DraftPosEnd(8) = 286 '5th
-        DraftPosEnd(9) = 379 '6th
-        DraftPosEnd(10) = 481 '7th
-        DraftPosEnd(11) = 594 'PracSquad
-        DraftPosEnd(12) = 717 'PFA
-        DraftPosEnd(13) = 850 'LFA
-        DraftPosEnd(14) = 1000 'Reject
+        DraftPosEnd(1) = 6
+        DraftPosEnd(2) = 14
+        DraftPosEnd(3) = 24
+        DraftPosEnd(4) = 38
+        DraftPosEnd(5) = 98 '2nd
+        DraftPosEnd(6) = 188 '3rd
+        DraftPosEnd(7) = 308 '4th
+        DraftPosEnd(8) = 458 '5th
+        DraftPosEnd(9) = 638 '6th
+        DraftPosEnd(10) = 838 '7th
+        DraftPosEnd(11) = 1138 'PFA
+        DraftPosEnd(12) = 1538 'LFA
+        DraftPosEnd(13) = 2038 'PracSquad
+        DraftPosEnd(14) = 3800 'Reject
         Try
             Remaining = DraftPosEnd(14) - DraftPosEnd(8)
             RemainingPercentage(1) = (DraftPosEnd(9) - DraftPosEnd(8)) / Remaining
@@ -662,11 +531,10 @@ Public Class CollegePlayers
         DraftPosEnd(12) = CInt(RemainingPercentage(4) * Remaining) + DraftPosEnd(11)
         DraftPosEnd(13) = CInt(RemainingPercentage(5) * Remaining) + DraftPosEnd(12)
 
-
-        Select Case MT.GenerateInt32(1, 1000) 'normal draft at 0% changes
-            Case 1 To DraftPosEnd(1) 'Elite 1st
+        Select Case MT.GenerateInt32(1, 3800) 'normal draft at 0% changes
+            Case 1 To DraftPosEnd(1) 'Elite 1st---Top 5
                 result = "R1Top5"
-            Case DraftPosEnd(1) + 1 To DraftPosEnd(2) 'Top 10
+            Case DraftPosEnd(1) + 1 To DraftPosEnd(2) 'Elite 1st---Top 10
                 result = "R1Top10"
             Case DraftPosEnd(2) + 1 To DraftPosEnd(3) 'Mid First
                 result = "R1MidFirst"

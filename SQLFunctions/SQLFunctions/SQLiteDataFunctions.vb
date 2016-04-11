@@ -10,6 +10,7 @@ Public Class SQLiteDataFunctions
     ''' <param name="DBName"></param>
     ''' <returns></returns>
     Public Function GetConnectionString(ByVal DBName As String) As String
+        Conn.Close()
         If Conn.State <> ConnectionState.Open Then
             Conn.ConnectionString = "Data Source=" & filepath & DBName & ".sqlite;Version=3"
             '= "Data Source=|DataDirectory|\" & DBName & ".sqlite;Version=3"
@@ -26,7 +27,10 @@ Public Class SQLiteDataFunctions
     ''' <param name="DBName"></param>
     Public Sub CreateTable(ByVal DBName As String, ByVal DT As DataTable, ByVal TableName As String, ByVal SQLFieldNames As String)
         GetConnectionString(DBName)
-        'Conn.Open()
+        If Conn.State = ConnectionState.Closed Then
+            Conn.Open()
+        End If
+
         'Checks to see if the Table exists, if not create the table
         Try
             Dim SQL As String = ("CREATE TABLE If Not EXISTS " & TableName & "(" & SQLFieldNames & ")")
@@ -97,7 +101,7 @@ Public Class SQLiteDataFunctions
                 MyConn.Open() 'MUST declare Connection open at this stage or it returns an Invalid Operation Error due to connection being closed
                 Using transaction = MyConn.BeginTransaction() 'This begins the bulk insert
                     Try
-                        For row As Integer = 1 To DT.Rows.Count - 1 'cycle through each row
+                        For row As Integer = 0 To DT.Rows.Count - 1 'cycle through each row
                             For Col As Integer = 0 To DT.Columns.Count - 1
                                 MyList.Add(DT.Rows(row).Item(DT.Columns.Item(Col)))
                             Next Col
@@ -107,7 +111,7 @@ Public Class SQLiteDataFunctions
                             MyList.Clear()
                         Next row
                         transaction.Commit() 'commits all changes to the DB
-                    Catch ex As System.Data.SQLite.SQLiteException
+                    Catch ex As System.InvalidOperationException
                         Console.WriteLine(ex.ToString)
                         Console.WriteLine(ex.Message)
                     End Try

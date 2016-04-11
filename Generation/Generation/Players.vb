@@ -10,66 +10,657 @@ Public Class Players
     ''' </summary>
     ''' <param name="PlayerType"></param>
     ''' <returns></returns>
-    Public Function GetSQLFields(ByVal PlayerType As String) As String
+    Public Function GetSQLString(ByVal PlayerType As String) As String
         Dim SQLFieldNames As String = ""
         Select Case PlayerType
             Case "College"
 
-                SQLFieldNames = "DraftID int PRIMARY KEY NOT NULL, FName varchar(20) NULL, LName varchar(20) NULL, College varchar(50) NULL, ScoutRegion varchar(10) NULL, Age int NULL, DOB varchar(12) NULL, CollegePOS varchar(5) NULL, ActualGrade decimal(5,2) NULL, 
-ProjNFLPos varchar(5) NULL, PosType varchar(20) NULL, Trait1 varchar(20) NULL, Trait2 varchar(20) NULL, Trait3 varchar(20), Height int NULL, Weight int NULL, ArmLength decimal(4,2) NULL, HandLength decimal(4,2) NULL, FortyYardTime decimal(3,2) NULL, 
-TwentyYardTime decimal(3,2) NULL, TenYardTime decimal(3,2) NULL, ShortShuttle decimal(3,2) NULL, BroadJump int NULL, VertJump decimal(3,1) NULL, ThreeConeDrill decimal(3,2) NULL, BenchPress int NULL, InterviewSkills int NULL, WonderlicTest int NULL, 
-SkillsTranslateToNFL int NULL, Reaction int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL, ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL, ContactBalance int NULL, RunAfterCatch int NULL, 
-LowerBodyStrength int NULL, UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL, PlaySpeed int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, 
-Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, QBMechanics int NULL, QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL, 
-QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL, QBScrambling int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, RBPatience int NULL, WRConcentration int NULL, 
-WRRunDBOff int NULL, WRDisguiseRoute int NULL, WRRAC int NULL, TEConcentration int NULL, TEBallAdjust int NULL, TERAC int NULL,  OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, 
-OLSnapAbility int NULL, OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL, DLSecondaryTech varchar(15) NULL, DLRunAtHim int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, 
-DLRunPursuit int NULL, DLPassRushTech varchar(15) NULL, DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL, LBDropDepth int NULL, LBFillGaps int NULL,  DBPressBailCoverage int NULL, DBRunContain int NULL,  
-DBBump int NULL,  DBBaitQB int NULL, DBCatchUpSpeed int NULL, DBTechnique int NULL, KAccuracy int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL, PDistance int NULL, PHangTime int NULL, STCoverage int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, 
-Flexibility int NULL, Clutch int NULL, Production int NULL, Consistency int NULL, TeamPlayer int NULL, Instincts int NULL, Focus int NULL, RETKickReturn int NULL, RETPuntReturn int NULL, PlayStrength int NULL, FilmStudy int NULL, Durability int NULL, 
-Explosion int NULL, DeliversBlow int NULL, Leadership int NULL, Character int NULL, Toughness int NULL, WorkEthic int NULL, Aggressive int NULL, ReadKeys int NULL, FieldAwareness int NULL, PlaybookKnowledge int NULL, BallSecurity int NULL, 
-LovesFootball int NULL, Concentration int NULL, Confidence int NULL, Coachability int NULL, Discipline int NULL, Maturity int NULL, HandlesElements int NULL, Potential int NULL, Raw int NULL"
+                SQLFieldNames = "DraftID int PRIMARY KEY NOT NULL, AgentID int NULL, FName varchar(20) NULL, LName varchar(20) NULL, College varchar(50) NULL, ScoutRegion varchar(10) NULL, Height int NULL, Weight int NULL, Age int NULL, DOB varchar(12) NULL, 
+CollegePOS varchar(5) NULL, ActualGrade decimal(5,2) NULL, ProjNFLPos varchar(5) NULL, PosType varchar(20) NULL,  ArmLength decimal(4,2) NULL, HandLength decimal(4,2) NULL, FortyYardTime decimal(3,2) NULL, TwentyYardTime decimal(3,2) NULL, 
+TenYardTime decimal(3,2) NULL, ShortShuttle decimal(3,2) NULL, BroadJump int NULL, VertJump decimal(3,1) NULL, ThreeConeDrill decimal(3,2) NULL, BenchPress int NULL, InterviewSkills int NULL, WonderlicTest int NULL, SkillsTranslateToNFL int NULL, 
+Reaction int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL, StiffArm int NULL, ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL, ContactBalance int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL,
+UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL, PlaySpeed int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, 
+Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, RETKickReturn int NULL, RETPuntReturn int NULL, PlayStrength int NULL, QBMechanics int NULL, 
+QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL, QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL, QBScrambling int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, 
+QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, RBPatience int NULL, WRRunDBOff int NULL, WRDisguiseRoute int NULL, OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, OLSnapAbility int NULL, 
+OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL, DLSecondaryTech varchar(15) NULL, DLPassRushTech varchar(15) NULL, DLRunAtHim int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, DLRunPursuit int NULL, 
+ DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL, LBDropDepth int NULL, LBFillGaps int NULL, DBPressBailCoverage int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, 
+DBCatchUpSpeed int NULL, DBTechnique int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL, PDistance int NULL, PHangTime int NULL, STCoverage int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, 
+Flexibility int NULL, Consistency int NULL, Instincts int NULL, Coachability int NULL, Leadership int NULL, Confidence int NULL, Clutch int NULL, WorkEthic int NULL, FilmStudy int NULL, Durability int NULL, Explosion int NULL, DeliversBlow int NULL, 
+Toughness int NULL, ReadKeys int NULL, FieldAwareness int NULL, PlaybookKnowledge int NULL, BallSecurity int NULL, LovesFootball int NULL, Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NULL, " + MyPerson.SQLString
 
             Case "NFL"
 
-                SQLFieldNames = "PlayerID int PRIMARY KEY NOT NULL, TeamID int NULL, FName varchar(20) NULL, LName varchar(20) NULL, College varchar(50) NULL, ScoutRegion varchar(10) NULL, Age int NULL, DOB varchar(12) NULL, Height int NULL, Weight int NULL, 
-ArmLength decimal(4,2) NULL, HandLength decimal(4,2) NULL, Pos varchar(4) NULL, PosType varchar(20) NULL, Trait1 varchar(20) NULL, Trait2 varchar(20) NULL, Trait3 varchar(20), Reaction int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL,
-ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL, ContactBalance int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL, UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, 
-RunBlocking int NULL, PlaySpeed int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, 
-QBMechanics int NULL, QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBLocateRec int NULL, QBPocketPresence int NULL, QBBallHandling int NULL, QBEscape int NULL, QBScrambling int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, QBTouch int NULL, 
-QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, RBPatience int NULL, WRConcentration int NULL, WRRunDBOff int NULL, WRDisguiseRoute int NULL, WRRAC int NULL, TEConcentration int NULL, TEBallAdjust int NULL, TERAC int NULL,
-OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, OLSnapAbility int NULL, OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL, 
-DLSecondaryTech varchar(15) NULL, DLRunAtHim int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, DLRunPursuit int NULL, DLPassRushTechnique varchar(15) NULL,  DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL, 
-LBDropDepth int NULL,  LBFillGaps int NULL, DBPressBailCoverage int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, DBCatchUpSpeed int NULL, DBTechnique int NULL, KAccuracy int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL,
-PDistance int NULL, PHangTime int NULL, STCoverage int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, Flexibility int NULL, Clutch int NULL, Production int NULL, Consistency int NULL, TeamPlayer int NULL, Instincts int NULL, 
-Focus int NULL, RETKickReturn int NULL, RETPuntReturn int NULL, PlayStrength int NULL, FilmStudy int NULL, Durability int NULL, Explosion int NULL, DeliversBlow int NULL, Leadership int NULL, Character int NULL, Toughness int NULL, WorkEthic int NULL, 
-Aggressive int NULL, ReadKeys int NULL, FieldAwareness int NULL, PlaybookKnowledge int NULL, BallSecurity int NULL, LovesFootball int NULL, Concentration int NULL, Confidence int NULL, Coachability int NULL, Discipline int NULL, Maturity int NULL, HandlesElements int NULL, 
-Potential int NULL, Raw int NULL"
+                SQLFieldNames = "PlayerID int PRIMARY KEY NOT NULL, AgentID int NULL, TeamID int NULL, FName varchar(20) NULL, LName varchar(20) NULL, College varchar(50) NULL, ScoutRegion varchar(10) NULL, Age int NULL, DOB varchar(12) NULL, Height int NULL, 
+Weight int NULL, ArmLength decimal(4,2) NULL, HandLength decimal(4,2) NULL, Pos varchar(4) NULL, PosType varchar(20) NULL, FortyYardTime decimal(3,2) NULL, Reaction int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL, StiffArm int NULL, 
+ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL, ContactBalance int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL, UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, 
+PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL, PlaySpeed int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, 
+DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, RETKickReturn int NULL, RETPuntReturn int NULL, PlayStrength int NULL, QBMechanics int NULL, QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL, 
+QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL, QBScrambling int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, 
+RBPatience int NULL, WRRunDBOff int NULL, WRDisguiseRoute int NULL, OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, OLSnapAbility int NULL, OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL,
+DLSecondaryTech varchar(15) NULL, DLPassRushTech varchar(15) NULL, DLRunAtHim int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, DLRunPursuit int NULL,  DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL, 
+LBDropDepth int NULL, LBFillGaps int NULL, DBPressBailCoverage int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, DBCatchUpSpeed int NULL, DBTechnique int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL, 
+PDistance int NULL, PHangTime int NULL, STCoverage int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, Flexibility int NULL, Consistency int NULL, Instincts int NULL, Coachability int NULL, Leadership int NULL, Confidence int NULL,
+Clutch int NULL, WorkEthic int NULL, FilmStudy int NULL, Durability int NULL, Explosion int NULL, DeliversBlow int NULL, Toughness int NULL, ReadKeys int NULL, FieldAwareness int NULL, PlaybookKnowledge int NULL, BallSecurity int NULL, LovesFootball int NULL,
+Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NULL, " + MyPerson.SQLString
 
         End Select
         Return SQLFieldNames
     End Function
+    Public Function Get40Time(ByVal Pos As String, ByVal IDNum As Integer, ByVal DT As DataTable) As Double
+        Dim result As Double
+        Select Case Pos
+            'Case "QB" : Return Math.Round(MT.GetGaussian(4.84335, 0.17588), 2)
+            Case "QB"
+                Select Case MT.GenerateInt32(1, 168)
+                    Case 1 : result = Math.Round(MT.GenerateDouble(4.37, 4.39), 2)
+                    Case 2 To 3 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
+                    Case 4 To 15 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 16 To 30 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                    Case 31 To 71 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
+                    Case 72 To 111 : result = Math.Round(MT.GenerateDouble(4.8, 4.89), 2)
+                    Case 112 To 135 : result = Math.Round(MT.GenerateDouble(4.9, 4.99), 2)
+                    Case 136 To 153 : result = Math.Round(MT.GenerateDouble(5, 5.09), 2)
+                    Case 154 To 163 : result = Math.Round(MT.GenerateDouble(5.1, 5.19), 2)
+                    Case 164 To 167 : result = Math.Round(MT.GenerateDouble(5.2, 5.29), 2)
+                    Case 168 : result = Math.Round(MT.GenerateDouble(5.4, 5.49), 2)
+                End Select
+                'Case "RB" : result = Math.Round(MT.GetGaussian(4.56, 0.097434), 2)
+            Case "RB"
+                Select Case MT.GenerateInt32(1, 144)
+                    Case 1 : result = Math.Round(MT.GenerateDouble(4.25, 4.29), 2)
+                    Case 2 To 5 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
+                    Case 6 To 37 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
+                    Case 38 To 102 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 103 To 135 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                    Case 136 To 143 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
+                    Case 144 : result = Math.Round(MT.GenerateDouble(4.8, 4.84), 2)
+                End Select
+            Case "FB" : result = Math.Round(MT.GetGaussian(4.76488, 0.1367), 2)
 
-    Public Function GetCollegePos() As String
-        Select Case MT.GenerateDouble(0, 100)
-            Case 0 To 5.186 : Return "QB"
-            Case 5.187 To 12.102 : Return "RB"
-            Case 12.103 To 14.209 : Return "FB"
-            Case 14.21 To 24.743 : Return "WR"
-            Case 24.744 To 30.956 : Return "TE"
-            Case 30.957 To 35.764 : Return "C"
-            Case 35.765 To 41.167 : Return "OG"
-            Case 41.168 To 48.892 : Return "OT"
-            Case 48.893 To 57.266 : Return "DE"
-            Case 57.267 To 65.37 : Return "DT"
-            Case 65.371 To 74.029 : Return "OLB"
-            Case 74.03 To 78.23 : Return "ILB"
-            Case 78.231 To 83.581 : Return "FS"
-            Case 83.582 To 88.763 : Return "SS"
-            Case 88.764 To 96.218 : Return "CB"
-            Case 96.219 To 98.217 : Return "K"
-            Case Else : Return "P"
+            Case "WR"
+                Select Case MT.GenerateInt32(1, 305)
+                    Case 1 : result = Math.Round(MT.GenerateDouble(4.25, 4.29), 2)
+                    Case 2 To 16 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
+                    Case 17 To 75 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
+                    Case 76 To 203 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 204 To 293 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                    Case 294 To 305 : result = Math.Round(MT.GenerateDouble(4.7, 4.84), 2)
+                End Select
+                'Case "TE" : result = Math.Round(MT.GetGaussian(4.82, 0.132), 2)
+            Case "TE"
+                Select Case MT.GenerateInt32(1, 158)
+                    Case 1 : result = Math.Round(MT.GenerateDouble(4.37, 4.49), 2)
+                    Case 2 To 5 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 6 To 26 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                    Case 27 To 67 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
+                    Case 68 To 110 : result = Math.Round(MT.GenerateDouble(4.8, 4.89), 2)
+                    Case 111 To 141 : result = Math.Round(MT.GenerateDouble(4.9, 4.99), 2)
+                    Case 142 To 157 : result = Math.Round(MT.GenerateDouble(5, 5.09), 2)
+                    Case 158 : result = Math.Round(MT.GenerateDouble(5.1, 5.15), 2)
+                End Select
+            Case "OT" : result = Math.Round(MT.GetGaussian(5.30864, 0.180568), 2)
+            Case "OG" : result = Math.Round(MT.GetGaussian(5.32628, 0.192915), 2)
+            Case "C" : result = Math.Round(MT.GetGaussian(5.25084, 0.18133), 2)
+            Case "DE" : result = Math.Round(MT.GetGaussian(4.84454, 0.132509), 2)
+            Case "DT" : result = Math.Round(MT.GetGaussian(5.10542, 0.147088), 2)
+                'Case "OLB" : result = Math.Round(MT.GetGaussian(4.67983, 0.12102), 2)
+            Case "OLB"
+                Select Case MT.GenerateInt32(1, 177)
+                    Case 1 To 8 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
+                    Case 9 To 42 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 43 To 107 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                    Case 108 To 153 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
+                    Case 154 To 165 : result = Math.Round(MT.GenerateDouble(4.8, 4.89), 2)
+                    Case 166 To 174 : result = Math.Round(MT.GenerateDouble(4.9, 4.99), 2)
+                    Case 175 To 177 : result = Math.Round(MT.GenerateDouble(5.0, 5.09), 2)
+                End Select
+                'Case "ILB" : result = Math.Round(MT.GetGaussian(4.77248, 0.12737), 2)
+
+            Case "ILB"
+                Select Case MT.GenerateInt32(1, 126)
+                    Case 1 : result = Math.Round(MT.GenerateDouble(4.42, 4.49), 2)
+                    Case 2 To 11 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 12 To 37 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                    Case 38 To 73 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
+                    Case 74 To 106 : result = Math.Round(MT.GenerateDouble(4.8, 4.89), 2)
+                    Case 107 To 121 : result = Math.Round(MT.GenerateDouble(4.9, 4.99), 2)
+                    Case 122 To 124 : result = Math.Round(MT.GenerateDouble(5, 5.09), 2)
+                    Case 125 : result = Math.Round(MT.GenerateDouble(5.1, 5.19), 2)
+                    Case 126 : result = Math.Round(MT.GenerateDouble(5.2, 5.25), 2)
+                End Select
+                'Case "CB" : result = Math.Round(MT.GetGaussian(4.51607, 0.086921), 2)
+            Case "CB"
+                Select Case MT.GenerateInt32(1, 201)
+                    Case 1 To 4 : result = Math.Round(MT.GenerateDouble(4.25, 4.29), 2)
+                    Case 5 To 21 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
+                    Case 22 To 80 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
+                    Case 81 To 174 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 175 To 201 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                End Select
+                'Case "SS" : result = Math.Round(MT.GetGaussian(4.57, 0.08), 2)
+            Case "SS"
+                Select Case MT.GenerateInt32(1, 94)
+                    Case 1 : result = Math.Round(MT.GenerateDouble(4.35, 4.39), 2)
+                    Case 2 To 7 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
+                    Case 8 To 36 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 37 To 90 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                    Case 91 To 93 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
+                    Case 94 : result = Math.Round(MT.GenerateDouble(4.8, 4.85), 2)
+                End Select
+                'Case "FS" : result = Math.Round(MT.GetGaussian(4.56, 0.08), 2)
+            Case "FS"
+                Select Case MT.GenerateInt32(1, 102)
+                    Case 1 To 2 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
+                    Case 3 To 13 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
+                    Case 14 To 63 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 64 To 100 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                    Case 101 To 102 : result = Math.Round(MT.GenerateDouble(4.7, 4.79), 2)
+                End Select
+            Case "K" : result = Math.Round(MT.GetGaussian(4.94, 0.114), 2)
+            Case "P" : result = Math.Round(MT.GetGaussian(4.93, 0.127), 2)
         End Select
+
+        If result > 5.5 Then result = 5.5
+        DT.Rows(IDNum).Item("PlaySpeed") = 100 - ((result - 4.3) * 83.333)
+        Return result
+
+    End Function
+    Public Function GetCollegePos(ByVal Playernum As Integer, ByVal DT As DataTable) As String
+        Dim result As String = ""
+        Dim GetNevUsed As New List(Of String)
+        Dim GetRareUsed As New List(Of String)
+
+        Select Case MT.GenerateDouble(0, 100)
+            Case 0 To 5.186
+                result = "QB"
+            Case 5.187 To 12.102
+                result = "RB"
+            Case 12.103 To 14.209
+                result = "FB"
+            Case 14.21 To 24.743
+                result = "WR"
+            Case 24.744 To 30.956
+                result = "TE"
+            Case 30.957 To 35.764
+                result = "C"
+            Case 35.765 To 41.167
+                result = "OG"
+            Case 41.168 To 48.892
+                result = "OT"
+            Case 48.893 To 57.266
+                result = "DE"
+            Case 57.267 To 65.37
+                result = "DT"
+            Case 65.371 To 74.029
+                result = "OLB"
+            Case 74.03 To 78.23
+                result = "ILB"
+            Case 78.231 To 83.581
+                result = "FS"
+            Case 83.582 To 88.763
+                result = "SS"
+            Case 88.764 To 96.218
+                result = "CB"
+            Case 96.219 To 98.217
+                result = "K"
+            Case Else
+                result = "P"
+        End Select
+
+        GetNevUsed = GetNeverUsed(result)
+        For i As Integer = 0 To GetNevUsed.Count - 1
+            DT.Rows(Playernum).Item(GetNevUsed(i)) = 0
+        Next i
+
+        GetRareUsed = GetRarelyUsed(result)
+        For i As Integer = 0 To GetRareUsed.Count - 1
+            DT.Rows(Playernum).Item(GetRareUsed(i)) = MT.GenerateInt32(0, 15)
+        Next i
+
+        Return result
+    End Function
+    Public Function GetNeverUsed(ByVal Pos As String) As List(Of String)
+        Dim result As New List(Of String)
+        Select Case Pos
+            Case "QB"
+                result.Add("OLPulling")
+                result.Add("OLSlide")
+                result.Add("OLMoveInSpace")
+                result.Add("OLSnapAbility")
+                result.Add("OLLongSnapAbility")
+                result.Add("OLAnchorAbility")
+                result.Add("OLRecover")
+                result.Add("DLRunAtHim")
+                result.Add("DLAgainstPullAbility")
+                result.Add("DLSlideAbility")
+                result.Add("DLRunPursuit")
+                result.Add("DLCanTakeDoubleTeam")
+                result.Add("DLFinish")
+                result.Add("DLSetUpPassRush")
+                result.Add("LBDropDepth")
+                result.Add("LBFillGaps")
+                result.Add("DBPressBailCoverage")
+                result.Add("DBRunContain")
+                result.Add("DBBump")
+                result.Add("DBBaitQB")
+                result.Add("DBCatchUpSpeed")
+                result.Add("DBTechnique")
+                result.Add("KickAccuracy")
+                result.Add("KFakeAbility")
+                result.Add("KKickRise")
+                result.Add("PFakeAbility")
+                result.Add("PDistance")
+                result.Add("PHangTime")
+                result.Add("Blitz")
+                result.Add("WRRunDBOff")
+                result.Add("WRDisguiseRoute")
+                result.Add("PassBlockVsSpeed")
+                result.Add("PassBlockVsPower")
+                result.Add("ManToManCoverage")
+                result.Add("ZoneCoverage")
+                result.Add("HandUse")
+
+            Case "RB", "FB"
+                result.Add("OLPulling")
+                result.Add("OLSlide")
+                result.Add("OLMoveInSpace")
+                result.Add("OLSnapAbility")
+                result.Add("OLLongSnapAbility")
+                result.Add("OLAnchorAbility")
+                result.Add("OLRecover")
+                result.Add("DLRunAtHim")
+                result.Add("DLAgainstPullAbility")
+                result.Add("DLSlideAbility")
+                result.Add("DLRunPursuit")
+                result.Add("DLCanTakeDoubleTeam")
+                result.Add("DLFinish")
+                result.Add("DLSetUpPassRush")
+                result.Add("LBDropDepth")
+                result.Add("LBFillGaps")
+                result.Add("DBPressBailCoverage")
+                result.Add("DBRunContain")
+                result.Add("DBBump")
+                result.Add("DBBaitQB")
+                result.Add("DBCatchUpSpeed")
+                result.Add("DBTechnique")
+                result.Add("KickAccuracy")
+                result.Add("KFakeAbility")
+                result.Add("KKickRise")
+                result.Add("PFakeAbility")
+                result.Add("PDistance")
+                result.Add("PHangTime")
+                result.Add("Blitz")
+                result.Add("ManToManCoverage")
+                result.Add("ZoneCoverage")
+                result.Add("WRRunDBOff")
+                result.Add("WRDisguiseRoute")
+                result.Add("QBPlayAction")
+
+            Case "WR", "TE"
+                result.Add("OLPulling")
+                result.Add("OLSlide")
+                result.Add("OLMoveInSpace")
+                result.Add("OLSnapAbility")
+                result.Add("OLLongSnapAbility")
+                result.Add("OLAnchorAbility")
+                result.Add("OLRecover")
+                result.Add("DLRunAtHim")
+                result.Add("DLAgainstPullAbility")
+                result.Add("DLSlideAbility")
+                result.Add("DLRunPursuit")
+                result.Add("DLCanTakeDoubleTeam")
+                result.Add("DLFinish")
+                result.Add("DLSetUpPassRush")
+                result.Add("LBDropDepth")
+                result.Add("LBFillGaps")
+                result.Add("DBPressBailCoverage")
+                result.Add("DBRunContain")
+                result.Add("DBBump")
+                result.Add("DBBaitQB")
+                result.Add("DBCatchUpSpeed")
+                result.Add("DBTechnique")
+                result.Add("KickAccuracy")
+                result.Add("KFakeAbility")
+                result.Add("KKickRise")
+                result.Add("PFakeAbility")
+                result.Add("PDistance")
+                result.Add("PHangTime")
+                result.Add("Blitz")
+                result.Add("ManToManCoverage")
+                result.Add("ZoneCoverage")
+                result.Add("QBPlayAction")
+
+            Case "OT", "C", "OG"
+                result.Add("QBMechanics")
+                result.Add("QBRelQuickness")
+                result.Add("QBAccuracy")
+                result.Add("QBDecMaking")
+                result.Add("QBBallHandling")
+                result.Add("QBLocateRec")
+                result.Add("QBPocketPresence")
+                result.Add("QBEscape")
+                result.Add("QBScrambling")
+                result.Add("QBRolloutRight")
+                result.Add("QBRolloutLeft")
+                result.Add("QBArmStrength")
+                result.Add("QBTouch")
+                result.Add("RBRunvision")
+                result.Add("RBSetsUpBlocks")
+                result.Add("RBPatience")
+                result.Add("DLRunAtHim")
+                result.Add("DLAgainstPullAbility")
+                result.Add("DLSlideAbility")
+                result.Add("DLRunPursuit")
+                result.Add("DLCanTakeDoubleTeam")
+                result.Add("DLFinish")
+                result.Add("DLSetUpPassRush")
+                result.Add("LBDropDepth")
+                result.Add("LBFillGaps")
+                result.Add("DBPressBailCoverage")
+                result.Add("DBRunContain")
+                result.Add("DBBump")
+                result.Add("DBBaitQB")
+                result.Add("DBCatchUpSpeed")
+                result.Add("DBTechnique")
+                result.Add("KickAccuracy")
+                result.Add("KFakeAbility")
+                result.Add("KKickRise")
+                result.Add("PFakeAbility")
+                result.Add("PDistance")
+                result.Add("PHangTime")
+                result.Add("Blitz")
+                result.Add("ManToManCoverage")
+                result.Add("ZoneCoverage")
+                result.Add("QBPlayAction")
+                result.Add("WRRunDBOff")
+                result.Add("WRDisguiseRoute")
+                result.Add("StiffArm")
+
+            Case "DE", "DT"
+                result.Add("OLPulling")
+                result.Add("OLSlide")
+                result.Add("OLMoveInSpace")
+                result.Add("OLSnapAbility")
+                result.Add("OLLongSnapAbility")
+                result.Add("OLAnchorAbility")
+                result.Add("OLRecover")
+                result.Add("QBMechanics")
+                result.Add("QBRelQuickness")
+                result.Add("QBAccuracy")
+                result.Add("QBDecMaking")
+                result.Add("QBBallHandling")
+                result.Add("QBLocateRec")
+                result.Add("QBPocketPresence")
+                result.Add("QBEscape")
+                result.Add("QBScrambling")
+                result.Add("QBRolloutRight")
+                result.Add("QBRolloutLeft")
+                result.Add("QBArmStrength")
+                result.Add("QBTouch")
+                result.Add("KickAccuracy")
+                result.Add("KFakeAbility")
+                result.Add("KKickRise")
+                result.Add("PFakeAbility")
+                result.Add("PDistance")
+                result.Add("PHangTime")
+                result.Add("WRRunDBOff")
+                result.Add("WRDisguiseRoute")
+                result.Add("RBRunvision")
+                result.Add("RBSetsUpBlocks")
+                result.Add("RBPatience")
+                result.Add("ReleaseOffLine")
+                result.Add("RouteRunning")
+                result.Add("LBDropDepth")
+                result.Add("LBFillGaps")
+                result.Add("DBPressBailCoverage")
+                result.Add("DBRunContain")
+                result.Add("DBBump")
+                result.Add("DBBaitQB")
+                result.Add("DBCatchUpSpeed")
+                result.Add("DBTechnique")
+
+            Case "OLB", "ILB"
+                result.Add("OLPulling")
+                result.Add("OLSlide")
+                result.Add("OLMoveInSpace")
+                result.Add("OLSnapAbility")
+                result.Add("OLLongSnapAbility")
+                result.Add("OLAnchorAbility")
+                result.Add("OLRecover")
+                result.Add("DLRunAtHim")
+                result.Add("DLAgainstPullAbility")
+                result.Add("DLSlideAbility")
+                result.Add("DLRunPursuit")
+                result.Add("DLCanTakeDoubleTeam")
+                result.Add("DLFinish")
+                result.Add("DLSetUpPassRush")
+                result.Add("QBMechanics")
+                result.Add("QBRelQuickness")
+                result.Add("QBAccuracy")
+                result.Add("QBDecMaking")
+                result.Add("QBBallHandling")
+                result.Add("QBLocateRec")
+                result.Add("QBPocketPresence")
+                result.Add("QBEscape")
+                result.Add("QBScrambling")
+                result.Add("QBRolloutRight")
+                result.Add("QBRolloutLeft")
+                result.Add("QBArmStrength")
+                result.Add("QBTouch")
+                result.Add("KickAccuracy")
+                result.Add("KFakeAbility")
+                result.Add("KKickRise")
+                result.Add("PFakeAbility")
+                result.Add("PDistance")
+                result.Add("PHangTime")
+                result.Add("WRRunDBOff")
+                result.Add("WRDisguiseRoute")
+                result.Add("RBRunvision")
+                result.Add("RBSetsUpBlocks")
+                result.Add("RBPatience")
+                result.Add("ReleaseOffLine")
+                result.Add("RouteRunning")
+                result.Add("DBPressBailCoverage")
+                result.Add("DBRunContain")
+                result.Add("DBBump")
+                result.Add("DBCatchUpSpeed")
+                result.Add("DBTechnique")
+
+            Case "CB", "FS", "SS"
+                result.Add("OLPulling")
+                result.Add("OLSlide")
+                result.Add("OLMoveInSpace")
+                result.Add("OLSnapAbility")
+                result.Add("OLLongSnapAbility")
+                result.Add("OLAnchorAbility")
+                result.Add("OLRecover")
+                result.Add("DLRunAtHim")
+                result.Add("DLAgainstPullAbility")
+                result.Add("DLSlideAbility")
+                result.Add("DLRunPursuit")
+                result.Add("DLCanTakeDoubleTeam")
+                result.Add("DLFinish")
+                result.Add("DLSetUpPassRush")
+                result.Add("QBMechanics")
+                result.Add("QBRelQuickness")
+                result.Add("QBAccuracy")
+                result.Add("QBDecMaking")
+                result.Add("QBBallHandling")
+                result.Add("QBLocateRec")
+                result.Add("QBPocketPresence")
+                result.Add("QBEscape")
+                result.Add("QBScrambling")
+                result.Add("QBRolloutRight")
+                result.Add("QBRolloutLeft")
+                result.Add("QBArmStrength")
+                result.Add("QBTouch")
+                result.Add("KickAccuracy")
+                result.Add("KFakeAbility")
+                result.Add("KKickRise")
+                result.Add("PFakeAbility")
+                result.Add("PDistance")
+                result.Add("PHangTime")
+                result.Add("WRRunDBOff")
+                result.Add("WRDisguiseRoute")
+                result.Add("RBRunvision")
+                result.Add("RBSetsUpBlocks")
+                result.Add("RBPatience")
+                result.Add("ReleaseOffLine")
+                result.Add("RouteRunning")
+                result.Add("LBDropDepth")
+                result.Add("LBFillGaps")
+
+            Case "K", "P"
+                result.Add("OLPulling")
+                result.Add("OLSlide")
+                result.Add("OLMoveInSpace")
+                result.Add("OLSnapAbility")
+                result.Add("OLLongSnapAbility")
+                result.Add("OLAnchorAbility")
+                result.Add("OLRecover")
+                result.Add("DLRunAtHim")
+                result.Add("DLAgainstPullAbility")
+                result.Add("DLSlideAbility")
+                result.Add("DLRunPursuit")
+                result.Add("DLCanTakeDoubleTeam")
+                result.Add("DLFinish")
+                result.Add("DLSetUpPassRush")
+                result.Add("QBMechanics")
+                result.Add("QBRelQuickness")
+                result.Add("QBAccuracy")
+                result.Add("QBDecMaking")
+                result.Add("QBBallHandling")
+                result.Add("QBLocateRec")
+                result.Add("QBPocketPresence")
+                result.Add("QBEscape")
+                result.Add("QBScrambling")
+                result.Add("QBRolloutRight")
+                result.Add("QBRolloutLeft")
+                result.Add("QBArmStrength")
+                result.Add("QBTouch")
+                result.Add("RunBlocking")
+                result.Add("WRRunDBOff")
+                result.Add("WRDisguiseRoute")
+                result.Add("RBRunvision")
+                result.Add("RBSetsUpBlocks")
+                result.Add("RBPatience")
+                result.Add("ReleaseOffLine")
+                result.Add("RouteRunning")
+                result.Add("LBDropDepth")
+                result.Add("LBFillGaps")
+                result.Add("BodyCatch")
+                result.Add("CatchWhenHit")
+                result.Add("BreaksTackles")
+                result.Add("RunAfterCatch")
+                result.Add("HandUse")
+                result.Add("DBPressBailCoverage")
+                result.Add("DBRunContain")
+                result.Add("DBBump")
+                result.Add("DBCatchUpSpeed")
+                result.Add("DBTechnique")
+        End Select
+
+        Return result
+    End Function
+    Public Function GetRarelyUsed(ByVal Pos As String) As List(Of String)
+        Dim result As New List(Of String)
+        Select Case Pos
+            Case "QB"
+                result.Add("ReleaseOffLine")
+                result.Add("RunBlocking")
+                result.Add("RBRunVision")
+                result.Add("RBSetsUpBlocks")
+                result.Add("RBPatience")
+                result.Add("BodyCatch")
+                result.Add("CatchWhenHit")
+                result.Add("RunAfterCatch")
+                result.Add("RouteRunning")
+                result.Add("AdjustToBall")
+                result.Add("Tackling")
+                result.Add("AvoidBlockers")
+                result.Add("ShedBlock")
+                result.Add("DefeatBlock")
+                result.Add("StiffArm")
+
+            Case "RB", "FB"
+                result.Add("Tackling")
+                result.Add("AvoidBlockers")
+                result.Add("ShedBlock")
+                result.Add("DefeatBlock")
+                result.Add("QBMechanics")
+                result.Add("QBRelQuickness")
+                result.Add("QBAccuracy")
+                result.Add("QBDecMaking")
+                result.Add("QBBallHandling")
+                result.Add("QBLocateRec")
+                result.Add("QBPocketPresence")
+                result.Add("QBEscape")
+                result.Add("QBScrambling")
+                result.Add("QBRolloutRight")
+                result.Add("QBRolloutLeft")
+                result.Add("QBArmStrength")
+                result.Add("QBTouch")
+
+            Case "WR", "TE"
+                result.Add("Tackling")
+                result.Add("AvoidBlockers")
+                result.Add("ShedBlock")
+                result.Add("DefeatBlock")
+                result.Add("QBMechanics")
+                result.Add("QBRelQuickness")
+                result.Add("QBAccuracy")
+                result.Add("QBDecMaking")
+                result.Add("QBBallHandling")
+                result.Add("QBLocateRec")
+                result.Add("QBPocketPresence")
+                result.Add("QBEscape")
+                result.Add("QBScrambling")
+                result.Add("QBRolloutRight")
+                result.Add("QBRolloutLeft")
+                result.Add("QBArmStrength")
+                result.Add("QBTouch")
+                result.Add("RBRunvision")
+                result.Add("RBSetsUpBlocks")
+                result.Add("RBPatience")
+
+            Case "OT", "C", "OG"
+                result.Add("Tackling")
+                result.Add("AvoidBlockers")
+                result.Add("ShedBlock")
+                result.Add("DefeatBlock")
+
+            Case "DE", "DT"
+                result.Add("ManToManCoverage")
+                result.Add("BodyCatch")
+                result.Add("BreaksTackles")
+                result.Add("StiffArm")
+
+            Case "OLB", "ILB"
+                result.Add("RunBlocking")
+                result.Add("BreaksTackles")
+                result.Add("StiffArm")
+
+            Case "CB", "FS", "SS"
+                result.Add("RunBlocking")
+                result.Add("BreaksTackles")
+                result.Add("StiffArm")
+
+            Case "K", "P"
+                result.Add("StiffArm")
+
+        End Select
+        'Reaction Int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL, ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL,
+        'ContactBalance Int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL, UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL, 
+        'PlaySpeed Int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, 
+        'RETKickReturn Int NULL, RETPuntReturn int NULL, PlayStrength int NULL, QBMechanics int NULL, QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL, QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL, 
+        'QBScrambling Int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, RBPatience int NULL, WRRunDBOff int NULL, 
+        'WRDisguiseRoute Int NULL, OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, OLSnapAbility int NULL, OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL, DLSecondaryTech varchar(15) NULL, 
+        'DLRunAtHim Int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, DLRunPursuit int NULL, DLPassRushTech varchar(15) NULL, DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL, LBDropDepth int NULL, LBFillGaps int NULL,
+        'DBPressBailCoverage Int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, DBCatchUpSpeed int NULL, DBTechnique int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL, PDistance int NULL, PHangTime int NULL, 
+        'STCoverage Int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, Flexibility int NULL, Consistency int NULL, Instincts int NULL, FilmStudy int NULL, Durability int NULL, Explosion int NULL, DeliversBlow int NULL, 
+        'Toughness Int NULL, ReadKeys int NULL, FieldAwareness int NULL, PlaybookKnowledge int NULL, BallSecurity int NULL, LovesFootball int NULL, Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NULL, "
+        Return result
     End Function
     ''' <summary>
     ''' Gets the key ratings by running the exponential decay formula = RatingsStartPoint*((1-ratingsdecay)^TimeValue)+MT.generateint32(-10,10)
@@ -124,9 +715,9 @@ Potential int NULL, Raw int NULL"
 
             For i As Integer = 0 To KeyRatingsList.Count - 1 'runs through the attribute key attribute list and aplpies the proper ratings based on round the player is generated for
                 DT.Rows(IDNum).Item(String.Format("{0}", KeyRatingsList(i))) = RatingsStartPoint * ((1 + RatingsDecay) ^ TimeValue) + MT.GenerateInt32(-10, 10)
-                'Console.WriteLine("{0}: {1}", KeyRatingsList(i), DT.Rows(IDNum).Item(String.Format("{0}", KeyRatingsList(i))))
+                'Console.WriteLine("{0}:  {1}", KeyRatingsList(i), DT.Rows(IDNum).Item(String.Format("{0}", KeyRatingsList(i))))
             Next i
-        Catch ex As system.ArgumentOutOfRangeException
+        Catch ex As System.ArgumentOutOfRangeException
             Console.WriteLine(ex.Data)
             Console.WriteLine(ex.Message)
         End Try
@@ -310,7 +901,7 @@ Potential int NULL, Raw int NULL"
                 result.Add("DBBaitQB")
 
             Case "K"
-                result.Add("KAccuracy")
+                result.Add("KickAccuracy")
                 result.Add("Consistency")
                 result.Add("Confidence")
                 result.Add("Clutch")
@@ -433,7 +1024,7 @@ Potential int NULL, Raw int NULL"
                     Case "PowerBack" 'Toughness, Explosion, DeliversBlow, BreaksTackle but weak speed, QAB, COD and Patience
                         PrimStrength.Add("ContactBalance")
                         PrimStrength.Add("BreaksTackles")
-                        SecStrength.Add("Toughness")
+                        SecStrength.Add("StiffArm")
                         SecStrength.Add("DeliversBlow")
                         PrimWeakness.Add("PlaySpeed")
                         PrimWeakness.Add("QAB")
@@ -559,399 +1150,399 @@ Potential int NULL, Raw int NULL"
                 End Select
 
             Case "TE"
-                        Select Case PosType
-                            Case "Balanced"
-                                Balanced.Add("Playspeed")
-                                Balanced.Add("QAB")
-                                Balanced.Add("Toughness")
-                                Balanced.Add("Hands")
-                                Balanced.Add("Runblocking")
-                                Balanced.Add("ReleaseOffLine")
-                                Balanced.Add("Explosion")
-                                Balanced.Add("RouteRunning")
+                Select Case PosType
+                    Case "Balanced"
+                        Balanced.Add("Playspeed")
+                        Balanced.Add("QAB")
+                        Balanced.Add("Toughness")
+                        Balanced.Add("Hands")
+                        Balanced.Add("Runblocking")
+                        Balanced.Add("ReleaseOffLine")
+                        Balanced.Add("Explosion")
+                        Balanced.Add("RouteRunning")
 
-                            Case "BlockingTE"
-                                PrimStrength.Add("RunBlocking")
-                                PrimStrength.Add("LowerBodyStrength")
-                                SecStrength.Add("PassBlockVsPower")
-                                SecStrength.Add("Toughness")
-                                PrimWeakness.Add("PlaySpeed")
-                                PrimWeakness.Add("Hands")
-                                SecWeakness.Add("QAB")
-                                SecWeakness.Add("COD")
+                    Case "BlockingTE"
+                        PrimStrength.Add("RunBlocking")
+                        PrimStrength.Add("LowerBodyStrength")
+                        SecStrength.Add("PassBlockVsPower")
+                        SecStrength.Add("Toughness")
+                        PrimWeakness.Add("PlaySpeed")
+                        PrimWeakness.Add("Hands")
+                        SecWeakness.Add("QAB")
+                        SecWeakness.Add("COD")
 
-                            Case "VerticalThreat"
+                    Case "VerticalThreat"
                         PrimStrength.Add("QAB")
                         PrimStrength.Add("Explosion")
-                                SecStrength.Add("ReleaseOffLine")
-                                SecStrength.Add("Hands")
-                                PrimWeakness.Add("RunBlocking")
-                                PrimWeakness.Add("PassBlockVsPower")
-                                SecWeakness.Add("LowerBodyStrength")
-                                SecWeakness.Add("Toughness")
+                        SecStrength.Add("ReleaseOffLine")
+                        SecStrength.Add("Hands")
+                        PrimWeakness.Add("RunBlocking")
+                        PrimWeakness.Add("PassBlockVsPower")
+                        SecWeakness.Add("LowerBodyStrength")
+                        SecWeakness.Add("Toughness")
 
-                            Case "Hybrid"
-                                PrimStrength.Add("QAB")
-                                PrimStrength.Add("COD")
-                                SecStrength.Add("RunBlocking")
-                                SecStrength.Add("Hands")
-                                PrimWeakness.Add("Explosion")
-                                PrimWeakness.Add("AdjustToBall")
-                                SecWeakness.Add("Flexibility")
-                                SecWeakness.Add("RouteRunning")
+                    Case "Hybrid"
+                        PrimStrength.Add("QAB")
+                        PrimStrength.Add("COD")
+                        SecStrength.Add("RunBlocking")
+                        SecStrength.Add("Hands")
+                        PrimWeakness.Add("Explosion")
+                        PrimWeakness.Add("AdjustToBall")
+                        SecWeakness.Add("Flexibility")
+                        SecWeakness.Add("RouteRunning")
 
-                            Case "Receiving"
-                                PrimStrength.Add("RouteRunning")
-                                PrimStrength.Add("Hands")
-                                SecStrength.Add("QAB")
-                                SecStrength.Add("AdjustToBall")
-                                PrimWeakness.Add("PassBlockVsPower")
-                                PrimWeakness.Add("Toughness")
-                                SecWeakness.Add("RunBlocking")
-                                SecWeakness.Add("ContactBalance")
-                        End Select
+                    Case "Receiving"
+                        PrimStrength.Add("RouteRunning")
+                        PrimStrength.Add("Hands")
+                        SecStrength.Add("QAB")
+                        SecStrength.Add("AdjustToBall")
+                        PrimWeakness.Add("PassBlockVsPower")
+                        PrimWeakness.Add("Toughness")
+                        SecWeakness.Add("RunBlocking")
+                        SecWeakness.Add("ContactBalance")
+                End Select
 
-                    Case "OT"
-                        Select Case PosType
-                            Case "LTProtoType" 'Strong passblocking Taclke versus speed, not always as good versus power, but not weak at it either
-                                PrimStrength.Add("PassBlockVsSpeed")
-                                PrimStrength.Add("Footwork")
-                                SecStrength.Add("Flexibility")
-                                SecStrength.Add("QAB")
-                                PrimWeakness.Add("ContactBalance")
-                                PrimWeakness.Add("Toughness")
-                                SecWeakness.Add("RunBlocking")
-                                SecWeakness.Add("OLAnchorAbility")
+            Case "OT"
+                Select Case PosType
+                    Case "LTProtoType" 'Strong passblocking Taclke versus speed, not always as good versus power, but not weak at it either
+                        PrimStrength.Add("PassBlockVsSpeed")
+                        PrimStrength.Add("Footwork")
+                        SecStrength.Add("Flexibility")
+                        SecStrength.Add("QAB")
+                        PrimWeakness.Add("ContactBalance")
+                        PrimWeakness.Add("Toughness")
+                        SecWeakness.Add("RunBlocking")
+                        SecWeakness.Add("OLAnchorAbility")
 
-                            Case "RTProtoType" 'Run blocking tackle
-                                PrimStrength.Add("RunBlocking")
-                                PrimStrength.Add("OLAnchorAbility")
-                                SecStrength.Add("Explosion")
-                                SecStrength.Add("LowerBodyStrength")
-                                PrimWeakness.Add("PassBlockVsSpeed")
-                                PrimWeakness.Add("QAB")
-                                SecWeakness.Add("OLMoveInSpace")
-                                SecWeakness.Add("OLPulling")
+                    Case "RTProtoType" 'Run blocking tackle
+                        PrimStrength.Add("RunBlocking")
+                        PrimStrength.Add("OLAnchorAbility")
+                        SecStrength.Add("Explosion")
+                        SecStrength.Add("LowerBodyStrength")
+                        PrimWeakness.Add("PassBlockVsSpeed")
+                        PrimWeakness.Add("QAB")
+                        SecWeakness.Add("OLMoveInSpace")
+                        SecWeakness.Add("OLPulling")
 
-                            Case "Balanced" '
-                                Balanced.Add("PassBlockVsSpeed")
-                                Balanced.Add("PassBlockVsPower")
-                                Balanced.Add("Runblocking")
-                                Balanced.Add("Flexibility")
-                                Balanced.Add("ContactBalance")
-                                Balanced.Add("HandUse")
-                                Balanced.Add("QAB")
-                                Balanced.Add("Footwork")
+                    Case "Balanced" '
+                        Balanced.Add("PassBlockVsSpeed")
+                        Balanced.Add("PassBlockVsPower")
+                        Balanced.Add("Runblocking")
+                        Balanced.Add("Flexibility")
+                        Balanced.Add("ContactBalance")
+                        Balanced.Add("HandUse")
+                        Balanced.Add("QAB")
+                        Balanced.Add("Footwork")
 
-                            Case "AthleticLacksTechnique"
-                                PrimStrength.Add("QAB")
-                                PrimStrength.Add("Flexibility")
-                                SecStrength.Add("OLRecover")
-                                SecStrength.Add("PassBlockVsSpeed")
-                                PrimWeakness.Add("Footwork")
-                                PrimWeakness.Add("HandUse")
-                                SecWeakness.Add("PassBlockVsPower")
-                                SecWeakness.Add("ContactBalance")
+                    Case "AthleticLacksTechnique"
+                        PrimStrength.Add("QAB")
+                        PrimStrength.Add("Flexibility")
+                        SecStrength.Add("OLRecover")
+                        SecStrength.Add("PassBlockVsSpeed")
+                        PrimWeakness.Add("Footwork")
+                        PrimWeakness.Add("HandUse")
+                        SecWeakness.Add("PassBlockVsPower")
+                        SecWeakness.Add("ContactBalance")
 
-                            Case "TechniqueLacksAthleticism"
-                                PrimStrength.Add("HandUse")
-                                PrimStrength.Add("Footwork")
-                                SecStrength.Add("RunBlocking")
-                                SecStrength.Add("OLRecover")
-                                PrimWeakness.Add("Flexibility")
-                                PrimWeakness.Add("QAB")
-                                SecWeakness.Add("PassBlockVsPower")
-                                SecWeakness.Add("PassBlockVsSpeed")
-                        End Select
+                    Case "TechniqueLacksAthleticism"
+                        PrimStrength.Add("HandUse")
+                        PrimStrength.Add("Footwork")
+                        SecStrength.Add("RunBlocking")
+                        SecStrength.Add("OLRecover")
+                        PrimWeakness.Add("Flexibility")
+                        PrimWeakness.Add("QAB")
+                        SecWeakness.Add("PassBlockVsPower")
+                        SecWeakness.Add("PassBlockVsSpeed")
+                End Select
 
-                    Case "C", "OG"
-                        If Pos = "C" Then
-                            DT.Rows(IDNum).Item("OLSnapAbility") = MT.GetGaussian(75, 8.33) 'this is not really a weakness or stength just a special job they have to do
-                        End If
-                        Select Case PosType
+            Case "C", "OG"
+                If Pos = "C" Then
+                    DT.Rows(IDNum).Item("OLSnapAbility") = MT.GetGaussian(75, 8.33) 'this is not really a weakness or stength just a special job they have to do
+                End If
+                Select Case PosType
 
-                            Case "Balanced"
-                                Balanced.Add("OLPulling")
-                                Balanced.Add("QAB")
-                                Balanced.Add("PassBlockVsPower")
-                                Balanced.Add("Flexibility")
-                                Balanced.Add("HandUse")
-                                Balanced.Add("Footwork")
-                                Balanced.Add("RunBlocking")
-                                Balanced.Add("PassBlockVsPower")
+                    Case "Balanced"
+                        Balanced.Add("OLPulling")
+                        Balanced.Add("QAB")
+                        Balanced.Add("PassBlockVsPower")
+                        Balanced.Add("Flexibility")
+                        Balanced.Add("HandUse")
+                        Balanced.Add("Footwork")
+                        Balanced.Add("RunBlocking")
+                        Balanced.Add("PassBlockVsPower")
 
-                            Case "RoadGrader" 'big strong, nasty run blocker but suffers in pass protection and is not quick enough to pull---mostly for man to man blocking schemes, not good for zone blocking schemes
-                                PrimStrength.Add("RunBlocking")
-                                PrimStrength.Add("LowerBodyStrength")
-                                SecStrength.Add("ContactBalance")
-                                SecStrength.Add("HandUse")
-                                PrimWeakness.Add("PassBlockVsSpeed")
-                                PrimWeakness.Add("QAB")
-                                SecWeakness.Add("PassBlockVsPower")
-                                SecWeakness.Add("Flexibility")
+                    Case "RoadGrader" 'big strong, nasty run blocker but suffers in pass protection and is not quick enough to pull---mostly for man to man blocking schemes, not good for zone blocking schemes
+                        PrimStrength.Add("RunBlocking")
+                        PrimStrength.Add("LowerBodyStrength")
+                        SecStrength.Add("ContactBalance")
+                        SecStrength.Add("HandUse")
+                        PrimWeakness.Add("PassBlockVsSpeed")
+                        PrimWeakness.Add("QAB")
+                        SecWeakness.Add("PassBlockVsPower")
+                        SecWeakness.Add("Flexibility")
 
-                            Case "RunBlocking" 'better run blocker than pass blocker
-                                PrimStrength.Add("RunBlocking")
-                                PrimStrength.Add("Explosion")
-                                SecStrength.Add("OLPulling")
-                                SecStrength.Add("HandUse")
-                                PrimWeakness.Add("OLRecover")
-                                PrimWeakness.Add("Reaction")
-                                SecWeakness.Add("PassBlockVsPower")
-                                SecWeakness.Add("PassBlockVsSpeed")
+                    Case "RunBlocking" 'better run blocker than pass blocker
+                        PrimStrength.Add("RunBlocking")
+                        PrimStrength.Add("Explosion")
+                        SecStrength.Add("OLPulling")
+                        SecStrength.Add("HandUse")
+                        PrimWeakness.Add("OLRecover")
+                        PrimWeakness.Add("Reaction")
+                        SecWeakness.Add("PassBlockVsPower")
+                        SecWeakness.Add("PassBlockVsSpeed")
 
-                            Case "ZoneBlocker" 'lighter, quicker OL used for pulling and getting to the second level in zone schemes, but struggle in strength
-                                PrimStrength.Add("QAB")
-                                PrimStrength.Add("OLPulling")
-                                SecStrength.Add("OLMoveInSpace")
-                                SecStrength.Add("Flexibility")
-                                PrimWeakness.Add("PassBlockVsPower")
-                                PrimWeakness.Add("LowerBodyStrength")
-                                SecWeakness.Add("OLAnchorAbility")
-                                SecWeakness.Add("ContactBalance")
+                    Case "ZoneBlocker" 'lighter, quicker OL used for pulling and getting to the second level in zone schemes, but struggle in strength
+                        PrimStrength.Add("QAB")
+                        PrimStrength.Add("OLPulling")
+                        SecStrength.Add("OLMoveInSpace")
+                        SecStrength.Add("Flexibility")
+                        PrimWeakness.Add("PassBlockVsPower")
+                        PrimWeakness.Add("LowerBodyStrength")
+                        SecWeakness.Add("OLAnchorAbility")
+                        SecWeakness.Add("ContactBalance")
 
-                            Case "PassBlocker"
-                                PrimStrength.Add("PassBlockVsPower")
-                                PrimStrength.Add("PassBlockVsSpeed")
-                                SecStrength.Add("Footwork")
-                                SecStrength.Add("Flexibility")
-                                PrimWeakness.Add("RunBlocking")
-                                PrimWeakness.Add("OLAnchorAbility")
-                                SecWeakness.Add("LowerBodyStrength")
-                                SecWeakness.Add("HandUse")
+                    Case "PassBlocker"
+                        PrimStrength.Add("PassBlockVsPower")
+                        PrimStrength.Add("PassBlockVsSpeed")
+                        SecStrength.Add("Footwork")
+                        SecStrength.Add("Flexibility")
+                        PrimWeakness.Add("RunBlocking")
+                        PrimWeakness.Add("OLAnchorAbility")
+                        SecWeakness.Add("LowerBodyStrength")
+                        SecWeakness.Add("HandUse")
 
-                        End Select
+                End Select
 
-                    Case "DE"
-                        Select Case PosType
-                            Case "Balanced4-3"
-                                Balanced.Add("ReadKeys")
-                                Balanced.Add("ShedBlock")
-                                Balanced.Add("Flexibility")
-                                Balanced.Add("Reaction")
-                                Balanced.Add("Explosion")
-                                Balanced.Add("DLSLideAbility")
-                                Balanced.Add("DLRunAtHim")
-                                Balanced.Add("COD")
+            Case "DE"
+                Select Case PosType
+                    Case "Balanced4-3"
+                        Balanced.Add("ReadKeys")
+                        Balanced.Add("ShedBlock")
+                        Balanced.Add("Flexibility")
+                        Balanced.Add("Reaction")
+                        Balanced.Add("Explosion")
+                        Balanced.Add("DLSLideAbility")
+                        Balanced.Add("DLRunAtHim")
+                        Balanced.Add("COD")
 
-                            Case "PrototypeLDE4-3" 'pass rushing DE---weaker against run
-                                PrimStrength.Add("Explosion")
-                                PrimStrength.Add("HandUse")
-                                SecStrength.Add("Flexibility")
-                                SecStrength.Add("QAB")
-                                PrimWeakness.Add("LowerBodyStrength")
-                                PrimWeakness.Add("DLRunAtHim")
-                                SecWeakness.Add("ReadKeys") 'Too busy trying to get up field
-                                SecWeakness.Add("FieldAwareness")
+                    Case "PrototypeLDE4-3" 'pass rushing DE---weaker against run
+                        PrimStrength.Add("Explosion")
+                        PrimStrength.Add("HandUse")
+                        SecStrength.Add("Flexibility")
+                        SecStrength.Add("QAB")
+                        PrimWeakness.Add("LowerBodyStrength")
+                        PrimWeakness.Add("DLRunAtHim")
+                        SecWeakness.Add("ReadKeys") 'Too busy trying to get up field
+                        SecWeakness.Add("FieldAwareness")
 
-                            Case "ProtoTypeRDE4-3" 'run defending DE---typically not as good of a pass rusher
-                                PrimStrength.Add("DLRunAtHim")
-                                PrimStrength.Add("DLAgainstPullAbility")
-                                SecStrength.Add("ShedBlock")
-                                SecStrength.Add("LowerBodyStrength")
-                                PrimWeakness.Add("Explosion")
-                                PrimWeakness.Add("Flexibility")
-                                SecWeakness.Add("QAB")
-                                SecWeakness.Add("COD")
+                    Case "ProtoTypeRDE4-3" 'run defending DE---typically not as good of a pass rusher
+                        PrimStrength.Add("DLRunAtHim")
+                        PrimStrength.Add("DLAgainstPullAbility")
+                        SecStrength.Add("ShedBlock")
+                        SecStrength.Add("LowerBodyStrength")
+                        PrimWeakness.Add("Explosion")
+                        PrimWeakness.Add("Flexibility")
+                        SecWeakness.Add("QAB")
+                        SecWeakness.Add("COD")
 
-                            Case "Versatile3-4"
-                                PrimStrength.Add("ReadKeys")
-                                PrimStrength.Add("DLSlideAbility")
-                                SecStrength.Add("COD")
-                                SecStrength.Add("ShedBlock")
-                                PrimWeakness.Add("Explosion")
-                                PrimWeakness.Add("ContactBalance")
-                                SecWeakness.Add("HandUse")
-                                SecWeakness.Add("LowerBodyStrength")
+                    Case "Versatile3-4"
+                        PrimStrength.Add("ReadKeys")
+                        PrimStrength.Add("DLSlideAbility")
+                        SecStrength.Add("COD")
+                        SecStrength.Add("ShedBlock")
+                        PrimWeakness.Add("Explosion")
+                        PrimWeakness.Add("ContactBalance")
+                        SecWeakness.Add("HandUse")
+                        SecWeakness.Add("LowerBodyStrength")
 
-                            Case "RunStopper3-4"
-                                PrimStrength.Add("DLRunAtHim")
-                                PrimStrength.Add("LowerBodyStrength")
-                                SecStrength.Add("DLAgainstPullAbility")
-                                SecStrength.Add("DLRunPursuit")
-                                PrimWeakness.Add("Explosion")
-                                PrimWeakness.Add("QAB")
-                                SecWeakness.Add("COD")
-                                SecWeakness.Add("DLSetUpPassRush")
+                    Case "RunStopper3-4"
+                        PrimStrength.Add("DLRunAtHim")
+                        PrimStrength.Add("LowerBodyStrength")
+                        SecStrength.Add("DLAgainstPullAbility")
+                        SecStrength.Add("DLRunPursuit")
+                        PrimWeakness.Add("Explosion")
+                        PrimWeakness.Add("QAB")
+                        SecWeakness.Add("COD")
+                        SecWeakness.Add("DLSetUpPassRush")
 
-                            Case "SituationalPassRusher" 'Guys that come in to rush on 3rd downs typically
-                                PrimStrength.Add("Explosion")
+                    Case "SituationalPassRusher" 'Guys that come in to rush on 3rd downs typically
+                        PrimStrength.Add("Explosion")
                         PrimStrength.Add("QAB")
                         SecStrength.Add("DLSetUpPassRush")
-                                SecStrength.Add("Reaction")
-                                PrimWeakness.Add("PlayBookKnowledge")
-                                PrimWeakness.Add("DLRunAtHim")
-                                SecWeakness.Add("ReadKeys")
-                                SecWeakness.Add("ContactBalance") 'only in there for obvious passing downs
+                        SecStrength.Add("Reaction")
+                        PrimWeakness.Add("PlayBookKnowledge")
+                        PrimWeakness.Add("DLRunAtHim")
+                        SecWeakness.Add("ReadKeys")
+                        SecWeakness.Add("ContactBalance") 'only in there for obvious passing downs
 
-                            Case "Hybrid" 'Tweener Type players
+                    Case "Hybrid" 'Tweener Type players
                         PrimStrength.Add("ZoneCoverage")
                         PrimStrength.Add("QAB")
-                                SecStrength.Add("COD")
-                                SecStrength.Add("Flexibility")
-                                PrimWeakness.Add("DLRunAtHim")
-                                PrimWeakness.Add("DLAgainstPullAbility")
-                                SecWeakness.Add("HandUse")
-                                SecWeakness.Add("LowerBodyStrength")
-                        End Select
+                        SecStrength.Add("COD")
+                        SecStrength.Add("Flexibility")
+                        PrimWeakness.Add("DLRunAtHim")
+                        PrimWeakness.Add("DLAgainstPullAbility")
+                        SecWeakness.Add("HandUse")
+                        SecWeakness.Add("LowerBodyStrength")
+                End Select
 
-                    Case "DT"
-                        Select Case PosType
-                            Case "Penetrator" 'Athletic, quick 
-                                PrimStrength.Add("Explosion")
-                                PrimStrength.Add("HandUse")
-                                SecStrength.Add("QAB")
-                                SecStrength.Add("Reaction")
-                                PrimWeakness.Add("ReadKeys")
-                                PrimWeakness.Add("DLCanTakeDoubleTeam")
-                                SecWeakness.Add("DLSlideAbility")
-                                SecWeakness.Add("DLAgainstPullAbility")
+            Case "DT"
+                Select Case PosType
+                    Case "Penetrator" 'Athletic, quick 
+                        PrimStrength.Add("Explosion")
+                        PrimStrength.Add("HandUse")
+                        SecStrength.Add("QAB")
+                        SecStrength.Add("Reaction")
+                        PrimWeakness.Add("ReadKeys")
+                        PrimWeakness.Add("DLCanTakeDoubleTeam")
+                        SecWeakness.Add("DLSlideAbility")
+                        SecWeakness.Add("DLAgainstPullAbility")
 
-                            Case "NoseTackle" 'Big, heavy, strong player used for ability to eat up blocks rather than make plays or penetrate
-                                PrimStrength.Add("DLCanTakeDoubleTeam")
-                                PrimStrength.Add("DLRunAtHim")
-                                SecStrength.Add("LowerBodyStrength")
-                                SecStrength.Add("ShedBlock")
-                                PrimWeakness.Add("Flexibility")
-                                PrimWeakness.Add("Explosion")
-                                SecWeakness.Add("QAB")
-                                SecWeakness.Add("COD")
+                    Case "NoseTackle" 'Big, heavy, strong player used for ability to eat up blocks rather than make plays or penetrate
+                        PrimStrength.Add("DLCanTakeDoubleTeam")
+                        PrimStrength.Add("DLRunAtHim")
+                        SecStrength.Add("LowerBodyStrength")
+                        SecStrength.Add("ShedBlock")
+                        PrimWeakness.Add("Flexibility")
+                        PrimWeakness.Add("Explosion")
+                        SecWeakness.Add("QAB")
+                        SecWeakness.Add("COD")
 
-                            Case "RunStopper"
-                                PrimStrength.Add("DLRunAtHim")
-                                PrimStrength.Add("DLSlideAbility")
-                                SecStrength.Add("ShedBlock")
-                                SecStrength.Add("Tackling")
-                                PrimWeakness.Add("Flexibility")
-                                PrimWeakness.Add("QAB")
-                                SecWeakness.Add("Explosion")
-                                SecWeakness.Add("COD")
+                    Case "RunStopper"
+                        PrimStrength.Add("DLRunAtHim")
+                        PrimStrength.Add("DLSlideAbility")
+                        SecStrength.Add("ShedBlock")
+                        SecStrength.Add("Tackling")
+                        PrimWeakness.Add("Flexibility")
+                        PrimWeakness.Add("QAB")
+                        SecWeakness.Add("Explosion")
+                        SecWeakness.Add("COD")
 
-                            Case "Balanced"
-                                Balanced.Add("DLRunAtHim")
-                                Balanced.Add("QAB")
-                                Balanced.Add("ShedBlock")
-                                Balanced.Add("DLSlideAbility")
-                                Balanced.Add("Flexibility")
-                                Balanced.Add("COD")
-                                Balanced.Add("Explosion")
-                                Balanced.Add("Reaction")
+                    Case "Balanced"
+                        Balanced.Add("DLRunAtHim")
+                        Balanced.Add("QAB")
+                        Balanced.Add("ShedBlock")
+                        Balanced.Add("DLSlideAbility")
+                        Balanced.Add("Flexibility")
+                        Balanced.Add("COD")
+                        Balanced.Add("Explosion")
+                        Balanced.Add("Reaction")
 
-                            Case "Versatile"
-                                PrimStrength.Add("QAB")
-                                PrimStrength.Add("DLSlideAbility")
-                                SecStrength.Add("ReadKeys")
-                                SecStrength.Add("Flexibility")
-                                PrimWeakness.Add("DLCanTakeDoubleTeam")
-                                PrimWeakness.Add("DLRunAtHim")
-                                SecWeakness.Add("HandUse")
-                                SecWeakness.Add("LowerBodyStrength")
-                        End Select
-                    Case "OLB"
-                        Select Case PosType
-                            Case "WillProtoType4-3" 'must be able to play the run and rush the quarterback, but more than anything they are used in coverage.
-                                PrimStrength.Add("QAB")
-                                PrimStrength.Add("COD")
-                                SecStrength.Add("ZoneCoverage")
-                                SecStrength.Add("Flexibility")
-                                PrimWeakness.Add("LBFillGaps")
-                                PrimWeakness.Add("AvoidBlockers")
-                                SecWeakness.Add("ShedBlock")
-                                SecWeakness.Add("ContactBalance")
+                    Case "Versatile"
+                        PrimStrength.Add("QAB")
+                        PrimStrength.Add("DLSlideAbility")
+                        SecStrength.Add("ReadKeys")
+                        SecStrength.Add("Flexibility")
+                        PrimWeakness.Add("DLCanTakeDoubleTeam")
+                        PrimWeakness.Add("DLRunAtHim")
+                        SecWeakness.Add("HandUse")
+                        SecWeakness.Add("LowerBodyStrength")
+                End Select
+            Case "OLB"
+                Select Case PosType
+                    Case "WillProtoType4-3" 'must be able to play the run and rush the quarterback, but more than anything they are used in coverage.
+                        PrimStrength.Add("QAB")
+                        PrimStrength.Add("COD")
+                        SecStrength.Add("ZoneCoverage")
+                        SecStrength.Add("Flexibility")
+                        PrimWeakness.Add("LBFillGaps")
+                        PrimWeakness.Add("AvoidBlockers")
+                        SecWeakness.Add("ShedBlock")
+                        SecWeakness.Add("ContactBalance")
 
-                            Case "PassRush3-4" 'quick, explosive passrusher
-                                PrimStrength.Add("Explosion")
-                                PrimStrength.Add("Flexibility")
-                                SecStrength.Add("QAB")
+                    Case "PassRush3-4" 'quick, explosive passrusher
+                        PrimStrength.Add("Explosion")
+                        PrimStrength.Add("Flexibility")
+                        SecStrength.Add("QAB")
                         SecStrength.Add("HandUse")
                         PrimWeakness.Add("AvoidBlockers")
-                                PrimWeakness.Add("ReadKeys")
-                                SecWeakness.Add("LBFillGaps")
-                                SecWeakness.Add("LBDropDepth")
+                        PrimWeakness.Add("ReadKeys")
+                        SecWeakness.Add("LBFillGaps")
+                        SecWeakness.Add("LBDropDepth")
 
-                            Case "Tweener4-3" 'Athletic but lacking in size, have tendency to get "engulfed" by bigger O-Line players
+                    Case "Tweener4-3" 'Athletic but lacking in size, have tendency to get "engulfed" by bigger O-Line players
                         PrimStrength.Add("Explosion")
                         PrimStrength.Add("QAB")
-                                SecStrength.Add("COD")
-                                SecStrength.Add("Flexibility")
-                                PrimWeakness.Add("LowerBodyStrength")
-                                PrimWeakness.Add("AvoidBlockers")
-                                SecWeakness.Add("Tackling")
-                                SecWeakness.Add("ContactBalance")
+                        SecStrength.Add("COD")
+                        SecStrength.Add("Flexibility")
+                        PrimWeakness.Add("LowerBodyStrength")
+                        PrimWeakness.Add("AvoidBlockers")
+                        SecWeakness.Add("Tackling")
+                        SecWeakness.Add("ContactBalance")
 
-                            Case "SamPrototype4-3" 'must have the power to take on blockers and attack the run, the flexibility to rush the quarterback off the edge & the feet to play in coverage against tight ends. Must be a complete player in a 4-3 defense.
-                                PrimStrength.Add("LBFillGaps")
-                                PrimStrength.Add("ShedBlock")
-                                SecStrength.Add("AvoidBlockers")
-                                SecStrength.Add("Explosion")
-                                PrimWeakness.Add("COD")
-                                PrimWeakness.Add("MantoManCoverage")
-                                SecWeakness.Add("LBFillGaps")
-                                SecWeakness.Add("AdjustToBall")
+                    Case "SamPrototype4-3" 'must have the power to take on blockers and attack the run, the flexibility to rush the quarterback off the edge & the feet to play in coverage against tight ends. Must be a complete player in a 4-3 defense.
+                        PrimStrength.Add("LBFillGaps")
+                        PrimStrength.Add("ShedBlock")
+                        SecStrength.Add("AvoidBlockers")
+                        SecStrength.Add("Explosion")
+                        PrimWeakness.Add("COD")
+                        PrimWeakness.Add("MantoManCoverage")
+                        SecWeakness.Add("LBFillGaps")
+                        SecWeakness.Add("AdjustToBall")
 
-                            Case "Balanced"
-                                Balanced.Add("LBFillGaps")
-                                Balanced.Add("ShedBlock")
-                                Balanced.Add("PlaySpeed")
-                                Balanced.Add("Explosion")
-                                Balanced.Add("Reaction")
-                                Balanced.Add("Tackling")
-                                Balanced.Add("QAB")
-                                Balanced.Add("ReadKeys")
-                        End Select
+                    Case "Balanced"
+                        Balanced.Add("LBFillGaps")
+                        Balanced.Add("ShedBlock")
+                        Balanced.Add("PlaySpeed")
+                        Balanced.Add("Explosion")
+                        Balanced.Add("Reaction")
+                        Balanced.Add("Tackling")
+                        Balanced.Add("QAB")
+                        Balanced.Add("ReadKeys")
+                End Select
 
-                    Case "ILB"
-                        Select Case PosType
-                            Case "MikeProtoType" 'Mike LB used in either system--Fiedl General/Do Everything backer
-                                PrimStrength.Add("Leadership")
-                                PrimStrength.Add("ReadKeys")
-                                SecStrength.Add("Instincts")
-                                SecStrength.Add("FieldAwareness")
-                                PrimWeakness.Add("LBDropDepth")
-                                PrimWeakness.Add("DefeatBlock")
-                                SecWeakness.Add("COD")
-                                SecWeakness.Add("AdjustToBall")
+            Case "ILB"
+                Select Case PosType
+                    Case "MikeProtoType" 'Mike LB used in either system--Fiedl General/Do Everything backer
+                        PrimStrength.Add("Leadership")
+                        PrimStrength.Add("ReadKeys")
+                        SecStrength.Add("Instincts")
+                        SecStrength.Add("FieldAwareness")
+                        PrimWeakness.Add("LBDropDepth")
+                        PrimWeakness.Add("DefeatBlock")
+                        SecWeakness.Add("COD")
+                        SecWeakness.Add("AdjustToBall")
 
-                            Case "TedProtoType3-4" 'Run Stopper LB
-                                PrimStrength.Add("AvoidBlockers")
-                                PrimStrength.Add("LBFillGaps")
-                                SecStrength.Add("DeliversBlow")
-                                SecStrength.Add("Tackling")
-                                PrimWeakness.Add("ZoneCoverage")
-                                PrimWeakness.Add("ManToManCoverage")
-                                SecWeakness.Add("Flexibility")
-                                SecWeakness.Add("PlaySpeed")
+                    Case "TedProtoType3-4" 'Run Stopper LB
+                        PrimStrength.Add("AvoidBlockers")
+                        PrimStrength.Add("LBFillGaps")
+                        SecStrength.Add("DeliversBlow")
+                        SecStrength.Add("Tackling")
+                        PrimWeakness.Add("ZoneCoverage")
+                        PrimWeakness.Add("ManToManCoverage")
+                        SecWeakness.Add("Flexibility")
+                        SecWeakness.Add("PlaySpeed")
 
-                            Case "Cover2ProtoType" 'Coverage, Deep Drops, speed, quickness
-                                PrimStrength.Add("ZoneCoverage")
+                    Case "Cover2ProtoType" 'Coverage, Deep Drops, speed, quickness
+                        PrimStrength.Add("ZoneCoverage")
                         PrimStrength.Add("Explosion")
                         SecStrength.Add("LBDropDepth")
-                                SecStrength.Add("QAB")
-                                PrimWeakness.Add("ManToManCoverage")
-                                PrimWeakness.Add("Tackling")
-                                SecWeakness.Add("AvoidBlockers")
-                                SecWeakness.Add("ShedBlock")
+                        SecStrength.Add("QAB")
+                        PrimWeakness.Add("ManToManCoverage")
+                        PrimWeakness.Add("Tackling")
+                        SecWeakness.Add("AvoidBlockers")
+                        SecWeakness.Add("ShedBlock")
 
-                            Case "TacklingMachine"  'Great Tackler
-                                PrimStrength.Add("Tackling")
-                                PrimStrength.Add("AvoidBlockers")
-                                SecStrength.Add("ShedBlock")
-                                SecStrength.Add("ReadKeys")
-                                PrimWeakness.Add("ManToManCoverage")
-                                PrimWeakness.Add("Flexibility")
-                                SecWeakness.Add("LBDropDepth")
-                                SecWeakness.Add("COD")
+                    Case "TacklingMachine"  'Great Tackler
+                        PrimStrength.Add("Tackling")
+                        PrimStrength.Add("AvoidBlockers")
+                        SecStrength.Add("ShedBlock")
+                        SecStrength.Add("ReadKeys")
+                        PrimWeakness.Add("ManToManCoverage")
+                        PrimWeakness.Add("Flexibility")
+                        SecWeakness.Add("LBDropDepth")
+                        SecWeakness.Add("COD")
 
-                            Case "Balanced"
-                                Balanced.Add("Reaction")
-                                Balanced.Add("ReadKeys")
-                                Balanced.Add("Tackling")
-                                Balanced.Add("ManToManCoverage")
-                                Balanced.Add("QAB")
-                                Balanced.Add("ShedBlock")
-                                Balanced.Add("COD")
-                                Balanced.Add("AvoidBlockers")
-                        End Select
+                    Case "Balanced"
+                        Balanced.Add("Reaction")
+                        Balanced.Add("ReadKeys")
+                        Balanced.Add("Tackling")
+                        Balanced.Add("ManToManCoverage")
+                        Balanced.Add("QAB")
+                        Balanced.Add("ShedBlock")
+                        Balanced.Add("COD")
+                        Balanced.Add("AvoidBlockers")
+                End Select
             Case "CB"
                 Select Case PosType
                     Case "CoverCorner" 'great cover skills, not great in run support
@@ -961,59 +1552,59 @@ Potential int NULL, Raw int NULL"
                         SecStrength.Add("QAB")
                         PrimWeakness.Add("ZoneCoverage")
                         PrimWeakness.Add("DBRunContain")
-                                SecWeakness.Add("AvoidBlockers")
-                                SecWeakness.Add("ShedBlock")
+                        SecWeakness.Add("AvoidBlockers")
+                        SecWeakness.Add("ShedBlock")
 
-                            Case "ZoneCorner" 'good zone cover skills but not man to man
-                                PrimStrength.Add("ZoneCoverage")
-                                PrimStrength.Add("QAB")
-                                SecStrength.Add("COD")
-                                SecStrength.Add("ReadKeys")
-                                PrimWeakness.Add("ManToManCoverage")
-                                PrimWeakness.Add("DBCatchUpSpeed")
+                    Case "ZoneCorner" 'good zone cover skills but not man to man
+                        PrimStrength.Add("ZoneCoverage")
+                        PrimStrength.Add("QAB")
+                        SecStrength.Add("COD")
+                        SecStrength.Add("ReadKeys")
+                        PrimWeakness.Add("ManToManCoverage")
+                        PrimWeakness.Add("DBCatchUpSpeed")
                         SecWeakness.Add("Explosion")
                         SecWeakness.Add("Tackling")
 
-                            Case "Balanced"
-                                Balanced.Add("ManToManCoverage")
-                                Balanced.Add("ZoneCoverage")
-                                Balanced.Add("DBCatchUpSpeed")
-                                Balanced.Add("PlaySpeed")
-                                Balanced.Add("DBRunContain")
-                                Balanced.Add("QAB")
-                                Balanced.Add("COD")
-                                Balanced.Add("Flexibility")
+                    Case "Balanced"
+                        Balanced.Add("ManToManCoverage")
+                        Balanced.Add("ZoneCoverage")
+                        Balanced.Add("DBCatchUpSpeed")
+                        Balanced.Add("PlaySpeed")
+                        Balanced.Add("DBRunContain")
+                        Balanced.Add("QAB")
+                        Balanced.Add("COD")
+                        Balanced.Add("Flexibility")
 
-                            Case "RunSupport" 'Great CB for run support, lacks top end speed and agility to play great coverage tho
-                                PrimStrength.Add("DBRunContain")
-                                PrimStrength.Add("AvoidBlockers")
-                                SecStrength.Add("Tackling")
-                                SecStrength.Add("Reaction")
+                    Case "RunSupport" 'Great CB for run support, lacks top end speed and agility to play great coverage tho
+                        PrimStrength.Add("DBRunContain")
+                        PrimStrength.Add("AvoidBlockers")
+                        SecStrength.Add("Tackling")
+                        SecStrength.Add("Reaction")
                         PrimWeakness.Add("COD")
                         PrimWeakness.Add("QAB")
-                                SecWeakness.Add("DBCatchUpSpeed")
-                                SecWeakness.Add("Explosion")
+                        SecWeakness.Add("DBCatchUpSpeed")
+                        SecWeakness.Add("Explosion")
 
-                            Case "SlotCorner" 'very quick and agile, good blitzer off the slot and tackler but lacks top speed and size
-                                PrimStrength.Add("QAB")
-                                PrimStrength.Add("COD")
-                                SecStrength.Add("Blitz")
-                                SecStrength.Add("Tackling")
-                                PrimWeakness.Add("DBRunContain")
-                                PrimWeakness.Add("AvoidBlockers")
-                                SecWeakness.Add("DBCatchUpSpeed")
+                    Case "SlotCorner" 'very quick and agile, good blitzer off the slot and tackler but lacks top speed and size
+                        PrimStrength.Add("QAB")
+                        PrimStrength.Add("COD")
+                        SecStrength.Add("Blitz")
+                        SecStrength.Add("Tackling")
+                        PrimWeakness.Add("DBRunContain")
+                        PrimWeakness.Add("AvoidBlockers")
+                        SecWeakness.Add("DBCatchUpSpeed")
                         SecWeakness.Add("ShedBlock")
 
                     Case "Physical" 'tough physical corner but has issues with faster receivers due to lacking top end speed, but helps out against the run as well
-                                PrimStrength.Add("DBBump")
-                                PrimStrength.Add("UpperBodyStrength")
-                                SecStrength.Add("ManToManCoverage")
-                                SecStrength.Add("DBRunContain")
+                        PrimStrength.Add("DBBump")
+                        PrimStrength.Add("UpperBodyStrength")
+                        SecStrength.Add("ManToManCoverage")
+                        SecStrength.Add("DBRunContain")
                         PrimWeakness.Add("COD")
                         PrimWeakness.Add("QAB")
-                                SecWeakness.Add("Explosion")
-                                SecWeakness.Add("DBCatchUpSpeed")
-                        End Select
+                        SecWeakness.Add("Explosion")
+                        SecWeakness.Add("DBCatchUpSpeed")
+                End Select
 
             Case "FS", "SS"
                 Select Case PosType
@@ -1069,67 +1660,67 @@ Potential int NULL, Raw int NULL"
                 End Select
 
             Case "K"
-                        Select Case PosType
-                            Case "Clutch" 'makes the big kicks when it counts
-                                PrimStrength.Add("Clutch")
-                                SecStrength.Add("Confidence")
-                                PrimWeakness.Add("Footwork") 'slower kick time
-                                SecWeakness.Add("KAccuracy")
+                Select Case PosType
+                    Case "Clutch" 'makes the big kicks when it counts
+                        PrimStrength.Add("Clutch")
+                        SecStrength.Add("Confidence")
+                        PrimWeakness.Add("Footwork") 'slower kick time
+                        SecWeakness.Add("KickAccuracy")
 
-                            Case "Accurate" 'usually accurate but if he misses it can affect confidence for the remainder of the game or a few weeks
-                                PrimStrength.Add("KAccuracy")
-                                SecStrength.Add("Consistency")
-                                PrimWeakness.Add("Footwork")
-                                SecWeakness.Add("Confidence")
+                    Case "Accurate" 'usually accurate but if he misses it can affect confidence for the remainder of the game or a few weeks
+                        PrimStrength.Add("KickAccuracy")
+                        SecStrength.Add("Consistency")
+                        PrimWeakness.Add("Footwork")
+                        SecWeakness.Add("Confidence")
 
-                            Case "Balanced"
-                                Balanced.Add("Footwork")
-                                Balanced.Add("KAccuracy")
-                                Balanced.Add("HandlesElements")
-                                Balanced.Add("Consistency")
+                    Case "Balanced"
+                        Balanced.Add("Footwork")
+                        Balanced.Add("KickAccuracy")
+                        Balanced.Add("HandlesElements")
+                        Balanced.Add("Consistency")
 
-                            Case "BigLeg"
-                                PrimStrength.Add("LowerBodyStrength")
-                                SecStrength.Add("Explosion")
-                                PrimWeakness.Add("Footwork") 'slower kick times
-                                SecWeakness.Add("KKickRise") 'lower trajectory
+                    Case "BigLeg"
+                        PrimStrength.Add("LowerBodyStrength")
+                        SecStrength.Add("Explosion")
+                        PrimWeakness.Add("Footwork") 'slower kick times
+                        SecWeakness.Add("KKickRise") 'lower trajectory
 
-                            Case "KickOffSpecialist"
-                                PrimStrength.Add("LowerBodyStrength")
-                                SecStrength.Add("Explosion")
-                                PrimWeakness.Add("KickAccuracy")
-                                SecWeakness.Add("Consistency")
-                        End Select
+                    Case "KickOffSpecialist"
+                        PrimStrength.Add("LowerBodyStrength")
+                        SecStrength.Add("Explosion")
+                        PrimWeakness.Add("KickAccuracy")
+                        SecWeakness.Add("Consistency")
+                End Select
 
-                    Case "P"
-                        Select Case PosType
-                            Case "BigLeg"
-                                PrimStrength.Add("LowerBodyStrength")
-                                SecStrength.Add("Explosion")
-                                PrimWeakness.Add("Footwork") 'slower kick
-                                SecWeakness.Add("AvoidBlockers") 'gets blocked more
+            Case "P"
+                Select Case PosType
+                    Case "BigLeg"
+                        PrimStrength.Add("LowerBodyStrength")
+                        SecStrength.Add("Explosion")
+                        PrimWeakness.Add("Footwork") 'slower kick
+                        SecWeakness.Add("AvoidBlockers") 'gets blocked more
 
-                            Case "Accurate"
-                                PrimStrength.Add("KickAccuracy")
-                                SecStrength.Add("Consistency")
-                                PrimWeakness.Add("LowerBodyStrength")
-                                SecWeakness.Add("PHangTime")
+                    Case "Accurate"
+                        PrimStrength.Add("KickAccuracy")
+                        SecStrength.Add("Consistency")
+                        PrimWeakness.Add("LowerBodyStrength")
+                        SecWeakness.Add("PHangTime")
 
-                            Case "Balanced"
-                                Balanced.Add("PHangTime")
-                                Balanced.Add("LowerBodyStrength")
-                                Balanced.Add("KickAccuracy")
-                                Balanced.Add("Footwork")
+                    Case "Balanced"
+                        Balanced.Add("PHangTime")
+                        Balanced.Add("LowerBodyStrength")
+                        Balanced.Add("KickAccuracy")
+                        Balanced.Add("Footwork")
 
-                            Case "GreatHangTime"
-                                PrimStrength.Add("PHangTime")
-                                SecStrength.Add("Footwork")
-                                PrimWeakness.Add("Consistency")
-                                SecWeakness.Add("KickAccuracy")
+                    Case "GreatHangTime"
+                        PrimStrength.Add("PHangTime")
+                        SecStrength.Add("Footwork")
+                        PrimWeakness.Add("Consistency")
+                        SecWeakness.Add("KickAccuracy")
 
-                            Case "DirectionalPunter"
-                                PrimStrength.Add("KickAccuracy")
-                                SecStrength.Add("Footwork")
+                    Case "DirectionalPunter"
+                        PrimStrength.Add("KickAccuracy")
+                        SecStrength.Add("Footwork")
                                 PrimWeakness.Add("Explosion")
                                 SecWeakness.Add("LowerBodyStrength")
 
@@ -1141,18 +1732,19 @@ Potential int NULL, Raw int NULL"
                         End Select
                 End Select
 
-                For i As Integer = 0 To PrimStrength.Count - 1
+        If PrimStrength.Count > 0 Then
+            For i As Integer = 0 To PrimStrength.Count - 1
 
-            DT.Rows(IDNum).Item(PrimStrength(i)) *= MT.GenerateDouble(1.3, 1.5)
-            'Console.WriteLine("{0}: {1}", PrimStrength(i), DT.Rows(IDNum).Item(PrimStrength(i)))
-            DT.Rows(IDNum).Item(SecStrength(i)) *= MT.GenerateDouble(1.15, 1.25)
-            'Console.WriteLine("{0}: {1}", SecStrength(i), DT.Rows(IDNum).Item(SecStrength(i)))
-            DT.Rows(IDNum).Item(PrimWeakness(i)) *= MT.GenerateDouble(0.5, 0.7)
-            'Console.WriteLine("{0}: {1}", PrimWeakness(i), DT.Rows(IDNum).Item(PrimWeakness(i)))
-            DT.Rows(IDNum).Item(SecWeakness(i)) *= MT.GenerateDouble(0.75, 0.85)
-            'Console.WriteLine("{0}: {1}", SecWeakness(i), DT.Rows(IDNum).Item(SecWeakness(i)))
-        Next i
-
+                DT.Rows(IDNum).Item(PrimStrength(i)) *= MT.GenerateDouble(1.3, 1.5)
+                'Console.WriteLine("{0}: {1}", PrimStrength(i), DT.Rows(IDNum).Item(PrimStrength(i)))
+                DT.Rows(IDNum).Item(SecStrength(i)) *= MT.GenerateDouble(1.15, 1.25)
+                'Console.WriteLine("{0}: {1}", SecStrength(i), DT.Rows(IDNum).Item(SecStrength(i)))
+                DT.Rows(IDNum).Item(PrimWeakness(i)) *= MT.GenerateDouble(0.5, 0.7)
+                'Console.WriteLine("{0}: {1}", PrimWeakness(i), DT.Rows(IDNum).Item(PrimWeakness(i)))
+                DT.Rows(IDNum).Item(SecWeakness(i)) *= MT.GenerateDouble(0.75, 0.85)
+                'Console.WriteLine("{0}: {1}", SecWeakness(i), DT.Rows(IDNum).Item(SecWeakness(i)))
+            Next i
+        End If
 
 
         If DT.Rows(IDNum).Item("PlaySpeed") > 100 Then
@@ -1168,12 +1760,12 @@ Potential int NULL, Raw int NULL"
         End If
     End Sub
 
-    Public Function GetPosType(ByVal Pos As String, IDNum As Integer) As String
+    Public Function GetPosType(ByVal Pos As String, IDNum As Integer, ByVal DT As DataTable) As String
         Dim result As String = ""
         Dim GetNum As Integer = MT.GenerateInt32(1, 100)
         Select Case Pos
             Case "QB" 'Gets the type of QB this player will be---stats will be generated within the framework set up for each subtype
-                If DraftDT.Rows(IDNum).Item("FortyYardTime") < 4.65 Then
+                If DT.Rows(IDNum).Item("FortyYardTime") < 4.65 Then
                     result = "Mobile"
                 Else
                     Select Case GetNum
@@ -1191,7 +1783,7 @@ Potential int NULL, Raw int NULL"
                 End If
 
             Case "RB"
-                If DraftDT.Rows(IDNum).Item("FortyYardTime") < 4.47 Then
+                If DT.Rows(IDNum).Item("FortyYardTime") < 4.47 Then
                     result = "SpeedBack"
                 Else
                     Select Case GetNum
@@ -1215,7 +1807,7 @@ Potential int NULL, Raw int NULL"
                         result = "Receiving"
                 End Select
             Case "WR"
-                If DraftDT.Rows(IDNum).Item("FortyYardTime") < 4.47 Then
+                If DT.Rows(IDNum).Item("FortyYardTime") < 4.47 Then
                     result = "Speed"
                 Else
                     Select Case GetNum
@@ -1231,7 +1823,7 @@ Potential int NULL, Raw int NULL"
                 End If
 
             Case "TE"
-                If DraftDT.Rows(IDNum).Item("FortyYardTime") < 4.61 Then
+                If DT.Rows(IDNum).Item("FortyYardTime") < 4.61 Then
                     result = "VerticalThreat"
                 Else
                     Select Case GetNum
@@ -1247,97 +1839,97 @@ Potential int NULL, Raw int NULL"
                 End If
 
             Case "OT"
-                    Select Case GetNum
-                        Case 1 To 10
-                            result = "LTProtoType"
-                        Case 11 To 30
-                            result = "RTProtoType"
-                        Case 31 To 70
-                            result = "Balanced"
-                        Case 71 To 85
-                            result = "AthleticLacksTechnique"
-                        Case 86 To 100
-                            result = "TechniqueLacksAthleticism"
-                    End Select
+                Select Case GetNum
+                    Case 1 To 10
+                        result = "LTProtoType"
+                    Case 11 To 30
+                        result = "RTProtoType"
+                    Case 31 To 70
+                        result = "Balanced"
+                    Case 71 To 85
+                        result = "AthleticLacksTechnique"
+                    Case 86 To 100
+                        result = "TechniqueLacksAthleticism"
+                End Select
 
-                    Case "C", "OG"
-                    Select Case GetNum
-                        Case 1 To 20
-                            result = "RunBlocker"
-                        Case 21 To 37
-                            result = "RoadGrader"
-                        Case 38 To 57
-                            result = "ZoneBlocker"
-                        Case 58 To 80
-                            result = "Balanced"
-                        Case Else
-                            result = "PassBlocker"
-                    End Select
+            Case "C", "OG"
+                Select Case GetNum
+                    Case 1 To 20
+                        result = "RunBlocker"
+                    Case 21 To 37
+                        result = "RoadGrader"
+                    Case 38 To 57
+                        result = "ZoneBlocker"
+                    Case 58 To 80
+                        result = "Balanced"
+                    Case Else
+                        result = "PassBlocker"
+                End Select
 
-                    Case "DE"
-                    Select Case GetNum
-                        Case 1 To 25
-                            result = "Balanced4-3"
-                        Case 26 To 35
-                            result = "ProtoTypeLDE4-3"
-                        Case 36 To 50
-                            result = "ProtoTypeRDE4-3"
-                        Case 51 To 65
-                            result = "Versatile3-4"
-                        Case 66 To 80
-                            result = "RunStopper3-4"
-                        Case 81 To 90
-                            result = "SituationalPassRusher"
-                        Case Else
-                            result = "Hybrid"
-                    End Select
+            Case "DE"
+                Select Case GetNum
+                    Case 1 To 25
+                        result = "Balanced4-3"
+                    Case 26 To 35
+                        result = "ProtoTypeLDE4-3"
+                    Case 36 To 50
+                        result = "ProtoTypeRDE4-3"
+                    Case 51 To 65
+                        result = "Versatile3-4"
+                    Case 66 To 80
+                        result = "RunStopper3-4"
+                    Case 81 To 90
+                        result = "SituationalPassRusher"
+                    Case Else
+                        result = "Hybrid"
+                End Select
 
-                    Case "DT"
-                    Select Case GetNum
-                        Case 1 To 15
-                            result = "Penetrator"
-                        Case 16 To 30
-                            result = "NoseTackle"
-                        Case 31 To 50
-                            result = "RunStopper"
-                        Case 51 To 85
-                            result = "Balanced"
-                        Case Else
-                            result = "Versatile"
-                    End Select
+            Case "DT"
+                Select Case GetNum
+                    Case 1 To 15
+                        result = "Penetrator"
+                    Case 16 To 30
+                        result = "NoseTackle"
+                    Case 31 To 50
+                        result = "RunStopper"
+                    Case 51 To 85
+                        result = "Balanced"
+                    Case Else
+                        result = "Versatile"
+                End Select
 
-                    Case "OLB"
-                    Select Case GetNum
-                        Case 1 To 19
-                            result = "WillProtoType4-3" 'used more in coverage in a 3-4
-                        Case 20 To 40
-                            result = "Balanced"
-                        Case 41 To 58
-                            result = "PassRush3-4"
-                        Case 59 To 70
-                            result = "Tweener4-3" 'Athletic
-                        Case Else
-                            result = "SamPrototype4-3" 'must be a good run defender but also covers tight end---good all around player
+            Case "OLB"
+                Select Case GetNum
+                    Case 1 To 19
+                        result = "WillProtoType4-3" 'used more in coverage in a 3-4
+                    Case 20 To 40
+                        result = "Balanced"
+                    Case 41 To 58
+                        result = "PassRush3-4"
+                    Case 59 To 70
+                        result = "Tweener4-3" 'Athletic
+                    Case Else
+                        result = "SamPrototype4-3" 'must be a good run defender but also covers tight end---good all around player
 
 
-                    End Select
-                    Case "ILB"
-                    Select Case GetNum
-                        Case 1 To 20
-                            result = "MikeProtoType" 'Mike LB used in either system--Fiedl General/Do Everything backer
-                        Case 21 To 40
-                            result = "TedProtoType3-4" 'Run Stopper LB
-                        Case 41 To 60
-                            result = "Cover2ProtoType" 'Coverage, Deep Drops, speed, quickness
-                        Case 61 To 80
-                            result = "TacklingMachine" 'Great Tackler
-                        Case Else
-                            result = "Balanced" 'comes in during Nickel situations for coverage skills
+                End Select
+            Case "ILB"
+                Select Case GetNum
+                    Case 1 To 20
+                        result = "MikeProtoType" 'Mike LB used in either system--Fiedl General/Do Everything backer
+                    Case 21 To 40
+                        result = "TedProtoType3-4" 'Run Stopper LB
+                    Case 41 To 60
+                        result = "Cover2ProtoType" 'Coverage, Deep Drops, speed, quickness
+                    Case 61 To 80
+                        result = "TacklingMachine" 'Great Tackler
+                    Case Else
+                        result = "Balanced" 'comes in during Nickel situations for coverage skills
 
-                    End Select
+                End Select
 
             Case "CB"
-                If DraftDT.Rows(IDNum).Item("FortyYardTime") < 4.45 Then
+                If DT.Rows(IDNum).Item("FortyYardTime") < 4.45 Then
                     result = "CoverCorner"
                 Else
                     Select Case GetNum
@@ -1383,20 +1975,20 @@ Potential int NULL, Raw int NULL"
                 End Select
 
             Case "P"
-                    Select Case GetNum
-                        Case 1 To 15
-                            result = "BigLeg"
-                        Case 16 To 30
-                            result = "DirectionalPunter"
-                        Case 31 To 45
-                            result = "Accurate"
-                        Case 46 To 55
-                            result = "AussieRules"
-                        Case 56 To 70
-                            result = "GreatHangTime"
-                        Case Else
-                            result = "Balanced"
-                    End Select
+                Select Case GetNum
+                    Case 1 To 15
+                        result = "BigLeg"
+                    Case 16 To 30
+                        result = "DirectionalPunter"
+                    Case 31 To 45
+                        result = "Accurate"
+                    Case 46 To 55
+                        result = "AussieRules"
+                    Case 56 To 70
+                        result = "GreatHangTime"
+                    Case Else
+                        result = "Balanced"
+                End Select
         End Select
         Return result
     End Function
@@ -1414,40 +2006,41 @@ Potential int NULL, Raw int NULL"
                 End Select
         End Select
     End Function
-    Public Function GetPuntRetAbility(ByVal Pos As String, ByVal i As Integer) As Integer
+    Public Function GetPuntRetAbility(ByVal Pos As String, ByVal i As Integer, ByVal DT As DataTable) As Integer
         Select Case MT.GenerateInt32(1, 100)
             Case 1 To 75
                 Return 0
             Case Else
                 Select Case Pos
                     Case "RB", "WR", "CB", "FS"
-                        Return PlayerDT.Rows(i).Item("RETKickReturn") = MT.GetGaussian(49.5, 16.5)
+                        Return DT.Rows(i).Item("RETKickReturn") = MT.GetGaussian(49.5, 16.5)
                     Case Else
                         Return 0
                 End Select
         End Select
     End Function
-    Public Sub GetSTAbility(ByVal Pos As String, ByVal i As Integer)
+    Public Sub GetSTAbility(ByVal Pos As String, ByVal i As Integer, ByVal DT As DataTable)
 
         Select Case Pos
-                Case Not "QB", "K", "P", "DT"
-                PlayerDT.Rows(i).Item("STCoverage") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("STWillingness") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("STAssignment") = MT.GetGaussian(49.5, 16.5)
-                PlayerDT.Rows(i).Item("STDiscipline") = MT.GetGaussian(49.5, 16.5)
+            Case <> "QB", "K", "P", "DT"
+                DT.Rows(i).Item("STCoverage") = MT.GetGaussian(49.5, 16.5)
+                DT.Rows(i).Item("STWillingness") = MT.GetGaussian(49.5, 16.5)
+                DT.Rows(i).Item("STAssignment") = MT.GetGaussian(49.5, 16.5)
+                DT.Rows(i).Item("STDiscipline") = MT.GetGaussian(49.5, 16.5)
         End Select
     End Sub
-    Public Sub GetLSAbility(ByVal Pos As String, ByVal i As Integer)
+    Public Sub GetLSAbility(ByVal Pos As String, ByVal i As Integer, ByVal DT As DataTable)
         Select Case Pos
             Case "C", "TE", "DE", "OG"
                 Select Case MT.GenerateInt32(1, 100)
                     Case 1 To 90
-                        PlayerDT.Rows(i).Item("OLLongSnapAbility") = 0
+                        DT.Rows(i).Item("OLLongSnapAbility") = 0
                     Case Else
-                        PlayerDT.Rows(i).Item("OLLongSnapAbility") = MT.GetGaussian(49.5, 16.5)
+                        DT.Rows(i).Item("OLLongSnapAbility") = MT.GetGaussian(49.5, 16.5)
                 End Select
             Case Else
-                PlayerDT.Rows(i).Item("OLLongSnapAbility") = 0
+                DT.Rows(i).Item("OLLongSnapAbility") = 0
         End Select
     End Sub
+
 End Class

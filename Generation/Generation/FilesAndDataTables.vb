@@ -4,27 +4,37 @@
 ''' </summary>
 Public Module FilesAndDataTables
     Public MT As New Mersenne.MersenneTwister
-    Public CoachDT As New DataTable
+    'Public CoachDT As New DataTable
     Public DraftDT As New DataTable
-    Public PersonnelDT As New DataTable
-    Public OwnerDT As New DataTable
+    'Public PersonnelDT As New DataTable
+    'Public OwnerDT As New DataTable
     Public ScoutDT As New DataTable
     Public ScoutGradeDT As New DataTable
-    Public PlayerDT As New DataTable
+    'Public PlayerDT As New DataTable
     Public FirstNames As New DataTable
     Public LastNames As New DataTable
     Public Colleges As New DataTable
     Public Eval As New Evaluation
+    'Public CoachTest As New Coaches
+    Public MyPerson As New Person
     Public MyDB As String = "Football"
     Public SQLiteTables As New SQLFunctions.SQLiteDataFunctions
-    Public MyCoach As New CoachType
     Public MyScoutAssignment As New ScoutAssignment
     Public MyPersonnel As New PersonnelType
-    Public MyTrainer As New Trainers
+    Public MyTrainer As New TrainerType
     Dim filepath As String = "Project Files/"
     Public ReadFName As StreamReader = New StreamReader(filepath + "FName.txt")
     Public ReadLName As StreamReader = New StreamReader(filepath + "LName.txt")
     Public ReadCollege As StreamReader = New StreamReader(filepath + "Colleges.txt")
+    Public MyAgent As AgentType
+    Public Enum PersonType
+        Owner = 1
+        Personnel = 2
+        Coach = 3
+        Player = 4
+        Trainer = 5
+        Agent = 6
+    End Enum
     ''' <summary>
     ''' Sets the assignment of the scout/presonnel person.  1-6 only scout players in their region---these are area scouts.  National scouts the entire nation of college players, selecting key individuals.  Advance scouts the next opponent.  Pro scouts the NFL players.
     ''' All scouts all of them---this would be like a GM, who is responsible for all players
@@ -91,7 +101,7 @@ Public Module FilesAndDataTables
         ScoutingAssistant = 13
     End Enum
 
-    Public Enum Trainers
+    Public Enum TrainerType
         HeadTrainer = 1
         AssistantTrainer = 2
         TeamPhysician = 3
@@ -99,4 +109,12 @@ Public Module FilesAndDataTables
         Physiotherapist = 5
     End Enum
 
+    Public Enum AgentType
+        SuperAgent = 1 'represents 40+ clients
+        BigAgent = 2 'respsents 20+ clients
+        AboveAvgAgent = 3 'represents 10+ clients
+        RespectedAgent = 4 'represents 5-9 clients
+        AverageAgent = 5 'represents 1-4 clients
+        PoorAgent = 6 'represents no clients
+    End Enum
 End Module

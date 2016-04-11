@@ -5,9 +5,10 @@
 ''' </summary>
 Public Class NFLPlayers
     Inherits Players
-    Dim SQLFieldNames As String
-    Dim SQLCmd As New SQLFunctions.SQLiteDataFunctions
-    Private Sub PutPlayerOnTeam(ByVal Pos As Integer)
+    Dim MyPos As String
+
+
+    Public Sub PutPlayerOnTeam(ByVal Pos As Integer, ByVal PlayerDT As DataTable)
         'determines what team player is on via generic position limits
 
         Dim NumAllowed As Integer
@@ -33,23 +34,23 @@ Public Class NFLPlayers
         End Select
 
         Select Case Pos
-            Case 1 : PosString = "QB"
-            Case 2 : PosString = "RB"
-            Case 3 : PosString = "FB"
-            Case 4 : PosString = "WR"
-            Case 5 : PosString = "TE"
-            Case 6 : PosString = "C"
-            Case 7 : PosString = "OG"
-            Case 8 : PosString = "OT"
-            Case 9 : PosString = "DE"
-            Case 10 : PosString = "DE"
-            Case 11 : PosString = "OLB"
-            Case 12 : PosString = "ILB"
-            Case 13 : PosString = "CB"
-            Case 14 : PosString = "FS"
-            Case 15 : PosString = "SS"
-            Case 16 : PosString = "K"
-            Case 17 : PosString = "P"
+            Case 1 : PosString = "'QB'"
+            Case 2 : PosString = "'RB'"
+            Case 3 : PosString = "'FB'"
+            Case 4 : PosString = "'WR'"
+            Case 5 : PosString = "'TE'"
+            Case 6 : PosString = "'C'"
+            Case 7 : PosString = "'OG'"
+            Case 8 : PosString = "'OT'"
+            Case 9 : PosString = "'DE'"
+            Case 10 : PosString = "'DE'"
+            Case 11 : PosString = "'OLB'"
+            Case 12 : PosString = "'ILB'"
+            Case 13 : PosString = "'CB'"
+            Case 14 : PosString = "'FS'"
+            Case 15 : PosString = "'SS'"
+            Case 16 : PosString = "'K'"
+            Case 17 : PosString = "'P'"
         End Select
 
         For x As Integer = 1 To PlayerDT.Rows.Count - 1
@@ -69,75 +70,45 @@ Public Class NFLPlayers
                     PlayerDT.Rows(GetRow).Item("TeamID") = i
                 End If
             Next n
-
         Next i
 
     End Sub
-    Public Sub GetRosterPlayers(ByVal numplayers As Integer)
-        SQLFieldNames = GetSQLFields("NFL")
-        SQLiteTables.CreateTable(MyDB, PlayerDT, "Players", SQLFieldNames)
-        SQLiteTables.DeleteTable(MyDB, PlayerDT, "Players")
-        SQLiteTables.LoadTable(MyDB, PlayerDT, "Players")
-        Dim MyPos As String
+    Public Sub GetRosterPlayers(ByVal PlayerNum As Integer, ByVal XNFLPlayer As NFLPlayers, ByVal PlayerDT As DataTable)
 
-        PlayerDT.Rows.Add()
+        XNFLPlayer = New NFLPlayers
 
-        For i As Integer = 1 To numplayers
-            PlayerDT.Rows.Add(i)
-            MyPos = GetCollegePos() 'returns the "normal" version without the  ' '
-            PlayerDT.Rows(i).Item("POS") = String.Format("'{0}'", MyPos)
-            GenNames(PlayerDT, i, "NFLPlayer", MyPos)
-            'GetPosSkills(MyPos, i, PlayerDT)
-            PlayerDT.Rows(i).Item("Explosion") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Athleticism") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("JumpingAbility") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Character") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Instincts") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Focus") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("TeamPlayer") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Consistency") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Leadership") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("FieldAwareness") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Clutch") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Fearless") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Aggressive") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("RiskTaker") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("FilmStudy") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("WorkEthic") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("BallSecurity") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("QAB") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("COD") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("RETKickReturn") = GetKickRetAbility(MyPos, i)
-            PlayerDT.Rows(i).Item("RETPuntReturn") = GetPuntRetAbility(MyPos, i)
-            PlayerDT.Rows(i).Item("PlaybookKnowledge") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Toughness") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("InjuryProne") = MT.GetGaussian(49.5, 16.5)
-            PlayerDT.Rows(i).Item("Timing") = MT.GetGaussian(49.5, 16.5)
-            GetSTAbility(MyPos, i)
-            GetLSAbility(MyPos, i)
-        Next i
+        Try
+            PlayerDT.Rows.Add(PlayerNum)
 
+            MyPos = GetCollegePos(PlayerNum, PlayerDT) 'returns the "normal" version without the  ' '
+            PlayerDT.Rows(PlayerNum).Item("POS") = String.Format("'{0}'", MyPos)
+            GenNames(PlayerDT, PlayerNum, "NFLPlayer", MyPos)
+            GetPersonalityStats(PlayerDT, PlayerNum, XNFLPlayer)
+            PlayerDT.Rows(PlayerNum).Item("AgentID") = 0
+            PlayerDT.Rows(PlayerNum).Item("TeamID") = 0
+            PlayerDT.Rows(PlayerNum).Item("FortyYardTime") = Get40Time(MyPos, PlayerNum, PlayerDT)
+            PlayerDT.Rows(PlayerNum).Item("RETKickReturn") = GetKickRetAbility(MyPos, PlayerNum)
+            PlayerDT.Rows(PlayerNum).Item("RETPuntReturn") = GetPuntRetAbility(MyPos, PlayerNum, PlayerDT)
+            GetSTAbility(MyPos, PlayerNum, PlayerDT)
+            GetLSAbility(MyPos, PlayerNum, PlayerDT)
+            PlayerDT.Rows(PlayerNum).Item("PosType") = String.Format("'{0}'", GetPosType(MyPos, PlayerNum, PlayerDT))
 
-        For i As Integer = 1 To 17
-            PutPlayerOnTeam(i)
-        Next i
-
-        For i As Integer = 0 To PlayerDT.Rows.Count - 1
+            PlayerDT.Rows(PlayerNum).Item("DLPrimaryTech") = "'NONE'"
+            PlayerDT.Rows(PlayerNum).Item("DLSecondaryTech") = "'NONE'"
+            PlayerDT.Rows(PlayerNum).Item("DLPassRushTech") = "'NONE'"
 
             For col As Integer = 0 To PlayerDT.Columns.Count - 1
-                If PlayerDT.Rows(i).Item(col) Is DBNull.Value Then
-                    PlayerDT.Rows(i).Item(col) = 0
+                If PlayerDT.Rows(PlayerNum).Item(col) Is DBNull.Value Then
+                    PlayerDT.Rows(PlayerNum).Item(col) = MT.GetGaussian(49.5, 16.5)
                 End If
-
             Next col
-        Next i
 
-        SQLiteTables.BulkInsert("Football", PlayerDT, "Players")
-
-
+            GetPosRatings(MyPos, PlayerDT.Rows(PlayerNum).Item("PosType"), PlayerNum, PlayerDT)
+        Catch ex As Exception
+            Console.WriteLine(ex.Message)
+            Console.WriteLine(ex.Data)
+        End Try
     End Sub
-
-
 End Class
 
 ''' <summary>

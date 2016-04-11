@@ -1,48 +1,34 @@
 ﻿Public Class Coaches
     Inherits Personnel
 
-    Public Sub GenCoaches(ByVal NumCoaches As Integer)
+    Sub New()
+        'GenCoaches(CoachNum)
+    End Sub
+
+    Public Sub GenCoaches(ByVal CoachNum As Integer, ByVal XCoach As Coaches, CoachDT As DataTable)
+
+        XCoach = New Coaches 'Initializes a new instance of the Coach
+        ' For i As Integer = 0 To NumCoaches
+        CoachDT.Rows.Add(CoachNum)
+        GenNames(CoachDT, CoachNum, "Coach") 'Gets Name, College, Age, Experience, Height and Weight for Coaches
+        GetPersonalityStats(CoachDT, CoachNum, XCoach) 'Gets Personality Stats for the coaches
         Try
-            SQLiteTables.CreateTable("Football", CoachDT, "Coaches", GetSQLFieldNames("Coach"))
-            SQLiteTables.LoadTable("Football", CoachDT, "Coaches")
-            CoachDT.Rows.Add(0)
-        Catch ex As System.InvalidOperationException
+
+            CoachDT.Rows(CoachNum).Item("CoachType") = GetCoachType(CoachDT.Rows(CoachNum).Item("Age"))
+            CoachDT.Rows(CoachNum).Item("SideOfBall") = GetSideOfBall(CoachDT.Rows(CoachNum).Item("CoachType"))
+            GetCoachSkills(CoachDT, CoachDT.Rows(CoachNum).Item("CoachType"), CoachNum, CoachDT.Rows(CoachNum).Item("SideOfBall"))
+            CoachDT.Rows(CoachNum).Item("Experience") = MT.GenerateInt32((CoachDT.Rows(CoachNum).Item("Age") - 22), CoachDT.Rows(CoachNum).Item("Age") - 24)
+            CoachDT.Rows(CoachNum).Item("OffPhil") = String.Format("'{0}'", GetOffPhil())
+            CoachDT.Rows(CoachNum).Item("DefPhil") = String.Format("'{0}'", GetDefPhil())
+            CoachDT.Rows(CoachNum).Item("ValuesST") = MT.GetGaussian(49.5, 16.5)
+            CoachDT.Rows(CoachNum).Item("ValuesCharacter") = MT.GetGaussian(49.5, 16.5)
+
+
+        Catch ex As System.ArgumentException
             Console.WriteLine(ex.Message)
             Console.WriteLine(ex.Data)
         End Try
-
-        For i As Integer = 1 To NumCoaches
-            CoachDT.Rows.Add(i)
-            GenNames(CoachDT, i, "Coach")
-            Try
-                CoachDT.Rows(i).Item("CoachType") = GetCoachType(CoachDT.Rows(i).Item("Age"))
-                CoachDT.Rows(i).Item("SideOfBall") = GetSideOfBall(CoachDT.Rows(i).Item("CoachType"))
-                GetCoachSkills(CoachDT.Rows(i).Item("CoachType"), i, CoachDT.Rows(i).Item("SideOfBall"))
-                CoachDT.Rows(i).Item("Experience") = MT.GenerateInt32((CoachDT.Rows(i).Item("Age") - 22), CoachDT.Rows(i).Item("Age") - 24)
-                CoachDT.Rows(i).Item("OffPhil") = String.Format("'{0}'", GetOffPhil())
-                CoachDT.Rows(i).Item("DefPhil") = String.Format("'{0}'", GetDefPhil())
-                CoachDT.Rows(i).Item("LoyaltyPlayers") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("LoyaltyCoaches") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Ego") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Stability") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Accountability") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Motivating") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("TimeMgmt") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Clutch") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Conservative") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Ambition") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("ValuesST") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("ValuesCharacter") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("WorkEthic") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Preparation") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Focus") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("Adaptability") = MT.GetGaussian(49.5, 16.5)
-                CoachDT.Rows(i).Item("BackStabber") = MT.GetGaussian(49.5, 16.5)
-            Catch ex As System.InvalidCastException
-                Console.WriteLine(ex.Message)
-                Console.WriteLine(ex.Data)
-            End Try
-        Next i
+        ' Next i
         Try
             For i As Integer = 0 To CoachDT.Rows.Count - 1
                 For col = 0 To CoachDT.Columns.Count - 1
@@ -56,15 +42,12 @@
             Console.WriteLine(ex.Data)
         End Try
 
-        PutCoachesOnTeams()
-        SQLiteTables.BulkInsert("Football", CoachDT, "Coaches")
-
     End Sub
     ''' <summary>
     ''' Gets specialized skills for each type of coach
     ''' </summary>
     ''' <param name="CoachType"></param> <param name="i"></param>
-    Private Sub GetCoachSkills(ByVal CoachType As Integer, i As Integer, SideOfBall As String)
+    Private Sub GetCoachSkills(ByVal CoachDT As DataTable, ByVal CoachType As Integer, i As Integer, SideOfBall As String)
         Select Case CoachType
             Case 1 'Head Coach 1
                 Select Case SideOfBall
@@ -161,10 +144,8 @@
                         CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 End Select
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(75, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(75, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(75, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(75, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(75, 8.33)
+
             Case 2 'Assistant HC 1
                 Select Case SideOfBall
                     Case "'OFF'"
@@ -229,10 +210,8 @@
                         CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(60, 8.33)
                 End Select
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(60, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(60, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(60, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(60, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(60, 8.33)
+
             Case 3 'OC 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(75, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -264,10 +243,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(55, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(55, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(75, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(75, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(60, 8.33)
+
             Case 4 'DC 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(75, 8.33)
@@ -299,10 +276,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(75, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(75, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(55, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(55, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(75, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(75, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(60, 8.33)
+
             Case 5 'Special Teams 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -334,10 +309,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(55, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(55, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(65, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(50, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(55, 8.33)
+
             Case 6 'Asst Special Teams 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -369,10 +342,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(30, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(30, 8.33)
+
             Case 7 'QB 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(40, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -404,10 +375,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(50, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(60, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(60, 8.33)
+
             Case 8 'RB 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(40, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -439,10 +408,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(35, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(35, 8.33)
+
             Case 9 'WR 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(40, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -474,10 +441,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(35, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(35, 8.33)
+
             Case 10 'Asst WR 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(35, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -509,10 +474,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(25, 8.33)
+
             Case 11 'TE 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(40, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -544,10 +507,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(35, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(35, 8.33)
+
             Case 12 'OL 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(40, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -579,10 +540,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(35, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(50, 8.33)
+
             Case 13 'Asst OL 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(35, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -614,10 +573,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(25, 8.33)
+
             Case 14 'DL 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(40, 8.33)
@@ -649,10 +606,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(40, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(40, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(35, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(50, 8.33)
+
             Case 15 'Asst DL 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(35, 8.33)
@@ -684,10 +639,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(35, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(35, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(25, 8.33)
+
             Case 16, 17  'ILB 1/OLB 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(40, 8.33)
@@ -719,10 +672,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(40, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(40, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(35, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(35, 8.33)
+
             Case 18 'DB 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(40, 8.33)
@@ -754,10 +705,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(75, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(75, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(40, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(35, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(45, 8.33)
+
             Case 19 'Asst DB 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(35, 8.33)
@@ -789,10 +738,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(60, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(60, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(25, 8.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(25, 8.33)
+
             Case 20 'Off QC 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(15, 5.0)
@@ -824,10 +771,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(15, 5.0)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(15, 5.0)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(15, 5.0)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(15, 5.0)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(15, 5.0)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(10, 3.333)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(25, 5.0)
+
             Case 21 'Def QC 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(15, 5.0)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(25, 8.33)
@@ -859,10 +804,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(15, 5.0)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(15, 5.0)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(15, 5.0)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(10, 3.33)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(15, 5.0)
+
             Case 22 'Str & Conditioning 1
                 CoachDT.Rows(i).Item("LowerBodyTrain") = MT.GetGaussian(75, 8.33)
                 CoachDT.Rows(i).Item("UpperBodyTrain") = MT.GetGaussian(75, 8.33)
@@ -906,10 +849,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(30, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(30, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(15, 5.0)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(25, 8.33)
+
             Case 25 'Def Assistant 1
                 CoachDT.Rows(i).Item("OffAbility") = MT.GetGaussian(25, 8.33)
                 CoachDT.Rows(i).Item("DefAbility") = MT.GetGaussian(35, 8.33)
@@ -941,10 +882,8 @@
                 CoachDT.Rows(i).Item("DevCB") = MT.GetGaussian(35, 8.33)
                 CoachDT.Rows(i).Item("DevSF") = MT.GetGaussian(35, 8.33)
                 CoachDT.Rows(i).Item("SeesBigPicture") = MT.GetGaussian(30, 8.33)
-                CoachDT.Rows(i).Item("Delegation") = MT.GetGaussian(30, 8.33)
-                CoachDT.Rows(i).Item("Adjustments") = MT.GetGaussian(30, 8.33)
                 CoachDT.Rows(i).Item("PlaycallingSkill") = MT.GetGaussian(15, 5.0)
-                CoachDT.Rows(i).Item("FBInt") = MT.GetGaussian(25, 8.33)
+
         End Select
     End Sub
     ''' <summary>
@@ -999,7 +938,7 @@
     ''' <summary>
     ''' Cycle through the list of coaches and put them on teams
     ''' </summary>
-    Private Sub PutCoachesOnTeams()
+    Public Sub PutCoachesOnTeams(ByVal CoachDT As DataTable)
         Dim GetRow As Integer
         Try
             For team As Integer = 1 To 32
@@ -1018,4 +957,5 @@
             Console.WriteLine(ex.Data)
         End Try
     End Sub
+
 End Class

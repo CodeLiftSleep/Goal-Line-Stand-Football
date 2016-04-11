@@ -64,6 +64,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agent.vb" />
     <Compile Include="Coaches.vb" />
     <Compile Include="CollegePlayers.vb" />
     <Compile Include="Evaluation.vb" />
@@ -90,6 +91,7 @@
     <Compile Include="Personnel.vb" />
     <Compile Include="Players.vb" />
     <Compile Include="Scouts.vb" />
+    <Compile Include="Trainer.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
