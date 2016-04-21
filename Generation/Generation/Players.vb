@@ -1,6 +1,5 @@
-﻿
-''' <summary>
-''' This will be the parent class for both NFLPlayers and CollegePlayers.  
+﻿''' <summary>
+''' This will be the parent class for both NFLPlayers and CollegePlayers.
 ''' </summary>
 Public Class Players
     Inherits Person
@@ -15,31 +14,31 @@ Public Class Players
         Select Case PlayerType
             Case "College"
 
-                SQLFieldNames = "DraftID int PRIMARY KEY NOT NULL, AgentID int NULL, FName varchar(20) NULL, LName varchar(20) NULL, College varchar(50) NULL, ScoutRegion varchar(10) NULL, Height int NULL, Weight int NULL, Age int NULL, DOB varchar(12) NULL, 
-CollegePOS varchar(5) NULL, ActualGrade decimal(5,2) NULL, ProjNFLPos varchar(5) NULL, PosType varchar(20) NULL,  ArmLength decimal(4,2) NULL, HandLength decimal(4,2) NULL, FortyYardTime decimal(3,2) NULL, TwentyYardTime decimal(3,2) NULL, 
-TenYardTime decimal(3,2) NULL, ShortShuttle decimal(3,2) NULL, BroadJump int NULL, VertJump decimal(3,1) NULL, ThreeConeDrill decimal(3,2) NULL, BenchPress int NULL, InterviewSkills int NULL, WonderlicTest int NULL, SkillsTranslateToNFL int NULL, 
-Reaction int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL, StiffArm int NULL, ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL, ContactBalance int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL,
-UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL, PlaySpeed int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, 
-Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, RETKickReturn int NULL, RETPuntReturn int NULL, PlayStrength int NULL, QBMechanics int NULL, 
-QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL, QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL, QBScrambling int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, 
-QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, RBPatience int NULL, WRRunDBOff int NULL, WRDisguiseRoute int NULL, OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, OLSnapAbility int NULL, 
-OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL, DLSecondaryTech varchar(15) NULL, DLPassRushTech varchar(15) NULL, DLRunAtHim int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, DLRunPursuit int NULL, 
- DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL, LBDropDepth int NULL, LBFillGaps int NULL, DBPressBailCoverage int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, 
-DBCatchUpSpeed int NULL, DBTechnique int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL, PDistance int NULL, PHangTime int NULL, STCoverage int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, 
-Flexibility int NULL, Consistency int NULL, Instincts int NULL, Coachability int NULL, Leadership int NULL, Confidence int NULL, Clutch int NULL, WorkEthic int NULL, FilmStudy int NULL, Durability int NULL, Explosion int NULL, DeliversBlow int NULL, 
-Toughness int NULL, ReadKeys int NULL, FieldAwareness int NULL, PlaybookKnowledge int NULL, BallSecurity int NULL, LovesFootball int NULL, Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NULL, " + MyPerson.SQLString
+                SQLFieldNames = "DraftID int PRIMARY KEY NOT NULL, AgentID int NULL, FName varchar(20) NULL, LName varchar(20) NULL, College varchar(50) NULL, ScoutRegion varchar(10) NULL, Height int NULL, Weight int NULL, Age int NULL, DOB varchar(12) NULL," +
+"CollegePOS varchar(5) NULL, ActualGrade decimal(5,2) NULL, ProjNFLPos varchar(5) NULL, PosType varchar(20) NULL,  ArmLength decimal(4,2) NULL, HandLength decimal(4,2) NULL, FortyYardTime decimal(3,2) NULL, TwentyYardTime decimal(3,2) NULL," +
+"TenYardTime decimal(3,2) NULL, ShortShuttle decimal(3,2) NULL, BroadJump int NULL, VertJump decimal(3,1) NULL, ThreeConeDrill decimal(3,2) NULL, BenchPress int NULL, InterviewSkills int NULL, WonderlicTest int NULL, SkillsTranslateToNFL int NULL," +
+"Reaction int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL, StiffArm int NULL, ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL, ContactBalance int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL," +
+"UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL, PlaySpeed int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL," +
+"Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, RETKickReturn int NULL, RETPuntReturn int NULL, PlayStrength int NULL, QBMechanics int NULL," +
+"QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL, QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL, QBScrambling int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL," +
+"QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, RBPatience int NULL, WRRunDBOff int NULL, WRDisguiseRoute int NULL, OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, OLSnapAbility int NULL," +
+"OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL, DLSecondaryTech varchar(15) NULL, DLPassRushTech varchar(15) NULL, DLRunAtHim int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, DLRunPursuit int NULL," +
+"DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL, LBDropDepth int NULL, LBFillGaps int NULL, DBPressBailCoverage int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, DBCatchUpSpeed int NULL, DBTechnique int NULL," +
+"KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL, PDistance int NULL, PHangTime int NULL, STCoverage int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, Flexibility int NULL, Consistency int NULL," +
+"Instincts int NULL, Coachability int NULL, Leadership int NULL, Confidence int NULL, Clutch int NULL, WorkEthic int NULL, FilmStudy int NULL, Durability int NULL, Explosion int NULL, DeliversBlow int NULL, Toughness int NULL, ReadKeys int NULL," +
+"FieldAwareness int NULL, PlaybookKnowledge int NULL, BallSecurity int NULL, LovesFootball int NULL, Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NULL, " + MyPerson.SQLString
 
             Case "NFL"
 
-                SQLFieldNames = "PlayerID int PRIMARY KEY NOT NULL, AgentID int NULL, TeamID int NULL, FName varchar(20) NULL, LName varchar(20) NULL, College varchar(50) NULL, ScoutRegion varchar(10) NULL, Age int NULL, DOB varchar(12) NULL, Height int NULL, 
-Weight int NULL, ArmLength decimal(4,2) NULL, HandLength decimal(4,2) NULL, Pos varchar(4) NULL, PosType varchar(20) NULL, FortyYardTime decimal(3,2) NULL, Reaction int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL, StiffArm int NULL, 
-ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL, ContactBalance int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL, UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, 
-PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL, PlaySpeed int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, 
-DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, RETKickReturn int NULL, RETPuntReturn int NULL, PlayStrength int NULL, QBMechanics int NULL, QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL, 
-QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL, QBScrambling int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, 
+                SQLFieldNames = "PlayerID int PRIMARY KEY Not NULL, AgentID int NULL, TeamID int NULL, FName varchar(20) NULL, LName varchar(20) NULL, College varchar(50) NULL, ScoutRegion varchar(10) NULL, Age int NULL, DOB varchar(12) NULL, Height int NULL,
+Weight int NULL, ArmLength decimal(4,2) NULL, HandLength decimal(4,2) NULL, Pos varchar(4) NULL, PosType varchar(20) NULL, FortyYardTime decimal(3,2) NULL, Reaction int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL, StiffArm int NULL,
+ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL, ContactBalance int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL, UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL,
+PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL, PlaySpeed int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL,
+DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, RETKickReturn int NULL, RETPuntReturn int NULL, PlayStrength int NULL, QBMechanics int NULL, QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL,
+QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL, QBScrambling int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL,
 RBPatience int NULL, WRRunDBOff int NULL, WRDisguiseRoute int NULL, OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, OLSnapAbility int NULL, OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL,
-DLSecondaryTech varchar(15) NULL, DLPassRushTech varchar(15) NULL, DLRunAtHim int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, DLRunPursuit int NULL,  DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL, 
-LBDropDepth int NULL, LBFillGaps int NULL, DBPressBailCoverage int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, DBCatchUpSpeed int NULL, DBTechnique int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL, 
+DLSecondaryTech varchar(15) NULL, DLPassRushTech varchar(15) NULL, DLRunAtHim int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, DLRunPursuit int NULL,  DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL,
+LBDropDepth int NULL, LBFillGaps int NULL, DBPressBailCoverage int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, DBCatchUpSpeed int NULL, DBTechnique int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL,
 PDistance int NULL, PHangTime int NULL, STCoverage int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, Flexibility int NULL, Consistency int NULL, Instincts int NULL, Coachability int NULL, Leadership int NULL, Confidence int NULL,
 Clutch int NULL, WorkEthic int NULL, FilmStudy int NULL, Durability int NULL, Explosion int NULL, DeliversBlow int NULL, Toughness int NULL, ReadKeys int NULL, FieldAwareness int NULL, PlaybookKnowledge int NULL, BallSecurity int NULL, LovesFootball int NULL,
 Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NULL, " + MyPerson.SQLString
@@ -81,11 +80,11 @@ Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NU
             Case "WR"
                 Select Case MT.GenerateInt32(1, 305)
                     Case 1 : result = Math.Round(MT.GenerateDouble(4.25, 4.29), 2)
-                    Case 2 To 16 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
-                    Case 17 To 75 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
-                    Case 76 To 203 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
-                    Case 204 To 293 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
-                    Case 294 To 305 : result = Math.Round(MT.GenerateDouble(4.7, 4.84), 2)
+                    Case 2 To 20 : result = Math.Round(MT.GenerateDouble(4.3, 4.39), 2)
+                    Case 21 To 95 : result = Math.Round(MT.GenerateDouble(4.4, 4.49), 2)
+                    Case 96 To 235 : result = Math.Round(MT.GenerateDouble(4.5, 4.59), 2)
+                    Case 236 To 300 : result = Math.Round(MT.GenerateDouble(4.6, 4.69), 2)
+                    Case 301 To 305 : result = Math.Round(MT.GenerateDouble(4.7, 4.84), 2)
                 End Select
                 'Case "TE" : result = Math.Round(MT.GetGaussian(4.82, 0.132), 2)
             Case "TE"
@@ -651,14 +650,14 @@ Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NU
 
         End Select
         'Reaction Int NULL, QAB int NULL, COD int NULL, Hands int NULL, BodyCatch int NULL, ReleaseOffLine int NULL, CatchWhenHit int NULL, BreaksTackles int NULL,
-        'ContactBalance Int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL, UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL, 
-        'PlaySpeed Int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL, 
-        'RETKickReturn Int NULL, RETPuntReturn int NULL, PlayStrength int NULL, QBMechanics int NULL, QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL, QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL, 
-        'QBScrambling Int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, RBPatience int NULL, WRRunDBOff int NULL, 
-        'WRDisguiseRoute Int NULL, OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, OLSnapAbility int NULL, OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL, DLSecondaryTech varchar(15) NULL, 
+        'ContactBalance Int NULL, RunAfterCatch int NULL, LowerBodyStrength int NULL, UpperBodyStrength int NULL, Footwork int NULL, HandUse int NULL, JumpingAbility int NULL, PassBlockVsPower int NULL, PassBlockVsSpeed int NULL, RunBlocking int NULL,
+        'PlaySpeed Int NULL, RouteRunning int NULL, KickAccuracy int NULL, AdjustToBall int NULL, Tackling int NULL, Blitz int NULL, AvoidBlockers int NULL, ShedBlock int NULL, DefeatBlock int NULL, ManToManCoverage int NULL, ZoneCoverage int NULL,
+        'RETKickReturn Int NULL, RETPuntReturn int NULL, PlayStrength int NULL, QBMechanics int NULL, QBRelQuickness int NULL, QBAccuracy int NULL, QBDecMaking int NULL, QBBallHandling int NULL, QBLocateRec int NULL, QBPocketPresence int NULL, QBEscape int NULL,
+        'QBScrambling Int NULL, QBRolloutRight int NULL, QBRolloutLeft int NULL, QBArmStrength int NULL, QBTouch int NULL, QBPlayAction int NULL, RBRunVision int NULL, RBSetsUpBlocks int NULL, RBPatience int NULL, WRRunDBOff int NULL,
+        'WRDisguiseRoute Int NULL, OLPulling int NULL, OLSlide int NULL, OLMoveInSpace int NULL, OLSnapAbility int NULL, OLLongSnapAbility int NULL, OLAnchorAbility int NULL, OLRecover int NULL, DLPrimaryTech varchar(15) NULL, DLSecondaryTech varchar(15) NULL,
         'DLRunAtHim Int NULL, DLAgainstPullAbility int NULL, DLSlideABility int NULL, DLRunPursuit int NULL, DLPassRushTech varchar(15) NULL, DLCanTakeDoubleTeam int NULL, DLFinish int NULL, DLsetUpPassRush int NULL, LBDropDepth int NULL, LBFillGaps int NULL,
-        'DBPressBailCoverage Int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, DBCatchUpSpeed int NULL, DBTechnique int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL, PDistance int NULL, PHangTime int NULL, 
-        'STCoverage Int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, Flexibility int NULL, Consistency int NULL, Instincts int NULL, FilmStudy int NULL, Durability int NULL, Explosion int NULL, DeliversBlow int NULL, 
+        'DBPressBailCoverage Int NULL, DBRunContain int NULL, DBBump int NULL, DBBaitQB int NULL, DBCatchUpSpeed int NULL, DBTechnique int NULL, KFakeAbility int NULL, KKickRise int NULL, PFakeAbility int NULL, PDistance int NULL, PHangTime int NULL,
+        'STCoverage Int NULL, STWillingness int NULL, STAssignment int NULL, STDiscipline int NULL, Flexibility int NULL, Consistency int NULL, Instincts int NULL, FilmStudy int NULL, Durability int NULL, Explosion int NULL, DeliversBlow int NULL,
         'Toughness Int NULL, ReadKeys int NULL, FieldAwareness int NULL, PlaybookKnowledge int NULL, BallSecurity int NULL, LovesFootball int NULL, Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NULL, "
         Return result
     End Function
@@ -996,7 +995,6 @@ Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NU
                         PrimWeakness.Add("Confidence")
                         SecWeakness.Add("Toughness")
                         SecWeakness.Add("BallSecurity")
-
 
                     Case "Mobile" 'Mobile QB---boosts to playspeed, escape, rollout, QAB and COD--typically suffer from poor footwork, lack of pocket presence
                         PrimStrength.Add("Explosion")
@@ -1388,7 +1386,7 @@ Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NU
 
             Case "DT"
                 Select Case PosType
-                    Case "Penetrator" 'Athletic, quick 
+                    Case "Penetrator" 'Athletic, quick
                         PrimStrength.Add("Explosion")
                         PrimStrength.Add("HandUse")
                         SecStrength.Add("QAB")
@@ -1721,16 +1719,16 @@ Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NU
                     Case "DirectionalPunter"
                         PrimStrength.Add("KickAccuracy")
                         SecStrength.Add("Footwork")
-                                PrimWeakness.Add("Explosion")
-                                SecWeakness.Add("LowerBodyStrength")
+                        PrimWeakness.Add("Explosion")
+                        SecWeakness.Add("LowerBodyStrength")
 
-                            Case "AussieRules"
-                                PrimStrength.Add("Reaction") 'catch bad punts
-                                SecStrength.Add("Consistency")
-                                PrimWeakness.Add("Footwork")
-                                SecWeakness.Add("LowerBodyStrength")
-                        End Select
+                    Case "AussieRules"
+                        PrimStrength.Add("Reaction") 'catch bad punts
+                        SecStrength.Add("Consistency")
+                        PrimWeakness.Add("Footwork")
+                        SecWeakness.Add("LowerBodyStrength")
                 End Select
+        End Select
 
         If PrimStrength.Count > 0 Then
             For i As Integer = 0 To PrimStrength.Count - 1
@@ -1745,7 +1743,6 @@ Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NU
                 'Console.WriteLine("{0}: {1}", SecWeakness(i), DT.Rows(IDNum).Item(SecWeakness(i)))
             Next i
         End If
-
 
         If DT.Rows(IDNum).Item("PlaySpeed") > 100 Then
             DT.Rows(IDNum).Item("FortyYardTime") = 4.3
@@ -1910,7 +1907,6 @@ Concentration int NULL, HandlesElements int NULL, Potential int NULL, Raw int NU
                         result = "Tweener4-3" 'Athletic
                     Case Else
                         result = "SamPrototype4-3" 'must be a good run defender but also covers tight end---good all around player
-
 
                 End Select
             Case "ILB"

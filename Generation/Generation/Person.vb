@@ -10,13 +10,13 @@ Imports SQLFunctions.SQLiteDataFunctions
 ''' Insecure/Adaptable/Expermiental/Analytical/Critical/SelfSufficient/Resourceful/Individualistic/Loner/Perfectionist/StrongWilled/Organized/Controlling/HighEnergy/Impatient/Driven/Tense/Honesty/Fairness/GreedAvoidance/Modesty
 ''' </summary>
 Public Class Person
-    Dim DTOutputTo As DataTable
-
-    Public SQLString As String = "AbsentMinded int NULL, AbstractReasoning int NULL, AbstractThinker int NULL, Adaptable int NULL, Adventurous int NULL, Aggressive int NULL, Analytical int NULL, Astute int NULL, Bossy int NULL, CalmUnderPressure int NULL, 
-Caring int NULL, Competitive int NULL, Conforming int NULL, Controlling int NULL, Critical int NULL, Diplomatic int NULL, Driven int NULL, Dutiful int NULL, EmotionallyStable int NULL, Enthusiastic int NULL, Expermiental int NULL, Expressive int NULL, 
-Fairness int NULL, Fearful int NULL, FollowsRules int NULL, Friendly int NULL, FunLoving int NULL, GuiltProne int NULL, GreedAvoidance int NULL, HighEnergy int NULL, Honesty int NULL, Imaginative int NULL, Impatient int NULL, Impractical int NULL,
-Impulsive int NULL, Individualistic int NULL, Insecure int NULL, Intelligent int NULL, Loner int NULL, Mature int NULL, MentalCapacity int NULL, Modesty int NULL, Moralistic int NULL, Nurturing int NULL,  Organized int NULL, Participator int NULL, 
-Perfectionist int NULL, Polished int NULL, Private int NULL, Resourceful int NULL, SelfDoubting int NULL, SelfSufficient int NULL, StrongWilled int NULL, Stubborn int NULL, TeamPlayer int NULL, Tense int NULL, Vigilant int NULL"
+    'Dim DTOutputTo As DataTable
+    Dim ex As Exception
+    Public SQLString As String = "AbsentMinded int NULL, AbstractReasoning int NULL, AbstractThinker int NULL, Adaptable int NULL, Adventurous int NULL, Aggressive int NULL, Analytical int NULL, Astute int NULL, Bossy int NULL, CalmUnderPressure int NULL," +
+"Caring int NULL, Competitive int NULL, Conforming int NULL, Controlling int NULL, Critical int NULL, Diplomatic int NULL, Driven int NULL, Dutiful int NULL, EmotionallyStable int NULL, Enthusiastic int NULL, Expermiental int NULL, Expressive int NULL," +
+"Fairness int NULL, Fearful int NULL, FollowsRules int NULL, Friendly int NULL, FunLoving int NULL, GuiltProne int NULL, GreedAvoidance int NULL, HighEnergy int NULL, Honesty int NULL, Imaginative int NULL, Impatient int NULL, Impractical int NULL," +
+"Impulsive int NULL, Individualistic int NULL, Insecure int NULL, Intelligent int NULL, Loner int NULL, Mature int NULL, MentalCapacity int NULL, Modesty int NULL, Moralistic int NULL, Nurturing int NULL,  Organized int NULL, Participator int NULL," +
+"Perfectionist int NULL, Polished int NULL, Private int NULL, Resourceful int NULL, SelfDoubting int NULL, SelfSufficient int NULL, StrongWilled int NULL, Stubborn int NULL, TeamPlayer int NULL, Tense int NULL, Vigilant int NULL"
     Property Caring As Integer
     Property Nurturing As Integer
     Property AbstractReasoning As Integer
@@ -942,12 +942,12 @@ Perfectionist int NULL, Polished int NULL, Private int NULL, Resourceful int NUL
         Return Math.Round(MT.GetGaussian((Height * 0.435), 0.55), 2)
     End Function
     ''' <summary>
-    '''Introversion/Extraversion	        Low Anxiety/High Anxiety	         Receptivity/Tough-Mindedness	         Accommodation/Independence	                Lack of Restraint/Self-Control	
+    '''Introversion/Extraversion	        Low Anxiety/High Anxiety	         Receptivity/Tough-Mindedness	         Accommodation/Independence	                Lack of Restraint/Self-Control
     '''A: Reserved/Warm	                    C: Emotionally Stable/Reactive	     A: Warm/Reserved	                     E: Deferential/Dominant	                F: Serious/Lively	                         B: Problem-Solving
-    '''F: Serious/Lively	                L: Trusting/Vigilant	             I: Sensitive/Unsentimental	             H: Shy/Bold	                            G: Expedient/Rule-Conscious	
-    '''H: Shy/Bold	                        O: Self-Assured/Apprehensive	     M: Abstracted/Practical	             L: Trusting/Vigilant	                    M: Abstracted/Practical	
-    '''N:  Private/Forthright	            Q4: Relaxed/Tense	                 Q1: Open-to-Change/Traditional	         Q1: Traditional/Open-to-Change	            Q3: Tolerates Disorder/Perfectionistic	
-    '''Q2: Self-Reliant/Group-Oriented		
+    '''F: Serious/Lively	                L: Trusting/Vigilant	             I: Sensitive/Unsentimental	             H: Shy/Bold	                            G: Expedient/Rule-Conscious
+    '''H: Shy/Bold	                        O: Self-Assured/Apprehensive	     M: Abstracted/Practical	             L: Trusting/Vigilant	                    M: Abstracted/Practical
+    '''N:  Private/Forthright	            Q4: Relaxed/Tense	                 Q1: Open-to-Change/Traditional	         Q1: Traditional/Open-to-Change	            Q3: Tolerates Disorder/Perfectionistic
+    '''Q2: Self-Reliant/Group-Oriented
     ''' </summary>
 
     Public Sub PersonalityModel()
@@ -1077,33 +1077,36 @@ Perfectionist int NULL, Polished int NULL, Private int NULL, Resourceful int NUL
         BalancedTraits.Add("Perfectionism")
         BalancedTraits.Add("Tension")
         BalancedTraits.Add("Honesty")
+        Try
+            For i As Integer = 1 To 4 'randomly select 4 positive traits
+                result = MT.GenerateInt32(0, BalancedTraits.Count - 1)
+                PositiveTraits.Add(BalancedTraits.Item(result))
+                BalancedTraits.Remove(BalancedTraits.Item(result))
+            Next i
 
-        For i As Integer = 1 To 4 'randomly select 4 positive traits
-            result = MT.GenerateInt32(0, BalancedTraits.Count - 1)
-            PositiveTraits.Add(BalancedTraits.Item(result))
-            BalancedTraits.Remove(BalancedTraits.Item(result))
-        Next i
+            For i As Integer = 1 To 4 'randomly select 4 negative traits---the remainder stay balanced
+                result = MT.GenerateInt32(0, BalancedTraits.Count - 1)
+                NegativeTraits.Add(BalancedTraits.Item(result))
+                BalancedTraits.Remove(BalancedTraits.Item(result))
+            Next i
 
-        For i As Integer = 1 To 4 'randomly select 4 negative traits---the remainder stay balanced
-            result = MT.GenerateInt32(0, BalancedTraits.Count - 1)
-            NegativeTraits.Add(BalancedTraits.Item(result))
-            BalancedTraits.Remove(BalancedTraits.Item(result))
-        Next i
+            For i As Integer = 0 To PositiveTraits.Count - 1
+                GetTrait(PositiveTraits.Item(i), "Positive")
+            Next i
 
-        For i As Integer = 0 To PositiveTraits.Count - 1
-            GetTrait(PositiveTraits.Item(i), "Positive")
-        Next i
+            For i As Integer = 0 To NegativeTraits.Count - 1
+                GetTrait(NegativeTraits.Item(i), "Negative")
+            Next i
 
-        For i As Integer = 0 To NegativeTraits.Count - 1
-            GetTrait(NegativeTraits.Item(i), "Negative")
-        Next i
+            For i As Integer = 0 To BalancedTraits.Count - 1
+                GetTrait(BalancedTraits.Item(i), "Balanced")
+            Next i
 
-        For i As Integer = 0 To BalancedTraits.Count - 1
-            GetTrait(BalancedTraits.Item(i), "Balanced")
-        Next i
-
-        GetTrait("Reasoning", "Gaussian")
-
+            GetTrait("Reasoning", "Gaussian")
+        Catch ex As TypeInitializationException
+            Console.WriteLine(ex.Message)
+            Console.WriteLine(ex.Data)
+        End Try
     End Sub
     ''' <summary>
     ''' This sets their traits---4 of the 16 groups will be positive traits, 4 of the 16 groups will be negative traits and the other 8 groups will be balanced, reasoning is its own group and has no positive or negative association
@@ -1406,23 +1409,28 @@ Perfectionist int NULL, Polished int NULL, Private int NULL, Resourceful int NUL
                 AbstractReasoning = MT.GetGaussian(49.5, 16.5)
         End Select
     End Sub
-    Public Sub Initialize(ByVal DBName As String, ByVal DT As DataTable, ByVal TableName As String, SQLFieldNames As String)
+    Public Sub Initialize(ByVal DBName As String, ByVal DT As DataTable, ByVal TableName As String, SQLFieldNames As String, Optional ByVal MyFilePath As String = "")
         Try
-            SQLiteTables.CreateTable(DBName, DT, TableName, SQLFieldNames)
-            SQLiteTables.LoadTable(DBName, DT, TableName)
+
+            SQLiteTables.CreateTable(DBName, DT, TableName, SQLFieldNames, MyFilePath)
+            SQLiteTables.DeleteTable(DBName, DT, TableName, MyFilePath)
+            SQLiteTables.LoadTable(DBName, DT, TableName, MyFilePath)
+
             DT.Rows.Add(0)
-        Catch ex As System.InvalidOperationException
-            Console.WriteLine(ex.Message)
-            Console.WriteLine(ex.Data)
+            LoadData()
+        Catch ex As Exception
+            ExMsgBox()
         End Try
     End Sub
-    Public Sub Update(ByVal DBName As String, ByVal DT As DataTable, ByVal TableName As String)
+    Private Sub ExMsgBox()
+        MsgBox(String.Format("The following errors occured: {0} \n {1}", ex.Data, ex.StackTrace))
+    End Sub
+    Public Sub Update(ByVal DBName As String, ByVal DT As DataTable, ByVal TableName As String, Optional ByVal MyFilePath As String = "")
         Try
-            SQLiteTables.BulkInsert(DBName, DT, TableName)
+            SQLiteTables.BulkInsert(DBName, DT, TableName, MyFilePath)
         Catch ex As System.InvalidOperationException
             Console.WriteLine(ex.Message)
             Console.WriteLine(ex.Data)
         End Try
     End Sub
 End Class
-

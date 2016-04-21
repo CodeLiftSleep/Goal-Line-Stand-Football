@@ -1,51 +1,53 @@
-﻿
-Imports System.Text.RegularExpressions
+﻿Imports System.Text.RegularExpressions
 Public Class CollegePlayers
     Inherits Players
     Dim MyPos As String
     Dim PosType As String
     Dim DraftRound As String
+    Public Count(14) As Integer
+    Public PosCount(14, 17) As Integer
+    'Public DraftDT As DataTable
 
-    Public Sub GenDraftPlayers(ByVal PlayerNum As Integer, ByVal XCollegePlayer As CollegePlayers, ByVal DraftDT As DataTable, ByVal DraftClass As ArrayList)
+    Public Sub GenDraftPlayers(ByVal playerNum As Integer, ByVal XCollegePlayer As CollegePlayers, ByVal DraftDT As DataTable, ByVal DraftClass As ArrayList)
 
         XCollegePlayer = New CollegePlayers
 
         Try
-            DraftDT.Rows.Add(PlayerNum)
-            MyPos = GetCollegePos(PlayerNum, DraftDT)
-            DraftDT.Rows(PlayerNum).Item("FortyYardTime") = Get40Time(MyPos, PlayerNum, DraftDT)
-            PosType = GetPosType(MyPos, PlayerNum, DraftDT)
-            DraftDT.Rows(PlayerNum).Item("CollegePOS") = String.Format("'{0}'", MyPos)
-            DraftDT.Rows(PlayerNum).Item("PosType") = String.Format("'{0}'", PosType)
-            GenNames(DraftDT, PlayerNum, "CollegePlayer", MyPos)
-            GetPersonalityStats(DraftDT, PlayerNum, XCollegePlayer)
+            DraftDT.Rows.Add(playerNum)
+            MyPos = GetCollegePos(playerNum, DraftDT)
+            DraftDT.Rows(playerNum).Item("FortyYardTime") = Get40Time(MyPos, playerNum, DraftDT)
+            PosType = GetPosType(MyPos, playerNum, DraftDT)
+            DraftDT.Rows(playerNum).Item("CollegePOS") = String.Format("'{0}'", MyPos)
+            DraftDT.Rows(playerNum).Item("PosType") = String.Format("'{0}'", PosType)
+            GenNames(DraftDT, playerNum, "CollegePlayer", MyPos)
+            GetPersonalityStats(DraftDT, playerNum, XCollegePlayer)
             DraftRound = GetDraftRound(MyPos, DraftClass)
-            DraftDT.Rows(PlayerNum).Item("TwentyYardTime") = Get20Time(MyPos)
-            DraftDT.Rows(PlayerNum).Item("TenYardTime") = Get10Time(MyPos)
-            DraftDT.Rows(PlayerNum).Item("ShortShuttle") = GetShortShuttle(MyPos)
-            DraftDT.Rows(PlayerNum).Item("BroadJump") = GetBroadJump(MyPos)
-            DraftDT.Rows(PlayerNum).Item("VertJump") = GetVertJump(MyPos)
-            DraftDT.Rows(PlayerNum).Item("ThreeConeDrill") = Get3Cone(MyPos)
-            DraftDT.Rows(PlayerNum).Item("BenchPress") = GetBenchPress(MyPos)
-            DraftDT.Rows(PlayerNum).Item("InterviewSkills") = CInt(MT.GetGaussian(49.5, 16.5))
-            DraftDT.Rows(PlayerNum).Item("WonderlicTest") = GetWonderlic(MyPos)
-            DraftDT.Rows(PlayerNum).Item("SkillsTranslateToNFL") = GetSkillsTranslate(MyPos)
-            DraftDT.Rows(PlayerNum).Item("ProjNFLPos") = GetNFLPos(String.Format("'{0}'", MyPos), PlayerNum)
-            DraftDT.Rows(PlayerNum).Item("DLPrimaryTech") = "'NONE'"
-            DraftDT.Rows(PlayerNum).Item("DLSecondaryTech") = "'NONE'"
-            DraftDT.Rows(PlayerNum).Item("DLPassRushTech") = "'NONE'"
-            DraftDT.Rows(PlayerNum).Item("RETKickReturn") = GetKickRetAbility(MyPos, PlayerNum)
-            DraftDT.Rows(PlayerNum).Item("RETPuntReturn") = GetPuntRetAbility(MyPos, PlayerNum, DraftDT)
-            GetSTAbility(MyPos, PlayerNum, DraftDT)
-            GetLSAbility(MyPos, PlayerNum, DraftDT)
-            GetKeyRatings(DraftDT, PlayerNum, MyPos, DraftRound) 'Assigns base ratings based on Round drafted using an Exponential Decay Function 
+            DraftDT.Rows(playerNum).Item("TwentyYardTime") = Get20Time(MyPos)
+            DraftDT.Rows(playerNum).Item("TenYardTime") = Get10Time(MyPos)
+            DraftDT.Rows(playerNum).Item("ShortShuttle") = GetShortShuttle(MyPos)
+            DraftDT.Rows(playerNum).Item("BroadJump") = GetBroadJump(MyPos)
+            DraftDT.Rows(playerNum).Item("VertJump") = GetVertJump(MyPos)
+            DraftDT.Rows(playerNum).Item("ThreeConeDrill") = Get3Cone(MyPos)
+            DraftDT.Rows(playerNum).Item("BenchPress") = GetBenchPress(MyPos)
+            DraftDT.Rows(playerNum).Item("InterviewSkills") = CInt(MT.GetGaussian(49.5, 16.5))
+            DraftDT.Rows(playerNum).Item("WonderlicTest") = GetWonderlic(MyPos)
+            DraftDT.Rows(playerNum).Item("SkillsTranslateToNFL") = GetSkillsTranslate(MyPos)
+            DraftDT.Rows(playerNum).Item("ProjNFLPos") = GetNFLPos(String.Format("'{0}'", MyPos), playerNum)
+            DraftDT.Rows(playerNum).Item("DLPrimaryTech") = "'NONE'"
+            DraftDT.Rows(playerNum).Item("DLSecondaryTech") = "'NONE'"
+            DraftDT.Rows(playerNum).Item("DLPassRushTech") = "'NONE'"
+            DraftDT.Rows(playerNum).Item("RETKickReturn") = GetKickRetAbility(MyPos, playerNum)
+            DraftDT.Rows(playerNum).Item("RETPuntReturn") = GetPuntRetAbility(MyPos, playerNum, DraftDT)
+            GetSTAbility(MyPos, playerNum, DraftDT)
+            GetLSAbility(MyPos, playerNum, DraftDT)
+            GetKeyRatings(DraftDT, playerNum, MyPos, DraftRound) 'Assigns base ratings based on Round drafted using an Exponential Decay Function
 
             For x As Integer = 0 To DraftDT.Columns.Count - 1 'cycles through the columns and assigns a rating to any of them that are still NULL values
-                If DraftDT.Rows(PlayerNum).Item(x) Is DBNull.Value Then
-                    DraftDT.Rows(PlayerNum).Item(x) = MT.GetGaussian(49.5, 16.5)
+                If DraftDT.Rows(playerNum).Item(x) Is DBNull.Value Then
+                    DraftDT.Rows(playerNum).Item(x) = MT.GetGaussian(49.5, 16.5)
                 End If
             Next x
-            GetPosRatings(MyPos, PosType, PlayerNum, DraftDT) 'Will get positional skills for players based on their position type
+            GetPosRatings(MyPos, PosType, playerNum, DraftDT) 'Will get positional skills for players based on their position type
 
         Catch ex As System.InvalidCastException
             Console.WriteLine(ex.Data)
@@ -64,18 +66,18 @@ Public Class CollegePlayers
     ''' LB ---> SF ---Typically "smaller" LB's in college that are athletic and fast enough to play safety but don't have enough size to play LB(Adam Archuleta for example)
     ''' FB ---> TE ---Typically the more athletic FB's in college in a run heavy offensive scheme can make more use of their skills as a TE or H-Back(Charles Clay for example)
     ''' other examples and less common changes occur---
-    ''' 
+    '''
     ''' Need to figure out how often and under what circumstances a player would have a different position---currently it sets it to the same position as they are in college
-    ''' 
+    '''
     ''' on offense: QB > WR(RB) > RB > FB > TE > OT > OG > OC
-    ''' QB--->WR: Athleticism, speed, quickness, catching ability/QB Traits: Arm strength, height, 
-    ''' 
-    ''' 
-    ''' 
-    ''' 
+    ''' QB--->WR: Athleticism, speed, quickness, catching ability/QB Traits: Arm strength, height,
+    '''
+    '''
+    '''
+    '''
     ''' On Defense: CB > S > LB > DE > DT
     '''
-    ''' players are able To move up Or down 1 slot - so starting from most athletic To least athletic defensively you'd have CB > S > LB > DE > DT. 
+    ''' players are able To move up Or down 1 slot - so starting from most athletic To least athletic defensively you'd have CB > S > LB > DE > DT.
     ''' So all a corner could do Is move DOWN. Safeties can move UP Or DOWN to corner Or LB. Any player moving UP would need to have considerable athleticism.
     '''</summary>
     ''' <param name="Pos"></param>
@@ -400,7 +402,7 @@ Public Class CollegePlayers
     ''' CBPrecentageTopEnd, CBPercentageMidRound,SFPercentageTopEnd, SFPercentageidRound)
     ''' </summary>
 
-    Public Function GenDraftClass(ByVal DraftClassType As ArrayList) As ArrayList
+    Public Function GenDraftClass(ByVal DraftClassType As ArrayList, Optional ByVal DraftClassDesc As List(Of String) = Nothing) As ArrayList
         Dim result As Integer
         Dim TopEnd As Double
         Dim MidRound As Double
@@ -424,24 +426,31 @@ Public Class CollegePlayers
                 Case 1 To 2 'poor
                     TopEnd = MT.GenerateDouble(0.65, 0.75)
                     MidRound = MT.GenerateDouble(0.65, 0.75)
+                    DraftClassDesc.Add("Poor")
                 Case 3 To 8 'shallow
                     TopEnd = MT.GenerateDouble(0.87, 0.97)
                     MidRound = MT.GenerateDouble(0.65, 0.75)
+                    DraftClassDesc.Add("Shallow")
                 Case 9 To 15 'LackingButDeep
                     TopEnd = MT.GenerateDouble(0.75, 0.85)
                     MidRound = MT.GenerateDouble(1.15, 1.25)
+                    DraftClassDesc.Add("LackingButDeep")
                 Case 16 To 86 'Normal
                     TopEnd = MT.GenerateDouble(0.95, 1.05)
                     MidRound = MT.GenerateDouble(0.95, 1.05)
+                    DraftClassDesc.Add("Normal")
                 Case 87 To 92 'TopHeavy
                     TopEnd = MT.GenerateDouble(1.15, 1.25)
                     MidRound = MT.GenerateDouble(0.75, 0.85)
+                    DraftClassDesc.Add("TopHeavy")
                 Case 93 To 98 'Deep
                     TopEnd = MT.GenerateDouble(1.03, 1.13)
                     MidRound = MT.GenerateDouble(1.25, 1.35)
+                    DraftClassDesc.Add("Deep")
                 Case 99 To 100 'Stacked
                     TopEnd = MT.GenerateDouble(1.25, 1.35)
                     MidRound = MT.GenerateDouble(1.25, 1.35)
+                    DraftClassDesc.Add("Stacked")
             End Select
 
             DraftClassType.Add(TopEnd)
@@ -464,22 +473,39 @@ Public Class CollegePlayers
 
         Select Case Pos
             Case "QB" : CheckPos = 0
+
             Case "RB" : CheckPos = 2
+
             Case "FB" : CheckPos = 4
+
             Case "WR" : CheckPos = 6
+
             Case "TE" : CheckPos = 8
+
             Case "OT" : CheckPos = 10
+
             Case "C" : CheckPos = 12
+
             Case "OG" : CheckPos = 14
+
             Case "DE" : CheckPos = 16
+
             Case "DT" : CheckPos = 18
+
             Case "OLB" : CheckPos = 20
+
             Case "ILB" : CheckPos = 22
+
             Case "CB" : CheckPos = 24
+
             Case "FS" : CheckPos = 26
+
             Case "SS" : CheckPos = 28
+
             Case "K" : CheckPos = 30
+
             Case "P" : CheckPos = 32
+
         End Select
 
         'These are the breakdowns of how players get created by rounds---the top 4 are all 1st round---top 5 talent, top 10 talent, mid first round talent, late first round talent
@@ -531,37 +557,322 @@ Public Class CollegePlayers
         DraftPosEnd(12) = CInt(RemainingPercentage(4) * Remaining) + DraftPosEnd(11)
         DraftPosEnd(13) = CInt(RemainingPercentage(5) * Remaining) + DraftPosEnd(12)
 
-        Select Case MT.GenerateInt32(1, 3800) 'normal draft at 0% changes
+        Dim Num As Integer = MT.GenerateInt32(1, 3800)
+
+        Select Case Num 'normal draft at 0% changes
             Case 1 To DraftPosEnd(1) 'Elite 1st---Top 5
                 result = "R1Top5"
+                Count(1) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(1, 1) += 1
+                    Case "RB" : PosCount(1, 2) += 1
+                    Case "FB" : PosCount(1, 3) += 1
+                    Case "WR" : PosCount(1, 4) += 1
+                    Case "TE" : PosCount(1, 5) += 1
+                    Case "OT" : PosCount(1, 6) += 1
+                    Case "C" : PosCount(1, 7) += 1
+                    Case "OG" : PosCount(1, 8) += 1
+                    Case "DE" : PosCount(1, 9) += 1
+                    Case "DT" : PosCount(1, 10) += 1
+                    Case "OLB" : PosCount(1, 11) += 1
+                    Case "ILB" : PosCount(1, 12) += 1
+                    Case "CB" : PosCount(1, 13) += 1
+                    Case "FS" : PosCount(1, 14) += 1
+                    Case "SS" : PosCount(1, 15) += 1
+                    Case "K" : PosCount(1, 16) += 1
+                    Case "P" : PosCount(1, 17) += 1
+                End Select
             Case DraftPosEnd(1) + 1 To DraftPosEnd(2) 'Elite 1st---Top 10
                 result = "R1Top10"
+                Count(2) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(2, 1) += 1
+                    Case "RB" : PosCount(2, 2) += 1
+                    Case "FB" : PosCount(2, 3) += 1
+                    Case "WR" : PosCount(2, 4) += 1
+                    Case "TE" : PosCount(2, 5) += 1
+                    Case "OT" : PosCount(2, 6) += 1
+                    Case "C" : PosCount(2, 7) += 1
+                    Case "OG" : PosCount(2, 8) += 1
+                    Case "DE" : PosCount(2, 9) += 1
+                    Case "DT" : PosCount(2, 10) += 1
+                    Case "OLB" : PosCount(2, 11) += 1
+                    Case "ILB" : PosCount(2, 12) += 1
+                    Case "CB" : PosCount(2, 13) += 1
+                    Case "FS" : PosCount(2, 14) += 1
+                    Case "SS" : PosCount(2, 15) += 1
+                    Case "K" : PosCount(2, 16) += 1
+                    Case "P" : PosCount(2, 17) += 1
+                End Select
             Case DraftPosEnd(2) + 1 To DraftPosEnd(3) 'Mid First
                 result = "R1MidFirst"
-            Case DraftPosEnd(3) + 1 To DraftPosEnd(4) 'LowFirst
+                Count(3) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(3, 1) += 1
+                    Case "RB" : PosCount(3, 2) += 1
+                    Case "FB" : PosCount(3, 3) += 1
+                    Case "WR" : PosCount(3, 4) += 1
+                    Case "TE" : PosCount(3, 5) += 1
+                    Case "OT" : PosCount(3, 6) += 1
+                    Case "C" : PosCount(3, 7) += 1
+                    Case "OG" : PosCount(3, 8) += 1
+                    Case "DE" : PosCount(3, 9) += 1
+                    Case "DT" : PosCount(3, 10) += 1
+                    Case "OLB" : PosCount(3, 11) += 1
+                    Case "ILB" : PosCount(3, 12) += 1
+                    Case "CB" : PosCount(3, 13) += 1
+                    Case "FS" : PosCount(3, 14) += 1
+                    Case "SS" : PosCount(3, 15) += 1
+                    Case "K" : PosCount(3, 16) += 1
+                    Case "P" : PosCount(3, 17) += 1
+                End Select
+            Case DraftPosEnd(3) + 1 To DraftPosEnd(4) 'LowFirst 
                 result = "R1LateFirst"
+                Count(4) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(4, 1) += 1
+                    Case "RB" : PosCount(4, 2) += 1
+                    Case "FB" : PosCount(4, 3) += 1
+                    Case "WR" : PosCount(4, 4) += 1
+                    Case "TE" : PosCount(4, 5) += 1
+                    Case "OT" : PosCount(4, 6) += 1
+                    Case "C" : PosCount(4, 7) += 1
+                    Case "OG" : PosCount(4, 8) += 1
+                    Case "DE" : PosCount(4, 9) += 1
+                    Case "DT" : PosCount(4, 10) += 1
+                    Case "OLB" : PosCount(4, 11) += 1
+                    Case "ILB" : PosCount(4, 12) += 1
+                    Case "CB" : PosCount(4, 13) += 1
+                    Case "FS" : PosCount(4, 14) += 1
+                    Case "SS" : PosCount(4, 15) += 1
+                    Case "K" : PosCount(4, 16) += 1
+                    Case "P" : PosCount(4, 17) += 1
+                End Select
             Case DraftPosEnd(4) + 1 To DraftPosEnd(5) '2nd
                 result = "R2"
+                Count(5) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(5, 1) += 1
+                    Case "RB" : PosCount(5, 2) += 1
+                    Case "FB" : PosCount(5, 3) += 1
+                    Case "WR" : PosCount(5, 4) += 1
+                    Case "TE" : PosCount(5, 5) += 1
+                    Case "OT" : PosCount(5, 6) += 1
+                    Case "C" : PosCount(5, 7) += 1
+                    Case "OG" : PosCount(5, 8) += 1
+                    Case "DE" : PosCount(5, 9) += 1
+                    Case "DT" : PosCount(5, 10) += 1
+                    Case "OLB" : PosCount(5, 11) += 1
+                    Case "ILB" : PosCount(5, 12) += 1
+                    Case "CB" : PosCount(5, 13) += 1
+                    Case "FS" : PosCount(5, 14) += 1
+                    Case "SS" : PosCount(5, 15) += 1
+                    Case "K" : PosCount(5, 16) += 1
+                    Case "P" : PosCount(5, 17) += 1
+                End Select
             Case DraftPosEnd(5) + 1 To DraftPosEnd(6) '3rd
                 result = "R3"
+                Count(6) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(6, 1) += 1
+                    Case "RB" : PosCount(6, 2) += 1
+                    Case "FB" : PosCount(6, 3) += 1
+                    Case "WR" : PosCount(6, 4) += 1
+                    Case "TE" : PosCount(6, 5) += 1
+                    Case "OT" : PosCount(6, 6) += 1
+                    Case "C" : PosCount(6, 7) += 1
+                    Case "OG" : PosCount(6, 8) += 1
+                    Case "DE" : PosCount(6, 9) += 1
+                    Case "DT" : PosCount(6, 10) += 1
+                    Case "OLB" : PosCount(6, 11) += 1
+                    Case "ILB" : PosCount(6, 12) += 1
+                    Case "CB" : PosCount(6, 13) += 1
+                    Case "FS" : PosCount(6, 14) += 1
+                    Case "SS" : PosCount(6, 15) += 1
+                    Case "K" : PosCount(6, 16) += 1
+                    Case "P" : PosCount(6, 17) += 1
+                End Select
             Case DraftPosEnd(6) + 1 To DraftPosEnd(7) '4th
                 result = "R4"
+                Count(7) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(7, 1) += 1
+                    Case "RB" : PosCount(7, 2) += 1
+                    Case "FB" : PosCount(7, 3) += 1
+                    Case "WR" : PosCount(7, 4) += 1
+                    Case "TE" : PosCount(7, 5) += 1
+                    Case "OT" : PosCount(7, 6) += 1
+                    Case "C" : PosCount(7, 7) += 1
+                    Case "OG" : PosCount(7, 8) += 1
+                    Case "DE" : PosCount(7, 9) += 1
+                    Case "DT" : PosCount(7, 10) += 1
+                    Case "OLB" : PosCount(7, 11) += 1
+                    Case "ILB" : PosCount(7, 12) += 1
+                    Case "CB" : PosCount(7, 13) += 1
+                    Case "FS" : PosCount(7, 14) += 1
+                    Case "SS" : PosCount(7, 15) += 1
+                    Case "K" : PosCount(7, 16) += 1
+                    Case "P" : PosCount(7, 17) += 1
+                End Select
             Case DraftPosEnd(7) + 1 To DraftPosEnd(8) '5th
                 result = "R5"
+                Count(8) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(8, 1) += 1
+                    Case "RB" : PosCount(8, 2) += 1
+                    Case "FB" : PosCount(8, 3) += 1
+                    Case "WR" : PosCount(8, 4) += 1
+                    Case "TE" : PosCount(8, 5) += 1
+                    Case "OT" : PosCount(8, 6) += 1
+                    Case "C" : PosCount(8, 7) += 1
+                    Case "OG" : PosCount(8, 8) += 1
+                    Case "DE" : PosCount(8, 9) += 1
+                    Case "DT" : PosCount(8, 10) += 1
+                    Case "OLB" : PosCount(8, 11) += 1
+                    Case "ILB" : PosCount(8, 12) += 1
+                    Case "CB" : PosCount(8, 13) += 1
+                    Case "FS" : PosCount(8, 14) += 1
+                    Case "SS" : PosCount(8, 15) += 1
+                    Case "K" : PosCount(8, 16) += 1
+                    Case "P" : PosCount(8, 17) += 1
+                End Select
             Case DraftPosEnd(8) + 1 To DraftPosEnd(9) '6th
                 result = "R6"
+                Count(9) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(9, 1) += 1
+                    Case "RB" : PosCount(9, 2) += 1
+                    Case "FB" : PosCount(9, 3) += 1
+                    Case "WR" : PosCount(9, 4) += 1
+                    Case "TE" : PosCount(9, 5) += 1
+                    Case "OT" : PosCount(9, 6) += 1
+                    Case "C" : PosCount(9, 7) += 1
+                    Case "OG" : PosCount(9, 8) += 1
+                    Case "DE" : PosCount(9, 9) += 1
+                    Case "DT" : PosCount(9, 10) += 1
+                    Case "OLB" : PosCount(9, 11) += 1
+                    Case "ILB" : PosCount(9, 12) += 1
+                    Case "CB" : PosCount(9, 13) += 1
+                    Case "FS" : PosCount(9, 14) += 1
+                    Case "SS" : PosCount(9, 15) += 1
+                    Case "K" : PosCount(9, 16) += 1
+                    Case "P" : PosCount(9, 17) += 1
+                End Select
             Case DraftPosEnd(9) + 1 To DraftPosEnd(10) '7th
                 result = "R7"
+                Count(10) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(10, 1) += 1
+                    Case "RB" : PosCount(10, 2) += 1
+                    Case "FB" : PosCount(10, 3) += 1
+                    Case "WR" : PosCount(10, 4) += 1
+                    Case "TE" : PosCount(10, 5) += 1
+                    Case "OT" : PosCount(10, 6) += 1
+                    Case "C" : PosCount(10, 7) += 1
+                    Case "OG" : PosCount(10, 8) += 1
+                    Case "DE" : PosCount(10, 9) += 1
+                    Case "DT" : PosCount(10, 10) += 1
+                    Case "OLB" : PosCount(10, 11) += 1
+                    Case "ILB" : PosCount(10, 12) += 1
+                    Case "CB" : PosCount(10, 13) += 1
+                    Case "FS" : PosCount(10, 14) += 1
+                    Case "SS" : PosCount(10, 15) += 1
+                    Case "K" : PosCount(10, 16) += 1
+                    Case "P" : PosCount(10, 17) += 1
+                End Select
             Case DraftPosEnd(10) + 1 To DraftPosEnd(11) 'PSA
                 result = "PUFA"
+                Count(11) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(11, 1) += 1
+                    Case "RB" : PosCount(11, 2) += 1
+                    Case "FB" : PosCount(11, 3) += 1
+                    Case "WR" : PosCount(11, 4) += 1
+                    Case "TE" : PosCount(11, 5) += 1
+                    Case "OT" : PosCount(11, 6) += 1
+                    Case "C" : PosCount(11, 7) += 1
+                    Case "OG" : PosCount(11, 8) += 1
+                    Case "DE" : PosCount(11, 9) += 1
+                    Case "DT" : PosCount(11, 10) += 1
+                    Case "OLB" : PosCount(11, 11) += 1
+                    Case "ILB" : PosCount(11, 12) += 1
+                    Case "CB" : PosCount(11, 13) += 1
+                    Case "FS" : PosCount(11, 14) += 1
+                    Case "SS" : PosCount(11, 15) += 1
+                    Case "K" : PosCount(11, 16) += 1
+                    Case "P" : PosCount(11, 17) += 1
+                End Select
             Case DraftPosEnd(11) + 1 To DraftPosEnd(12) 'PFA
                 result = "LUFA"
+                Count(12) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(12, 1) += 1
+                    Case "RB" : PosCount(12, 2) += 1
+                    Case "FB" : PosCount(12, 3) += 1
+                    Case "WR" : PosCount(12, 4) += 1
+                    Case "TE" : PosCount(12, 5) += 1
+                    Case "OT" : PosCount(12, 6) += 1
+                    Case "C" : PosCount(12, 7) += 1
+                    Case "OG" : PosCount(12, 8) += 1
+                    Case "DE" : PosCount(12, 9) += 1
+                    Case "DT" : PosCount(12, 10) += 1
+                    Case "OLB" : PosCount(12, 11) += 1
+                    Case "ILB" : PosCount(12, 12) += 1
+                    Case "CB" : PosCount(12, 13) += 1
+                    Case "FS" : PosCount(12, 14) += 1
+                    Case "SS" : PosCount(12, 15) += 1
+                    Case "K" : PosCount(12, 16) += 1
+                    Case "P" : PosCount(12, 17) += 1
+                End Select
             Case DraftPosEnd(12) + 1 To DraftPosEnd(13) 'LFA
                 result = "PracSquad"
+                Count(13) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(13, 1) += 1
+                    Case "RB" : PosCount(13, 2) += 1
+                    Case "FB" : PosCount(13, 3) += 1
+                    Case "WR" : PosCount(13, 4) += 1
+                    Case "TE" : PosCount(13, 5) += 1
+                    Case "OT" : PosCount(13, 6) += 1
+                    Case "C" : PosCount(13, 7) += 1
+                    Case "OG" : PosCount(13, 8) += 1
+                    Case "DE" : PosCount(13, 9) += 1
+                    Case "DT" : PosCount(13, 10) += 1
+                    Case "OLB" : PosCount(13, 11) += 1
+                    Case "ILB" : PosCount(13, 12) += 1
+                    Case "CB" : PosCount(13, 13) += 1
+                    Case "FS" : PosCount(13, 14) += 1
+                    Case "SS" : PosCount(13, 15) += 1
+                    Case "K" : PosCount(13, 16) += 1
+                    Case "P" : PosCount(13, 17) += 1
+                End Select
             Case DraftPosEnd(13) + 1 To DraftPosEnd(14) 'Reject
                 result = "Reject"
+                Count(14) += 1
+                Select Case Pos
+                    Case "QB" : PosCount(14, 1) += 1
+                    Case "RB" : PosCount(14, 2) += 1
+                    Case "FB" : PosCount(14, 3) += 1
+                    Case "WR" : PosCount(14, 4) += 1
+                    Case "TE" : PosCount(14, 5) += 1
+                    Case "OT" : PosCount(14, 6) += 1
+                    Case "C" : PosCount(14, 7) += 1
+                    Case "OG" : PosCount(14, 8) += 1
+                    Case "DE" : PosCount(14, 9) += 1
+                    Case "DT" : PosCount(14, 10) += 1
+                    Case "OLB" : PosCount(14, 11) += 1
+                    Case "ILB" : PosCount(14, 12) += 1
+                    Case "CB" : PosCount(14, 13) += 1
+                    Case "FS" : PosCount(14, 14) += 1
+                    Case "SS" : PosCount(14, 15) += 1
+                    Case "K" : PosCount(14, 16) += 1
+                    Case "P" : PosCount(14, 17) += 1
+                End Select
         End Select
+
+
         Return result
+
     End Function
 
 End Class

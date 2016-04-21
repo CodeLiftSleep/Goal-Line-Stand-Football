@@ -4,17 +4,19 @@
 ''' </summary>
 Public Module FilesAndDataTables
     Public MT As New Mersenne.MersenneTwister
-    'Public CoachDT As New DataTable
+    Public CoachDT As New DataTable
     Public DraftDT As New DataTable
-    'Public PersonnelDT As New DataTable
-    'Public OwnerDT As New DataTable
+    Public PersonnelDT As New DataTable
+    Public OwnerDT As New DataTable
     Public ScoutDT As New DataTable
     Public ScoutGradeDT As New DataTable
-    'Public PlayerDT As New DataTable
+    Public PlayerDT As New DataTable
     Public FirstNames As New DataTable
     Public LastNames As New DataTable
     Public Colleges As New DataTable
     Public Eval As New Evaluation
+    Public DraftClass As New ArrayList
+    Public DraftClassDesc As New List(Of String)
     'Public CoachTest As New Coaches
     Public MyPerson As New Person
     Public MyDB As String = "Football"
@@ -83,7 +85,7 @@ Public Module FilesAndDataTables
     End Enum
 
     ''' <summary>
-    ''' Lists the type of Personnel the person is.  
+    ''' Lists the type of Personnel the person is.
     ''' </summary>
     Public Enum PersonnelType
         GM = 1

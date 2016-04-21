@@ -18,6 +18,7 @@ RelTeam25 int NULL, RelTeam26 int NULL, RelTeam27 int NULL, RelTEam28 int NULL, 
         GenNames(AgentDT, AgentNum, "Agent")
         GetPersonalityStats(AgentDT, AgentNum, XAgent)
 
+        AgentDT.Rows(AgentNum).Item("Experience") = MT.GenerateInt32(0, (AgentDT.Rows(AgentNum).Item("Age") - 24))
         AgentDT.Rows(AgentNum).Item("AgentType") = String.Format("'{0}'", GetAgentType(AgentNum, AgentDT, PlayerDT))
         AgentDT.Rows(AgentNum).Item("ClientList") = String.Format("'{0}'", AssignClientList(AgentNum, AgentDT, PlayerDT, AgentDT.Rows(AgentNum).Item("AgentType")))
         For i As Integer = 0 To AgentDT.Columns.Count - 1
@@ -67,7 +68,7 @@ RelTeam25 int NULL, RelTeam26 int NULL, RelTeam27 int NULL, RelTEam28 int NULL, 
                     NumClients = MT.GenerateInt32(1, 4)
                 Case "'RespectedAgent'" '5 to 9 clients
                     NumClients = MT.GenerateInt32(5, 9)
-                Case "'AboveAverageAgent'" '10 to 20 clients
+                Case "'AboveAvgAgent'" '10 to 20 clients
                     NumClients = MT.GenerateInt32(10, 20)
                 Case "'BigAgent'" '21 to 40 clients
                     NumClients = MT.GenerateInt32(21, 40)
