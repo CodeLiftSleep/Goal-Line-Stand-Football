@@ -1,0 +1,3 @@
+﻿Class GenerationCoach
+
+End Class

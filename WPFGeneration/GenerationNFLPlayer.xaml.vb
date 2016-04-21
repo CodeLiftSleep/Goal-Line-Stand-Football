@@ -1,0 +1,3 @@
+﻿Class GenerationNFLPlayer
+
+End Class

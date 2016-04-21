@@ -1,0 +1,71 @@
+﻿<Page x:Class="GenerateHome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFGeneration"
+      mc:Ignorable="d" 
+      d:DesignHeight="1600" d:DesignWidth="1600"
+      Title="Generation Home">
+  <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="JENK10.png" Opacity="0.7"></ImageBrush>
+        </Grid.Background>
+        <TextBlock x:Name="GenHomeText" FontSize="30" FontFamily="Times New Roman Bold" FontStyle="Normal" Text="GLS Generation Home Screen"  Margin="10,5,0,0"/>
+     <StackPanel>
+        <Button x:Name="GenDraftButton" Content="Gen Draft" Click="GenDraft_Click" HorizontalAlignment="Left" Margin="10,170,0,0" Style="{DynamicResource SimpleButton}" VerticalAlignment="Top" Width="125" Height="41" Opacity="0.6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0"/>
+                    <GradientStop Color="#FF081278" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="GenCoachButton" Content="Gen Coaches" HorizontalAlignment="Left" Margin="10,20,0,0" Style="{DynamicResource SimpleButton}" VerticalAlignment="Top" Width="125" Height="41" Cursor="None" IsCancel="True" Opacity="0.6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0"/>
+                    <GradientStop Color="#FF081278" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="GenPersonnelButton" Content="Gen Personnel" HorizontalAlignment="Left" Margin="10,20,0,0" Style="{DynamicResource SimpleButton}" VerticalAlignment="Top" Width="125" Height="41" Cursor="None" IsCancel="True" Opacity="0.6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0"/>
+                    <GradientStop Color="#FF081278" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="GenOwnerButton" Content="Gen Owners" HorizontalAlignment="Left" Margin="10,20,0,0" Style="{DynamicResource SimpleButton}" VerticalAlignment="Top" Width="125" Height="41" Cursor="None" IsCancel="True" Opacity="0.6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0"/>
+                    <GradientStop Color="#FF081278" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="GenNFLPlayers" Content="Gen NFL Players" HorizontalAlignment="Left" Margin="10,20,0,0" Style="{DynamicResource SimpleButton}" VerticalAlignment="Top" Width="125" Height="41" Cursor="None" IsCancel="True" Opacity="0.6">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0"/>
+                    <GradientStop Color="#FF081278" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+
+        </Button>
+            <Button x:Name="GenAgentsButton" Content="Gen Agents" HorizontalAlignment="Left" Margin="10,20,0,0" Style="{DynamicResource SimpleButton}" VerticalAlignment="Top" Width="125" Height="41" Cursor="None" IsCancel="True" Opacity="0.6">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                        <GradientStop Color="#FFEEEEEE" Offset="0"/>
+                        <GradientStop Color="#FF081278" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

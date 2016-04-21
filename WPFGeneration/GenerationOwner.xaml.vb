@@ -1,0 +1,3 @@
+﻿Class GenerationOwner
+
+End Class

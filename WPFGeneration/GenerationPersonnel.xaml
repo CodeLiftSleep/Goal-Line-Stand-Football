@@ -1,0 +1,21 @@
+﻿<Page x:Class="GenerationPersonnel"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFGeneration"
+      mc:Ignorable="d" 
+      d:DesignHeight="1600" d:DesignWidth="2400"
+      Title="GenerationPersonnel">
+    <Grid Height="Auto" Width="Auto">
+       <Grid.Background>
+            <ImageBrush ImageSource="JENK10.png" Opacity="0.6"/>
+        </Grid.Background>
+        <TextBlock x:Name="PersonnelHeader" FontSize="30" FontFamily="Times New Roman Bold" Text="GLS Personnel Generation" Margin ="5,5,0,0"></TextBlock>
+        <StackPanel>
+            
+            
+        </StackPanel>
+        <DataGrid x:Name="DraftGrid" HorizontalAlignment="Left" Margin="10,1392,0,0" VerticalAlignment="Top" Height="198" Width="1200" ItemsSource="{Binding}"/>
+    </Grid>
+</Page>

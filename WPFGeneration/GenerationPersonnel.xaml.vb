@@ -1,0 +1,3 @@
+﻿Class GenerationPersonnel
+
+End Class

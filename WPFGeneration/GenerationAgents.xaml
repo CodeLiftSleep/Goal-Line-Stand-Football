@@ -1,0 +1,14 @@
+﻿<Page x:Class="GenerationAgents"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPFGeneration"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="1200"
+      Title="GenerationAgents">
+    <Grid>
+        <Image x:Name="GoalLineStandPic" Source="JENK10.png" MaxHeight="800" MaxWidth="1200" Opacity="0.4"/>
+        <DataGrid x:Name="DraftGrid" HorizontalAlignment="Left" Margin="0,551,0,0" VerticalAlignment="Top" Height="198" Width="1200" ItemsSource="{Binding}"/>
+    </Grid>
+</Page>
