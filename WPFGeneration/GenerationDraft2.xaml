@@ -43,15 +43,17 @@
             <ColumnDefinition Width="30*"/>
             <ColumnDefinition Width="15*"/>
             <ColumnDefinition Width="31*"/>
-            <ColumnDefinition Width="448*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="73*"/>
+            <ColumnDefinition Width="364*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
             <ImageBrush ImageSource="JENK10.png" Opacity="0.7"></ImageBrush>
         </Grid.Background>
-        <StackPanel Height="Auto" Width="Auto" Grid.ColumnSpan="35">
+        <StackPanel Height="Auto" Width="Auto" Grid.ColumnSpan="37">
             <TextBlock x:Name="DraftText2" Height="Auto" Width="Auto" Text="GLS Round Information" FontFamily="Times New Roman Bold" FontSize="30"/>
             <TextBlock x:Name="TalentByRound" Height="Auto" Width="Auto" Text="Talent By Round" Margin="25,150,0,0" FontFamily="Times New Roman Bold" FontSize="24"/>
-            <TextBlock x:Name="PositionInfo" Height="Auto" Width="Auto" Margin="220,20,0,0" FontFamily="Times New Roman Bold" FontSize="18"  Text="QB       RB       FB       WR       TE       OT        C      OG       DE      DT      OLB        ILB       CB       FS       SS         K       P"/>
+            <TextBlock x:Name="PositionInfo" Height="Auto" Width="Auto" Margin="220,20,0,0" FontFamily="Times New Roman Bold" FontSize="18"  Text="QB       RB       FB       WR       TE       OT        C      OG       DE      DT      OLB        ILB       CB       FS       SS         K       P       TOTALS"/>
             <TextBlock x:Name="Round1T5Info" Height="Auto" Width="200" HorizontalAlignment="Left" Text="Round 1 Top 5" FontSize="18" FontFamily="Times New Roman Bold" Margin="10,25,0,0" Background="DeepSkyBlue" ></TextBlock>
             <TextBlock x:Name="Round1T10Info" Height="Auto" Width="200" HorizontalAlignment="Left" Text="Round 1 Top 10" FontSize="18" FontFamily="Times New Roman Bold" Margin="10,15,0,0" Background="LightSteelBlue"></TextBlock>
             <TextBlock x:Name="MidFirstInfo" Height="Auto" Width="200" HorizontalAlignment="Left" Text="Round 1 Mid Round" FontSize="18" FontFamily="Times New Roman Bold" Margin="10,15,0,0" Background="DeepSkyBlue"></TextBlock>
@@ -84,6 +86,7 @@
             <TextBlock x:Name="QBInfo13" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
             <TextBlock x:Name="QBInfo14" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="LightSteelBlue"/>
             <TextBlock x:Name="QBTotal" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+            
         </StackPanel>
         <StackPanel Grid.Column="3" Margin="0,0,0,0">
             <TextBlock x:Name="RBInfo1" FontSize="18" Height="Auto" Width="Auto" Margin="0,278,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
@@ -356,6 +359,24 @@
             <TextBlock x:Name="PInfo13" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
             <TextBlock x:Name="PInfo14" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="LightSteelBlue"/>
             <TextBlock x:Name="PTotal" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+        </StackPanel>
+        <StackPanel Grid.Column="35">
+            <TextBlock x:Name="R1T5Totals" FontSize="18" Margin="0,278,0,0" VerticalAlignment="Bottom" TextAlignment="Center" FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+            <TextBlock x:Name="R1T10Totals" FontSize="18" Margin="0 15,0,0" VerticalAlignment="Bottom" TextAlignment="Center" FontFamily="Times New Roman Bold" Background="LightSteelBlue"/>
+            <TextBlock x:Name="R1MidFirstTotals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+            <TextBlock x:Name="R1LateFirstTotals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="LightSteelBlue"/>
+            <TextBlock x:Name="R2Totals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+            <TextBlock x:Name="R3Totals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="LightSteelBlue"/>
+            <TextBlock x:Name="R4Totals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+            <TextBlock x:Name="R5Totals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="LightSteelBlue"/>
+            <TextBlock x:Name="R6Totals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+            <TextBlock x:Name="R7Totals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="LightSteelBlue"/>
+            <TextBlock x:Name="PUFATotals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+            <TextBlock x:Name="LUFATotals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="LightSteelBlue"/>
+            <TextBlock x:Name="PracSquadTotals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+            <TextBlock x:Name="RejectTotals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="LightSteelBlue"/>
+            <TextBlock x:Name="DraftTotals" FontSize="18" Margin="0,15,0,0" VerticalAlignment="Bottom" TextAlignment="Center"  FontFamily="Times New Roman Bold" Background="DeepSkyBlue"/>
+            
         </StackPanel>
         <Button x:Name="BackButton" Content="Prev Page"  Height="30" Width="99" FontFamily="Times New Roman" FontSize="24" Margin="15,3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Opacity="0.7" Style="{DynamicResource SimpleButton}" Grid.Column="4" Grid.ColumnSpan="5">
             <Button.Background>
