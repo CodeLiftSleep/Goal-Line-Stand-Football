@@ -13,9 +13,9 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyCompany("")> 
 <Assembly: AssemblyProduct("SQLFunctions")> 
 <Assembly: AssemblyCopyright("Copyright ©  2016")> 
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTrademark("")>
 
-<Assembly: ComVisible(False)>
+<Assembly: ComVisible(True)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
 <Assembly: Guid("2ef9d670-7724-41df-841b-1391ba80e74d")> 
