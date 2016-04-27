@@ -8,7 +8,7 @@
       d:DesignHeight="800" d:DesignWidth="1200"
       Title="GenerationOwner">
     <Grid>
-        <Image x:Name="GoalLineStandPic" Source="JENK10.png" MaxHeight="800" MaxWidth="1200" Opacity="0.4"/>
+        <Image x:Name="GoalLineStandPic" Source="Content/Images/JENK10.png" MaxHeight="800" MaxWidth="1200" Opacity="0.4"/>
         <DataGrid x:Name="DraftGrid" HorizontalAlignment="Left" Margin="0,551,0,0" VerticalAlignment="Top" Height="198" Width="1200" ItemsSource="{Binding}"/>
     </Grid>
 </Page>

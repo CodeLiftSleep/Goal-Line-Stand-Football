@@ -9,7 +9,7 @@
       Title="GenerationPersonnel">
     <Grid Height="Auto" Width="Auto">
        <Grid.Background>
-            <ImageBrush ImageSource="JENK10.png" Opacity="0.6"/>
+            <ImageBrush ImageSource="Content/Images/JENK10.png" Opacity="0.6"/>
         </Grid.Background>
         <TextBlock x:Name="PersonnelHeader" FontSize="30" FontFamily="Times New Roman Bold" Text="GLS Personnel Generation" Margin ="5,5,0,0"></TextBlock>
         <StackPanel>

@@ -9,7 +9,7 @@
       Title="Generation Home">
   <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="JENK10.png" Opacity="0.7"></ImageBrush>
+            <ImageBrush ImageSource="Content/Images/JENK10.png" Opacity="0.7"></ImageBrush>
         </Grid.Background>
         <TextBlock x:Name="GenHomeText" FontSize="30" FontFamily="Times New Roman Bold" FontStyle="Normal" Text="GLS Generation Home Screen"  Margin="10,5,0,0"/>
      <StackPanel>

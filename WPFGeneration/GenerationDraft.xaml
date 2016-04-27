@@ -15,7 +15,7 @@
             <ColumnDefinition Width="364*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="JENK10.png" Opacity="0.7"></ImageBrush>
+            <ImageBrush ImageSource="Content/Images/JENK10.png" Opacity="0.7"></ImageBrush>
         </Grid.Background>
         <StackPanel>
             <TextBlock x:Name="GenDraftText" FontSize="30" FontStyle="Normal" FontFamily="Times New Roman Bold" Text="GLS College Draft Creator"/>

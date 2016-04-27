@@ -10,7 +10,7 @@
    
     <Grid x:Name="CoachGrid" Height="Auto" Width="Auto">
         <Grid.Background>
-            <ImageBrush ImageSource="JENK10.png" Opacity="0.6"/>
+            <ImageBrush ImageSource="Content/Images/JENK10.png" Opacity="0.6"/>
         </Grid.Background>
         <StackPanel>
             <TextBlock x:Name="CoachName" FontFamily="Times New Roman Bold" FontSize="30" Text="GLS Coach Generation" Margin="0,5,0,0"/>

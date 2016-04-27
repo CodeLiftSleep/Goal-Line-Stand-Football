@@ -48,7 +48,7 @@
             <ColumnDefinition Width="364*"/>
         </Grid.ColumnDefinitions>
         <Grid.Background>
-            <ImageBrush ImageSource="JENK10.png" Opacity="0.7"></ImageBrush>
+            <ImageBrush ImageSource="Content/Images/JENK10.png" Opacity="0.7"></ImageBrush>
         </Grid.Background>
         <StackPanel Height="Auto" Width="Auto" Grid.ColumnSpan="37">
             <TextBlock x:Name="DraftText2" Height="Auto" Width="Auto" Text="GLS Round Information" FontFamily="Times New Roman Bold" FontSize="30"/>

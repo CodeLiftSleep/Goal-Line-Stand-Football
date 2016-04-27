@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200">
     <Grid>
-        <Image x:Name="GoalLineStandPic" Source="JENK10.png" MaxHeight="800" MaxWidth="1200" Opacity="0.4" Stretch="Fill"/>
+        <Image x:Name="GoalLineStandPic" Source="Content/Images/JENK10.png" MaxHeight="800" MaxWidth="1200" Opacity="0.4" Stretch="Fill"/>
         <Button x:Name="GenButton" MaxWidth="100" MaxHeight="50" Margin="10,131.23,0,0" Height="47.95" VerticalAlignment="Top" HorizontalAlignment="Left" Width="97.161"  />
     </Grid>
 </UserControl>
