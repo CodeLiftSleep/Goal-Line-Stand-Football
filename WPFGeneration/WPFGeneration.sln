@@ -15,6 +15,8 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SQLFunctions", "..\SQLFunct
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "Mersenne", "..\Random\Random\Mersenne.vbproj", "{9FCEFA45-842D-4C59-A1FD-35FD5E1BC55F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "..\Domain\Domain.csproj", "{E2D3999D-DAC7-4D3D-A12A-3FAA5F856FDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,14 @@ Global
 		{9FCEFA45-842D-4C59-A1FD-35FD5E1BC55F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9FCEFA45-842D-4C59-A1FD-35FD5E1BC55F}.Release|x86.ActiveCfg = Release|Any CPU
 		{9FCEFA45-842D-4C59-A1FD-35FD5E1BC55F}.Release|x86.Build.0 = Release|Any CPU
+		{E2D3999D-DAC7-4D3D-A12A-3FAA5F856FDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2D3999D-DAC7-4D3D-A12A-3FAA5F856FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2D3999D-DAC7-4D3D-A12A-3FAA5F856FDA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E2D3999D-DAC7-4D3D-A12A-3FAA5F856FDA}.Debug|x86.Build.0 = Debug|Any CPU
+		{E2D3999D-DAC7-4D3D-A12A-3FAA5F856FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2D3999D-DAC7-4D3D-A12A-3FAA5F856FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2D3999D-DAC7-4D3D-A12A-3FAA5F856FDA}.Release|x86.ActiveCfg = Release|Any CPU
+		{E2D3999D-DAC7-4D3D-A12A-3FAA5F856FDA}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

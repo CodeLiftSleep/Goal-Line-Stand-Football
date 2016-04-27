@@ -1,0 +1,1852 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="FootballModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="data source=D:\Downloads\VS2015Dev\GitHubVisualStudio\Goal-Line-Stand-Football\Domain\DBFiles\Football.sqlite" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Coaches">
+          <Key>
+            <PropertyRef Name="CoachID" />
+          </Key>
+          <Property Name="CoachID" Type="int" Nullable="false" />
+          <Property Name="TeamID" Type="int" />
+          <Property Name="FName" Type="varchar" MaxLength="20" />
+          <Property Name="LName" Type="varchar" MaxLength="20" />
+          <Property Name="College" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="DOB" Type="varchar" MaxLength="12" />
+          <Property Name="Experience" Type="int" />
+          <Property Name="OffPhil" Type="varchar" MaxLength="50" />
+          <Property Name="DefPhil" Type="varchar" MaxLength="50" />
+          <Property Name="LoyaltyPlayers" Type="int" />
+          <Property Name="LoyaltyCoaches" Type="int" />
+          <Property Name="Ego" Type="int" />
+          <Property Name="OffAbility" Type="int" />
+          <Property Name="DefAbility" Type="int" />
+          <Property Name="Stability" Type="int" />
+          <Property Name="DevPlayers" Type="int" />
+          <Property Name="JudgingAct" Type="int" />
+          <Property Name="JudgingPot" Type="int" />
+          <Property Name="JudgingQB" Type="int" />
+          <Property Name="JudgingRB" Type="int" />
+          <Property Name="JudgingRec" Type="int" />
+          <Property Name="JudgingOL" Type="int" />
+          <Property Name="JudgingDL" Type="int" />
+          <Property Name="JudgingLB" Type="int" />
+          <Property Name="JudgingCB" Type="int" />
+          <Property Name="JudgingSF" Type="int" />
+          <Property Name="Accountability" Type="int" />
+          <Property Name="Motivating" Type="int" />
+          <Property Name="TimeMgmt" Type="int" />
+          <Property Name="Clutch" Type="int" />
+          <Property Name="Conservative" Type="int" />
+          <Property Name="FBInt" Type="int" />
+          <Property Name="Adjustments" Type="int" />
+          <Property Name="ValuesST" Type="int" />
+          <Property Name="ValuesCharacter" Type="int" />
+          <Property Name="WorkEthic" Type="int" />
+          <Property Name="Preparation" Type="int" />
+          <Property Name="Focus" Type="int" />
+          <Property Name="PlaycallingSkill" Type="int" />
+        </EntityType>
+        <EntityType Name="DraftPlayers">
+          <Key>
+            <PropertyRef Name="DraftID" />
+          </Key>
+          <Property Name="DraftID" Type="int" Nullable="false" />
+          <Property Name="AgentID" Type="int" />
+          <Property Name="FName" Type="varchar" MaxLength="20" />
+          <Property Name="LName" Type="varchar" MaxLength="20" />
+          <Property Name="College" Type="varchar" MaxLength="50" />
+          <Property Name="ScoutRegion" Type="varchar" MaxLength="10" />
+          <Property Name="Height" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="Age" Type="int" />
+          <Property Name="DOB" Type="varchar" MaxLength="12" />
+          <Property Name="CollegePOS" Type="varchar" MaxLength="5" />
+          <Property Name="ActualGrade" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="ProjNFLPos" Type="varchar" MaxLength="5" />
+          <Property Name="PosType" Type="varchar" MaxLength="20" />
+          <Property Name="ArmLength" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="HandLength" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="FortyYardTime" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="TwentyYardTime" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="TenYardTime" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="ShortShuttle" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="BroadJump" Type="int" />
+          <Property Name="VertJump" Type="decimal" Precision="3" Scale="1" />
+          <Property Name="ThreeConeDrill" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="BenchPress" Type="int" />
+          <Property Name="InterviewSkills" Type="int" />
+          <Property Name="WonderlicTest" Type="int" />
+          <Property Name="SkillsTranslateToNFL" Type="int" />
+          <Property Name="Reaction" Type="int" />
+          <Property Name="QAB" Type="int" />
+          <Property Name="COD" Type="int" />
+          <Property Name="Hands" Type="int" />
+          <Property Name="BodyCatch" Type="int" />
+          <Property Name="StiffArm" Type="int" />
+          <Property Name="ReleaseOffLine" Type="int" />
+          <Property Name="CatchWhenHit" Type="int" />
+          <Property Name="BreaksTackles" Type="int" />
+          <Property Name="ContactBalance" Type="int" />
+          <Property Name="RunAfterCatch" Type="int" />
+          <Property Name="LowerBodyStrength" Type="int" />
+          <Property Name="UpperBodyStrength" Type="int" />
+          <Property Name="Footwork" Type="int" />
+          <Property Name="HandUse" Type="int" />
+          <Property Name="JumpingAbility" Type="int" />
+          <Property Name="PassBlockVsPower" Type="int" />
+          <Property Name="PassBlockVsSpeed" Type="int" />
+          <Property Name="RunBlocking" Type="int" />
+          <Property Name="PlaySpeed" Type="int" />
+          <Property Name="RouteRunning" Type="int" />
+          <Property Name="KickAccuracy" Type="int" />
+          <Property Name="AdjustToBall" Type="int" />
+          <Property Name="Tackling" Type="int" />
+          <Property Name="Blitz" Type="int" />
+          <Property Name="AvoidBlockers" Type="int" />
+          <Property Name="ShedBlock" Type="int" />
+          <Property Name="DefeatBlock" Type="int" />
+          <Property Name="ManToManCoverage" Type="int" />
+          <Property Name="ZoneCoverage" Type="int" />
+          <Property Name="RETKickReturn" Type="int" />
+          <Property Name="RETPuntReturn" Type="int" />
+          <Property Name="PlayStrength" Type="int" />
+          <Property Name="QBMechanics" Type="int" />
+          <Property Name="QBRelQuickness" Type="int" />
+          <Property Name="QBAccuracy" Type="int" />
+          <Property Name="QBDecMaking" Type="int" />
+          <Property Name="QBBallHandling" Type="int" />
+          <Property Name="QBLocateRec" Type="int" />
+          <Property Name="QBPocketPresence" Type="int" />
+          <Property Name="QBEscape" Type="int" />
+          <Property Name="QBScrambling" Type="int" />
+          <Property Name="QBRolloutRight" Type="int" />
+          <Property Name="QBRolloutLeft" Type="int" />
+          <Property Name="QBArmStrength" Type="int" />
+          <Property Name="QBTouch" Type="int" />
+          <Property Name="QBPlayAction" Type="int" />
+          <Property Name="RBRunVision" Type="int" />
+          <Property Name="RBSetsUpBlocks" Type="int" />
+          <Property Name="RBPatience" Type="int" />
+          <Property Name="WRRunDBOff" Type="int" />
+          <Property Name="WRDisguiseRoute" Type="int" />
+          <Property Name="OLPulling" Type="int" />
+          <Property Name="OLSlide" Type="int" />
+          <Property Name="OLMoveInSpace" Type="int" />
+          <Property Name="OLSnapAbility" Type="int" />
+          <Property Name="OLLongSnapAbility" Type="int" />
+          <Property Name="OLAnchorAbility" Type="int" />
+          <Property Name="OLRecover" Type="int" />
+          <Property Name="DLPrimaryTech" Type="varchar" MaxLength="15" />
+          <Property Name="DLSecondaryTech" Type="varchar" MaxLength="15" />
+          <Property Name="DLPassRushTech" Type="varchar" MaxLength="15" />
+          <Property Name="DLRunAtHim" Type="int" />
+          <Property Name="DLAgainstPullAbility" Type="int" />
+          <Property Name="DLSlideABility" Type="int" />
+          <Property Name="DLRunPursuit" Type="int" />
+          <Property Name="DLCanTakeDoubleTeam" Type="int" />
+          <Property Name="DLFinish" Type="int" />
+          <Property Name="DLsetUpPassRush" Type="int" />
+          <Property Name="LBDropDepth" Type="int" />
+          <Property Name="LBFillGaps" Type="int" />
+          <Property Name="DBPressBailCoverage" Type="int" />
+          <Property Name="DBRunContain" Type="int" />
+          <Property Name="DBBump" Type="int" />
+          <Property Name="DBBaitQB" Type="int" />
+          <Property Name="DBCatchUpSpeed" Type="int" />
+          <Property Name="DBTechnique" Type="int" />
+          <Property Name="KFakeAbility" Type="int" />
+          <Property Name="KKickRise" Type="int" />
+          <Property Name="PFakeAbility" Type="int" />
+          <Property Name="PDistance" Type="int" />
+          <Property Name="PHangTime" Type="int" />
+          <Property Name="STCoverage" Type="int" />
+          <Property Name="STWillingness" Type="int" />
+          <Property Name="STAssignment" Type="int" />
+          <Property Name="STDiscipline" Type="int" />
+          <Property Name="Flexibility" Type="int" />
+          <Property Name="Consistency" Type="int" />
+          <Property Name="Instincts" Type="int" />
+          <Property Name="Coachability" Type="int" />
+          <Property Name="Leadership" Type="int" />
+          <Property Name="Confidence" Type="int" />
+          <Property Name="Clutch" Type="int" />
+          <Property Name="WorkEthic" Type="int" />
+          <Property Name="FilmStudy" Type="int" />
+          <Property Name="Durability" Type="int" />
+          <Property Name="Explosion" Type="int" />
+          <Property Name="DeliversBlow" Type="int" />
+          <Property Name="Toughness" Type="int" />
+          <Property Name="ReadKeys" Type="int" />
+          <Property Name="FieldAwareness" Type="int" />
+          <Property Name="PlaybookKnowledge" Type="int" />
+          <Property Name="BallSecurity" Type="int" />
+          <Property Name="LovesFootball" Type="int" />
+          <Property Name="Concentration" Type="int" />
+          <Property Name="HandlesElements" Type="int" />
+          <Property Name="Potential" Type="int" />
+          <Property Name="Raw" Type="int" />
+          <Property Name="AbsentMinded" Type="int" />
+          <Property Name="AbstractReasoning" Type="int" />
+          <Property Name="AbstractThinker" Type="int" />
+          <Property Name="Adaptable" Type="int" />
+          <Property Name="Adventurous" Type="int" />
+          <Property Name="Aggressive" Type="int" />
+          <Property Name="Analytical" Type="int" />
+          <Property Name="Astute" Type="int" />
+          <Property Name="Bossy" Type="int" />
+          <Property Name="CalmUnderPressure" Type="int" />
+          <Property Name="Caring" Type="int" />
+          <Property Name="Competitive" Type="int" />
+          <Property Name="Conforming" Type="int" />
+          <Property Name="Controlling" Type="int" />
+          <Property Name="Critical" Type="int" />
+          <Property Name="Diplomatic" Type="int" />
+          <Property Name="Driven" Type="int" />
+          <Property Name="Dutiful" Type="int" />
+          <Property Name="EmotionallyStable" Type="int" />
+          <Property Name="Enthusiastic" Type="int" />
+          <Property Name="Expermiental" Type="int" />
+          <Property Name="Expressive" Type="int" />
+          <Property Name="Fairness" Type="int" />
+          <Property Name="Fearful" Type="int" />
+          <Property Name="FollowsRules" Type="int" />
+          <Property Name="Friendly" Type="int" />
+          <Property Name="FunLoving" Type="int" />
+          <Property Name="GuiltProne" Type="int" />
+          <Property Name="GreedAvoidance" Type="int" />
+          <Property Name="HighEnergy" Type="int" />
+          <Property Name="Honesty" Type="int" />
+          <Property Name="Imaginative" Type="int" />
+          <Property Name="Impatient" Type="int" />
+          <Property Name="Impractical" Type="int" />
+          <Property Name="Impulsive" Type="int" />
+          <Property Name="Individualistic" Type="int" />
+          <Property Name="Insecure" Type="int" />
+          <Property Name="Intelligent" Type="int" />
+          <Property Name="Loner" Type="int" />
+          <Property Name="Mature" Type="int" />
+          <Property Name="MentalCapacity" Type="int" />
+          <Property Name="Modesty" Type="int" />
+          <Property Name="Moralistic" Type="int" />
+          <Property Name="Nurturing" Type="int" />
+          <Property Name="Organized" Type="int" />
+          <Property Name="Participator" Type="int" />
+          <Property Name="Perfectionist" Type="int" />
+          <Property Name="Polished" Type="int" />
+          <Property Name="Private" Type="int" />
+          <Property Name="Resourceful" Type="int" />
+          <Property Name="SelfDoubting" Type="int" />
+          <Property Name="SelfSufficient" Type="int" />
+          <Property Name="StrongWilled" Type="int" />
+          <Property Name="Stubborn" Type="int" />
+          <Property Name="TeamPlayer" Type="int" />
+          <Property Name="Tense" Type="int" />
+          <Property Name="Vigilant" Type="int" />
+        </EntityType>
+        <EntityType Name="GMs">
+          <Key>
+            <PropertyRef Name="GMID" />
+          </Key>
+          <Property Name="GMID" Type="int" Nullable="false" />
+          <Property Name="TeamID" Type="int" />
+          <Property Name="FName" Type="varchar" MaxLength="20" />
+          <Property Name="LName" Type="varchar" MaxLength="20" />
+          <Property Name="College" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="DOB" Type="varchar" MaxLength="12" />
+          <Property Name="Experience" Type="int" />
+          <Property Name="CoachPatience" Type="int" />
+          <Property Name="Risktaker" Type="int" />
+          <Property Name="ValuesDraftPicks" Type="int" />
+          <Property Name="ValuesCombine" Type="int" />
+          <Property Name="ValuesCharacter" Type="int" />
+          <Property Name="ValuesProduction" Type="int" />
+          <Property Name="FranchiseTag" Type="int" />
+          <Property Name="JudgingDraft" Type="int" />
+          <Property Name="JudgingFA" Type="int" />
+          <Property Name="JudgingOwn" Type="int" />
+          <Property Name="JudgingQB" Type="int" />
+          <Property Name="JudgingRB" Type="int" />
+          <Property Name="JudgingRec" Type="int" />
+          <Property Name="JudgingOL" Type="int" />
+          <Property Name="JudgingDL" Type="int" />
+          <Property Name="JudgingLB" Type="int" />
+          <Property Name="JudgingCB" Type="int" />
+          <Property Name="JudgingSF" Type="int" />
+          <Property Name="Loyalty" Type="int" />
+          <Property Name="Ego" Type="int" />
+          <Property Name="OffPhil" Type="varchar" MaxLength="20" />
+          <Property Name="QBImp" Type="int" />
+          <Property Name="RBImp" Type="int" />
+          <Property Name="FBImp" Type="int" />
+          <Property Name="WRImp" Type="int" />
+          <Property Name="WR2Imp" Type="int" />
+          <Property Name="WR3Imp" Type="int" />
+          <Property Name="LTImp" Type="int" />
+          <Property Name="LGImp" Type="int" />
+          <Property Name="CImp" Type="int" />
+          <Property Name="RGImp" Type="int" />
+          <Property Name="RTImp" Type="int" />
+          <Property Name="TEImp" Type="int" />
+          <Property Name="DefPhil" Type="varchar" MaxLength="20" />
+          <Property Name="DEImp" Type="int" />
+          <Property Name="DE2Imp" Type="int" />
+          <Property Name="DTImp" Type="int" />
+          <Property Name="DT2Imp" Type="int" />
+          <Property Name="NTImp" Type="int" />
+          <Property Name="MLBImp" Type="int" />
+          <Property Name="WLBImp" Type="int" />
+          <Property Name="SLBImp" Type="int" />
+          <Property Name="ROLBImp" Type="int" />
+          <Property Name="LOLBImp" Type="int" />
+          <Property Name="CB1Imp" Type="int" />
+          <Property Name="CB2Imp" Type="int" />
+          <Property Name="CB3Imp" Type="int" />
+          <Property Name="FSImp" Type="int" />
+          <Property Name="SSImp" Type="int" />
+          <Property Name="DraftStrategy" Type="varchar" MaxLength="20" />
+          <Property Name="TeamBuilding" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="Owners">
+          <Key>
+            <PropertyRef Name="OwnerID" />
+          </Key>
+          <Property Name="OwnerID" Type="int" Nullable="false" />
+          <Property Name="TeamID" Type="int" />
+          <Property Name="FName" Type="varchar" MaxLength="20" />
+          <Property Name="LName" Type="varchar" MaxLength="20" />
+          <Property Name="College" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="DOB" Type="varchar" MaxLength="12" />
+          <Property Name="OwnerRep" Type="int" />
+          <Property Name="Experience" Type="int" />
+          <Property Name="GMPatience" Type="int" />
+          <Property Name="CoachPatience" Type="int" />
+          <Property Name="Meddles" Type="int" />
+          <Property Name="WantsWinner" Type="int" />
+          <Property Name="SpendsMoney" Type="int" />
+        </EntityType>
+        <EntityType Name="Players">
+          <Key>
+            <PropertyRef Name="PlayerID" />
+          </Key>
+          <Property Name="PlayerID" Type="int" Nullable="false" />
+          <Property Name="TeamID" Type="int" />
+          <Property Name="FName" Type="varchar" MaxLength="20" />
+          <Property Name="LName" Type="varchar" MaxLength="20" />
+          <Property Name="College" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="DOB" Type="varchar" MaxLength="12" />
+          <Property Name="Height" Type="int" />
+          <Property Name="Weight" Type="int" />
+          <Property Name="POS" Type="varchar" MaxLength="4" />
+          <Property Name="QAB" Type="int" />
+          <Property Name="COD" Type="int" />
+          <Property Name="QBDropQuickness" Type="int" />
+          <Property Name="QBSetupQuickness" Type="int" />
+          <Property Name="QBReleaseQuickness" Type="int" />
+          <Property Name="QBShortAcc" Type="int" />
+          <Property Name="QBMedAcc" Type="int" />
+          <Property Name="QBLongAcc" Type="int" />
+          <Property Name="QBDecMaking" Type="int" />
+          <Property Name="QBFieldVision" Type="int" />
+          <Property Name="QBDeliveryQuickness" Type="int" />
+          <Property Name="QBPoise" Type="int" />
+          <Property Name="QBBallHandling" Type="int" />
+          <Property Name="QBTiming" Type="int" />
+          <Property Name="QBDelivery" Type="int" />
+          <Property Name="QBFollowThrough" Type="int" />
+          <Property Name="QBAvoidRush" Type="int" />
+          <Property Name="QBEscape" Type="int" />
+          <Property Name="QBScrambling" Type="int" />
+          <Property Name="QBRolloutRight" Type="int" />
+          <Property Name="QBRolloutLeft" Type="int" />
+          <Property Name="QBArmStrength" Type="int" />
+          <Property Name="QBZip" Type="int" />
+          <Property Name="QBTouchScreenPass" Type="int" />
+          <Property Name="QBTouchSwingPass" Type="int" />
+          <Property Name="QBEffectiveShortOut" Type="int" />
+          <Property Name="QBEffectiveGoRoute" Type="int" />
+          <Property Name="QBEffectivePostRoute" Type="int" />
+          <Property Name="QBEffectiveCornerRoute" Type="int" />
+          <Property Name="QBEffectiveDeepOut" Type="int" />
+          <Property Name="RBEffortBlocking" Type="int" />
+          <Property Name="RBDurability" Type="int" />
+          <Property Name="RBPassBlocking" Type="int" />
+          <Property Name="RBHands" Type="int" />
+          <Property Name="RBStart" Type="int" />
+          <Property Name="RBRunVision" Type="int" />
+          <Property Name="RBInsideAbility" Type="int" />
+          <Property Name="RBBallAdjust" Type="int" />
+          <Property Name="RBOutsideAbility" Type="int" />
+          <Property Name="RBElusiveAbility" Type="int" />
+          <Property Name="RBPowerAbility" Type="int" />
+          <Property Name="RBRunBlocking" Type="int" />
+          <Property Name="RBRouteRunning" Type="int" />
+          <Property Name="RBRunningStyle" Type="varchar" MaxLength="15" />
+          <Property Name="Athleticism" Type="int" />
+          <Property Name="WRShortRoute" Type="int" />
+          <Property Name="WRCrowdReaction" Type="int" />
+          <Property Name="WRConcentration" Type="int" />
+          <Property Name="WRRunDBOff" Type="int" />
+          <Property Name="WRAcrobaticCatches" Type="int" />
+          <Property Name="WRFieldAwareness" Type="int" />
+          <Property Name="WRBodyCatch" Type="int" />
+          <Property Name="WRBlocking" Type="int" />
+          <Property Name="WRRelease" Type="int" />
+          <Property Name="WRStart" Type="int" />
+          <Property Name="WRPatterns" Type="int" />
+          <Property Name="WRMedRoute" Type="int" />
+          <Property Name="WRDeepRoute" Type="int" />
+          <Property Name="WRBallAdjust" Type="int" />
+          <Property Name="WRHandCatch" Type="int" />
+          <Property Name="WRRAC" Type="int" />
+          <Property Name="WRCatchWhenHit" Type="int" />
+          <Property Name="TEGetOffLineRunBlock" Type="int" />
+          <Property Name="TEOneOnOneBlocking" Type="int" />
+          <Property Name="TEDoubleTeamBlocking" Type="int" />
+          <Property Name="TEDownBlocking" Type="int" />
+          <Property Name="TETurnAndWallBlocking" Type="int" />
+          <Property Name="TEsustainBlocking" Type="int" />
+          <Property Name="TECrowdReaction" Type="int" />
+          <Property Name="TECatchWhenHit" Type="int" />
+          <Property Name="TEConcentration" Type="int" />
+          <Property Name="TEBodyCatch" Type="int" />
+          <Property Name="TEFieldAwareness" Type="int" />
+          <Property Name="TEPassProtect" Type="int" />
+          <Property Name="TEDriveIntoPassRoute" Type="int" />
+          <Property Name="TEPatterns" Type="int" />
+          <Property Name="TEShortRoute" Type="int" />
+          <Property Name="TEMedRoute" Type="int" />
+          <Property Name="TEDeepRoute" Type="int" />
+          <Property Name="TEBallAdjust" Type="int" />
+          <Property Name="TEHandCatch" Type="int" />
+          <Property Name="TERAC" Type="int" />
+          <Property Name="OLGetOutside" Type="int" />
+          <Property Name="OLReachBlock" Type="int" />
+          <Property Name="OLTurnDefender" Type="int" />
+          <Property Name="OLPulling" Type="int" />
+          <Property Name="OLTrapBlock" Type="int" />
+          <Property Name="OL2ndLevelPull" Type="int" />
+          <Property Name="OLAdjusttoLB" Type="int" />
+          <Property Name="OLSlide" Type="int" />
+          <Property Name="OLHandUse" Type="int" />
+          <Property Name="OLHandPop" Type="int" />
+          <Property Name="OLLongSnapPotential" Type="int" />
+          <Property Name="OLGetOffLineRunBlock" Type="int" />
+          <Property Name="OLOneOnOneBlocking" Type="int" />
+          <Property Name="OLDriveBlocking" Type="int" />
+          <Property Name="OLDownBlocking" Type="int" />
+          <Property Name="OLSustainBlock" Type="int" />
+          <Property Name="OLPassBlocking" Type="int" />
+          <Property Name="OLPassDrops" Type="int" />
+          <Property Name="OLFeetSetup" Type="int" />
+          <Property Name="OLInSpace" Type="int" />
+          <Property Name="OLLongSnapPot" Type="int" />
+          <Property Name="OLAnchorAbility" Type="int" />
+          <Property Name="OLRecover" Type="int" />
+          <Property Name="OLStrength" Type="int" />
+          <Property Name="DLStyle" Type="varchar" MaxLength="15" />
+          <Property Name="DLRunAtHim" Type="int" />
+          <Property Name="DLTackling" Type="int" />
+          <Property Name="DLAgainstTrapAbility" Type="int" />
+          <Property Name="DLSlideAbility" Type="int" />
+          <Property Name="DLRunPursuit" Type="int" />
+          <Property Name="DLPassRushTechnique" Type="varchar" MaxLength="15" />
+          <Property Name="DLHandUse" Type="int" />
+          <Property Name="DLShedVsRunAway" Type="int" />
+          <Property Name="DLShedRunBlock" Type="int" />
+          <Property Name="DLTackleVsRunAway" Type="int" />
+          <Property Name="DLChangeDirection" Type="int" />
+          <Property Name="DLReleaseOffBall" Type="int" />
+          <Property Name="DLOneOnOneAbility" Type="int" />
+          <Property Name="DLDoubleTeamAbility" Type="int" />
+          <Property Name="DLDefeatBlock" Type="int" />
+          <Property Name="DLFirstStepPassRush" Type="int" />
+          <Property Name="DLShedPassBlock" Type="int" />
+          <Property Name="DLBurst" Type="int" />
+          <Property Name="DLPressure" Type="int" />
+          <Property Name="DLFinish" Type="int" />
+          <Property Name="LBDropDepth" Type="int" />
+          <Property Name="LBCoverage" Type="int" />
+          <Property Name="LBHands" Type="int" />
+          <Property Name="LBBlitz" Type="int" />
+          <Property Name="LBPassRushType" Type="varchar" MaxLength="15" />
+          <Property Name="LBFillGaps" Type="int" />
+          <Property Name="LBContain" Type="int" />
+          <Property Name="LBRead" Type="int" />
+          <Property Name="LBInstincts" Type="int" />
+          <Property Name="LBDefeatBlocks" Type="int" />
+          <Property Name="LBShedBlocks" Type="int" />
+          <Property Name="LBInsideTackle" Type="int" />
+          <Property Name="LBOutsideTackle" Type="int" />
+          <Property Name="DBPressBailCoverage" Type="int" />
+          <Property Name="DBBallReaction" Type="int" />
+          <Property Name="DBTackling" Type="int" />
+          <Property Name="DBZoneCoverage" Type="int" />
+          <Property Name="DBRuncontain" Type="int" />
+          <Property Name="DBWardOffBlockers" Type="int" />
+          <Property Name="DBRunTackling" Type="int" />
+          <Property Name="DBHands" Type="int" />
+          <Property Name="DBTurnAndRun" Type="int" />
+          <Property Name="DBBump" Type="int" />
+          <Property Name="DDBRunContain" Type="int" />
+          <Property Name="DBBlitz" Type="int" />
+          <Property Name="DBRead" Type="int" />
+          <Property Name="DBInstincts" Type="int" />
+          <Property Name="DBBackpedal" Type="int" />
+          <Property Name="DBTurn" Type="int" />
+          <Property Name="DBClose" Type="int" />
+          <Property Name="DBRange" Type="int" />
+          <Property Name="DBCatchUpSpeed" Type="int" />
+          <Property Name="DBManToManCoverage" Type="int" />
+          <Property Name="DBBurst" Type="int" />
+          <Property Name="DBCOBP" Type="int" />
+          <Property Name="DBFeet" Type="int" />
+          <Property Name="KPlantRelationship" Type="varchar" MaxLength="15" />
+          <Property Name="KApproachAngle" Type="varchar" MaxLength="15" />
+          <Property Name="KBallFlight" Type="varchar" MaxLength="15" />
+          <Property Name="KSteppingPattern" Type="varchar" MaxLength="15" />
+          <Property Name="KKickingStyle" Type="varchar" MaxLength="15" />
+          <Property Name="KHandlingWind" Type="int" />
+          <Property Name="KTackling" Type="int" />
+          <Property Name="KRunAndPassAbility" Type="int" />
+          <Property Name="KKOFootSpeed" Type="int" />
+          <Property Name="KFGOperationTimes" Type="int" />
+          <Property Name="KAccuracy" Type="int" />
+          <Property Name="KHandlingPressure" Type="int" />
+          <Property Name="KFootSpeed" Type="int" />
+          <Property Name="KKickQuickness" Type="int" />
+          <Property Name="KKickRise" Type="int" />
+          <Property Name="KKOProduction" Type="int" />
+          <Property Name="KKOMentalStability" Type="int" />
+          <Property Name="PFootSpeed" Type="int" />
+          <Property Name="PApproachLine" Type="int" />
+          <Property Name="PHandlingTime" Type="int" />
+          <Property Name="PSteppingPattern" Type="varchar" MaxLength="15" />
+          <Property Name="PHands" Type="int" />
+          <Property Name="PTackling" Type="int" />
+          <Property Name="PRunAndPassAbility" Type="int" />
+          <Property Name="PDistance" Type="int" />
+          <Property Name="PHangTime" Type="int" />
+          <Property Name="PPressureKicking" Type="int" />
+          <Property Name="PBlockZone" Type="int" />
+          <Property Name="PHandToFootTime" Type="int" />
+          <Property Name="PTiming" Type="int" />
+          <Property Name="STCoverage" Type="int" />
+          <Property Name="STWillingness" Type="int" />
+          <Property Name="STAssignment" Type="int" />
+          <Property Name="STDiscipline" Type="int" />
+          <Property Name="Flexibility" Type="int" />
+          <Property Name="Clutch" Type="int" />
+          <Property Name="Production" Type="int" />
+          <Property Name="Consistency" Type="int" />
+          <Property Name="TeamPlayer" Type="int" />
+          <Property Name="Instincts" Type="int" />
+          <Property Name="Focus" Type="int" />
+          <Property Name="RETKickReturn" Type="int" />
+          <Property Name="RETPuntReturn" Type="int" />
+          <Property Name="PlayStrength" Type="int" />
+          <Property Name="FilmStudy" Type="int" />
+          <Property Name="Durability" Type="int" />
+          <Property Name="Explosion" Type="int" />
+          <Property Name="JumpingAbility" Type="int" />
+          <Property Name="DeliversBlow" Type="int" />
+          <Property Name="Leadership" Type="int" />
+          <Property Name="Character" Type="int" />
+          <Property Name="Toughness" Type="int" />
+          <Property Name="InjuryProne" Type="int" />
+          <Property Name="WorkEthic" Type="int" />
+          <Property Name="Aggressive" Type="int" />
+          <Property Name="Fearless" Type="int" />
+          <Property Name="FieldAwareness" Type="int" />
+          <Property Name="PlaybookKnowledge" Type="int" />
+          <Property Name="RiskTaker" Type="int" />
+          <Property Name="LSSnapAccuracy" Type="int" />
+          <Property Name="LSSnapTime" Type="int" />
+          <Property Name="BallSecurity" Type="int" />
+          <Property Name="Timing" Type="int" />
+        </EntityType>
+        <EntityType Name="Scouts">
+          <Key>
+            <PropertyRef Name="ScoutID" />
+          </Key>
+          <Property Name="ScoutID" Type="int" Nullable="false" />
+          <Property Name="TeamID" Type="int" />
+          <Property Name="FName" Type="varchar" MaxLength="20" />
+          <Property Name="LName" Type="varchar" MaxLength="20" />
+          <Property Name="College" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="DOB" Type="varchar" MaxLength="12" />
+          <Property Name="Experience" Type="int" />
+          <Property Name="OffPhil" Type="varchar" MaxLength="20" />
+          <Property Name="DefPhil" Type="varchar" MaxLength="20" />
+          <Property Name="JudgingAct" Type="int" />
+          <Property Name="JudgingPot" Type="int" />
+          <Property Name="JudgingQB" Type="int" />
+          <Property Name="JudgingRB" Type="int" />
+          <Property Name="JudgingRec" Type="int" />
+          <Property Name="JudgingOL" Type="int" />
+          <Property Name="JudgingDL" Type="int" />
+          <Property Name="JudgingLB" Type="int" />
+          <Property Name="JudgingCB" Type="int" />
+          <Property Name="JudgingSF" Type="int" />
+          <Property Name="FBInt" Type="int" />
+          <Property Name="ValuesCharacter" Type="int" />
+          <Property Name="ProductionVsCombine" Type="int" />
+          <Property Name="AthleticismVsMental" Type="int" />
+          <Property Name="WorkEthic" Type="int" />
+        </EntityType>
+        <EntityContainer Name="FootballModelStoreContainer">
+          <EntitySet Name="Coaches" EntityType="Self.Coaches" store:Type="Tables" />
+          <EntitySet Name="DraftPlayers" EntityType="Self.DraftPlayers" store:Type="Tables" />
+          <EntitySet Name="GMs" EntityType="Self.GMs" store:Type="Tables" />
+          <EntitySet Name="Owners" EntityType="Self.Owners" store:Type="Tables" />
+          <EntitySet Name="Players" EntityType="Self.Players" store:Type="Tables" />
+          <EntitySet Name="Scouts" EntityType="Self.Scouts" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FootballModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Coach">
+          <Key>
+            <PropertyRef Name="CoachID" />
+          </Key>
+          <Property Name="CoachID" Type="Int32" Nullable="false" />
+          <Property Name="TeamID" Type="Int32" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="DOB" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="Int32" />
+          <Property Name="OffPhil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DefPhil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoyaltyPlayers" Type="Int32" />
+          <Property Name="LoyaltyCoaches" Type="Int32" />
+          <Property Name="Ego" Type="Int32" />
+          <Property Name="OffAbility" Type="Int32" />
+          <Property Name="DefAbility" Type="Int32" />
+          <Property Name="Stability" Type="Int32" />
+          <Property Name="DevPlayers" Type="Int32" />
+          <Property Name="JudgingAct" Type="Int32" />
+          <Property Name="JudgingPot" Type="Int32" />
+          <Property Name="JudgingQB" Type="Int32" />
+          <Property Name="JudgingRB" Type="Int32" />
+          <Property Name="JudgingRec" Type="Int32" />
+          <Property Name="JudgingOL" Type="Int32" />
+          <Property Name="JudgingDL" Type="Int32" />
+          <Property Name="JudgingLB" Type="Int32" />
+          <Property Name="JudgingCB" Type="Int32" />
+          <Property Name="JudgingSF" Type="Int32" />
+          <Property Name="Accountability" Type="Int32" />
+          <Property Name="Motivating" Type="Int32" />
+          <Property Name="TimeMgmt" Type="Int32" />
+          <Property Name="Clutch" Type="Int32" />
+          <Property Name="Conservative" Type="Int32" />
+          <Property Name="FBInt" Type="Int32" />
+          <Property Name="Adjustments" Type="Int32" />
+          <Property Name="ValuesST" Type="Int32" />
+          <Property Name="ValuesCharacter" Type="Int32" />
+          <Property Name="WorkEthic" Type="Int32" />
+          <Property Name="Preparation" Type="Int32" />
+          <Property Name="Focus" Type="Int32" />
+          <Property Name="PlaycallingSkill" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DraftPlayer">
+          <Key>
+            <PropertyRef Name="DraftID" />
+          </Key>
+          <Property Name="DraftID" Type="Int32" Nullable="false" />
+          <Property Name="AgentID" Type="Int32" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ScoutRegion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="DOB" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CollegePOS" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="ActualGrade" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="ProjNFLPos" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="PosType" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ArmLength" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="HandLength" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="FortyYardTime" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="TwentyYardTime" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="TenYardTime" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="ShortShuttle" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="BroadJump" Type="Int32" />
+          <Property Name="VertJump" Type="Decimal" Precision="3" Scale="1" />
+          <Property Name="ThreeConeDrill" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="BenchPress" Type="Int32" />
+          <Property Name="InterviewSkills" Type="Int32" />
+          <Property Name="WonderlicTest" Type="Int32" />
+          <Property Name="SkillsTranslateToNFL" Type="Int32" />
+          <Property Name="Reaction" Type="Int32" />
+          <Property Name="QAB" Type="Int32" />
+          <Property Name="COD" Type="Int32" />
+          <Property Name="Hands" Type="Int32" />
+          <Property Name="BodyCatch" Type="Int32" />
+          <Property Name="StiffArm" Type="Int32" />
+          <Property Name="ReleaseOffLine" Type="Int32" />
+          <Property Name="CatchWhenHit" Type="Int32" />
+          <Property Name="BreaksTackles" Type="Int32" />
+          <Property Name="ContactBalance" Type="Int32" />
+          <Property Name="RunAfterCatch" Type="Int32" />
+          <Property Name="LowerBodyStrength" Type="Int32" />
+          <Property Name="UpperBodyStrength" Type="Int32" />
+          <Property Name="Footwork" Type="Int32" />
+          <Property Name="HandUse" Type="Int32" />
+          <Property Name="JumpingAbility" Type="Int32" />
+          <Property Name="PassBlockVsPower" Type="Int32" />
+          <Property Name="PassBlockVsSpeed" Type="Int32" />
+          <Property Name="RunBlocking" Type="Int32" />
+          <Property Name="PlaySpeed" Type="Int32" />
+          <Property Name="RouteRunning" Type="Int32" />
+          <Property Name="KickAccuracy" Type="Int32" />
+          <Property Name="AdjustToBall" Type="Int32" />
+          <Property Name="Tackling" Type="Int32" />
+          <Property Name="Blitz" Type="Int32" />
+          <Property Name="AvoidBlockers" Type="Int32" />
+          <Property Name="ShedBlock" Type="Int32" />
+          <Property Name="DefeatBlock" Type="Int32" />
+          <Property Name="ManToManCoverage" Type="Int32" />
+          <Property Name="ZoneCoverage" Type="Int32" />
+          <Property Name="RETKickReturn" Type="Int32" />
+          <Property Name="RETPuntReturn" Type="Int32" />
+          <Property Name="PlayStrength" Type="Int32" />
+          <Property Name="QBMechanics" Type="Int32" />
+          <Property Name="QBRelQuickness" Type="Int32" />
+          <Property Name="QBAccuracy" Type="Int32" />
+          <Property Name="QBDecMaking" Type="Int32" />
+          <Property Name="QBBallHandling" Type="Int32" />
+          <Property Name="QBLocateRec" Type="Int32" />
+          <Property Name="QBPocketPresence" Type="Int32" />
+          <Property Name="QBEscape" Type="Int32" />
+          <Property Name="QBScrambling" Type="Int32" />
+          <Property Name="QBRolloutRight" Type="Int32" />
+          <Property Name="QBRolloutLeft" Type="Int32" />
+          <Property Name="QBArmStrength" Type="Int32" />
+          <Property Name="QBTouch" Type="Int32" />
+          <Property Name="QBPlayAction" Type="Int32" />
+          <Property Name="RBRunVision" Type="Int32" />
+          <Property Name="RBSetsUpBlocks" Type="Int32" />
+          <Property Name="RBPatience" Type="Int32" />
+          <Property Name="WRRunDBOff" Type="Int32" />
+          <Property Name="WRDisguiseRoute" Type="Int32" />
+          <Property Name="OLPulling" Type="Int32" />
+          <Property Name="OLSlide" Type="Int32" />
+          <Property Name="OLMoveInSpace" Type="Int32" />
+          <Property Name="OLSnapAbility" Type="Int32" />
+          <Property Name="OLLongSnapAbility" Type="Int32" />
+          <Property Name="OLAnchorAbility" Type="Int32" />
+          <Property Name="OLRecover" Type="Int32" />
+          <Property Name="DLPrimaryTech" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DLSecondaryTech" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DLPassRushTech" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DLRunAtHim" Type="Int32" />
+          <Property Name="DLAgainstPullAbility" Type="Int32" />
+          <Property Name="DLSlideABility" Type="Int32" />
+          <Property Name="DLRunPursuit" Type="Int32" />
+          <Property Name="DLCanTakeDoubleTeam" Type="Int32" />
+          <Property Name="DLFinish" Type="Int32" />
+          <Property Name="DLsetUpPassRush" Type="Int32" />
+          <Property Name="LBDropDepth" Type="Int32" />
+          <Property Name="LBFillGaps" Type="Int32" />
+          <Property Name="DBPressBailCoverage" Type="Int32" />
+          <Property Name="DBRunContain" Type="Int32" />
+          <Property Name="DBBump" Type="Int32" />
+          <Property Name="DBBaitQB" Type="Int32" />
+          <Property Name="DBCatchUpSpeed" Type="Int32" />
+          <Property Name="DBTechnique" Type="Int32" />
+          <Property Name="KFakeAbility" Type="Int32" />
+          <Property Name="KKickRise" Type="Int32" />
+          <Property Name="PFakeAbility" Type="Int32" />
+          <Property Name="PDistance" Type="Int32" />
+          <Property Name="PHangTime" Type="Int32" />
+          <Property Name="STCoverage" Type="Int32" />
+          <Property Name="STWillingness" Type="Int32" />
+          <Property Name="STAssignment" Type="Int32" />
+          <Property Name="STDiscipline" Type="Int32" />
+          <Property Name="Flexibility" Type="Int32" />
+          <Property Name="Consistency" Type="Int32" />
+          <Property Name="Instincts" Type="Int32" />
+          <Property Name="Coachability" Type="Int32" />
+          <Property Name="Leadership" Type="Int32" />
+          <Property Name="Confidence" Type="Int32" />
+          <Property Name="Clutch" Type="Int32" />
+          <Property Name="WorkEthic" Type="Int32" />
+          <Property Name="FilmStudy" Type="Int32" />
+          <Property Name="Durability" Type="Int32" />
+          <Property Name="Explosion" Type="Int32" />
+          <Property Name="DeliversBlow" Type="Int32" />
+          <Property Name="Toughness" Type="Int32" />
+          <Property Name="ReadKeys" Type="Int32" />
+          <Property Name="FieldAwareness" Type="Int32" />
+          <Property Name="PlaybookKnowledge" Type="Int32" />
+          <Property Name="BallSecurity" Type="Int32" />
+          <Property Name="LovesFootball" Type="Int32" />
+          <Property Name="Concentration" Type="Int32" />
+          <Property Name="HandlesElements" Type="Int32" />
+          <Property Name="Potential" Type="Int32" />
+          <Property Name="Raw" Type="Int32" />
+          <Property Name="AbsentMinded" Type="Int32" />
+          <Property Name="AbstractReasoning" Type="Int32" />
+          <Property Name="AbstractThinker" Type="Int32" />
+          <Property Name="Adaptable" Type="Int32" />
+          <Property Name="Adventurous" Type="Int32" />
+          <Property Name="Aggressive" Type="Int32" />
+          <Property Name="Analytical" Type="Int32" />
+          <Property Name="Astute" Type="Int32" />
+          <Property Name="Bossy" Type="Int32" />
+          <Property Name="CalmUnderPressure" Type="Int32" />
+          <Property Name="Caring" Type="Int32" />
+          <Property Name="Competitive" Type="Int32" />
+          <Property Name="Conforming" Type="Int32" />
+          <Property Name="Controlling" Type="Int32" />
+          <Property Name="Critical" Type="Int32" />
+          <Property Name="Diplomatic" Type="Int32" />
+          <Property Name="Driven" Type="Int32" />
+          <Property Name="Dutiful" Type="Int32" />
+          <Property Name="EmotionallyStable" Type="Int32" />
+          <Property Name="Enthusiastic" Type="Int32" />
+          <Property Name="Expermiental" Type="Int32" />
+          <Property Name="Expressive" Type="Int32" />
+          <Property Name="Fairness" Type="Int32" />
+          <Property Name="Fearful" Type="Int32" />
+          <Property Name="FollowsRules" Type="Int32" />
+          <Property Name="Friendly" Type="Int32" />
+          <Property Name="FunLoving" Type="Int32" />
+          <Property Name="GuiltProne" Type="Int32" />
+          <Property Name="GreedAvoidance" Type="Int32" />
+          <Property Name="HighEnergy" Type="Int32" />
+          <Property Name="Honesty" Type="Int32" />
+          <Property Name="Imaginative" Type="Int32" />
+          <Property Name="Impatient" Type="Int32" />
+          <Property Name="Impractical" Type="Int32" />
+          <Property Name="Impulsive" Type="Int32" />
+          <Property Name="Individualistic" Type="Int32" />
+          <Property Name="Insecure" Type="Int32" />
+          <Property Name="Intelligent" Type="Int32" />
+          <Property Name="Loner" Type="Int32" />
+          <Property Name="Mature" Type="Int32" />
+          <Property Name="MentalCapacity" Type="Int32" />
+          <Property Name="Modesty" Type="Int32" />
+          <Property Name="Moralistic" Type="Int32" />
+          <Property Name="Nurturing" Type="Int32" />
+          <Property Name="Organized" Type="Int32" />
+          <Property Name="Participator" Type="Int32" />
+          <Property Name="Perfectionist" Type="Int32" />
+          <Property Name="Polished" Type="Int32" />
+          <Property Name="Private" Type="Int32" />
+          <Property Name="Resourceful" Type="Int32" />
+          <Property Name="SelfDoubting" Type="Int32" />
+          <Property Name="SelfSufficient" Type="Int32" />
+          <Property Name="StrongWilled" Type="Int32" />
+          <Property Name="Stubborn" Type="Int32" />
+          <Property Name="TeamPlayer" Type="Int32" />
+          <Property Name="Tense" Type="Int32" />
+          <Property Name="Vigilant" Type="Int32" />
+        </EntityType>
+        <EntityType Name="GM">
+          <Key>
+            <PropertyRef Name="GMID" />
+          </Key>
+          <Property Name="GMID" Type="Int32" Nullable="false" />
+          <Property Name="TeamID" Type="Int32" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="DOB" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="Int32" />
+          <Property Name="CoachPatience" Type="Int32" />
+          <Property Name="Risktaker" Type="Int32" />
+          <Property Name="ValuesDraftPicks" Type="Int32" />
+          <Property Name="ValuesCombine" Type="Int32" />
+          <Property Name="ValuesCharacter" Type="Int32" />
+          <Property Name="ValuesProduction" Type="Int32" />
+          <Property Name="FranchiseTag" Type="Int32" />
+          <Property Name="JudgingDraft" Type="Int32" />
+          <Property Name="JudgingFA" Type="Int32" />
+          <Property Name="JudgingOwn" Type="Int32" />
+          <Property Name="JudgingQB" Type="Int32" />
+          <Property Name="JudgingRB" Type="Int32" />
+          <Property Name="JudgingRec" Type="Int32" />
+          <Property Name="JudgingOL" Type="Int32" />
+          <Property Name="JudgingDL" Type="Int32" />
+          <Property Name="JudgingLB" Type="Int32" />
+          <Property Name="JudgingCB" Type="Int32" />
+          <Property Name="JudgingSF" Type="Int32" />
+          <Property Name="Loyalty" Type="Int32" />
+          <Property Name="Ego" Type="Int32" />
+          <Property Name="OffPhil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="QBImp" Type="Int32" />
+          <Property Name="RBImp" Type="Int32" />
+          <Property Name="FBImp" Type="Int32" />
+          <Property Name="WRImp" Type="Int32" />
+          <Property Name="WR2Imp" Type="Int32" />
+          <Property Name="WR3Imp" Type="Int32" />
+          <Property Name="LTImp" Type="Int32" />
+          <Property Name="LGImp" Type="Int32" />
+          <Property Name="CImp" Type="Int32" />
+          <Property Name="RGImp" Type="Int32" />
+          <Property Name="RTImp" Type="Int32" />
+          <Property Name="TEImp" Type="Int32" />
+          <Property Name="DefPhil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DEImp" Type="Int32" />
+          <Property Name="DE2Imp" Type="Int32" />
+          <Property Name="DTImp" Type="Int32" />
+          <Property Name="DT2Imp" Type="Int32" />
+          <Property Name="NTImp" Type="Int32" />
+          <Property Name="MLBImp" Type="Int32" />
+          <Property Name="WLBImp" Type="Int32" />
+          <Property Name="SLBImp" Type="Int32" />
+          <Property Name="ROLBImp" Type="Int32" />
+          <Property Name="LOLBImp" Type="Int32" />
+          <Property Name="CB1Imp" Type="Int32" />
+          <Property Name="CB2Imp" Type="Int32" />
+          <Property Name="CB3Imp" Type="Int32" />
+          <Property Name="FSImp" Type="Int32" />
+          <Property Name="SSImp" Type="Int32" />
+          <Property Name="DraftStrategy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TeamBuilding" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Owner">
+          <Key>
+            <PropertyRef Name="OwnerID" />
+          </Key>
+          <Property Name="OwnerID" Type="Int32" Nullable="false" />
+          <Property Name="TeamID" Type="Int32" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="DOB" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="OwnerRep" Type="Int32" />
+          <Property Name="Experience" Type="Int32" />
+          <Property Name="GMPatience" Type="Int32" />
+          <Property Name="CoachPatience" Type="Int32" />
+          <Property Name="Meddles" Type="Int32" />
+          <Property Name="WantsWinner" Type="Int32" />
+          <Property Name="SpendsMoney" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Player">
+          <Key>
+            <PropertyRef Name="PlayerID" />
+          </Key>
+          <Property Name="PlayerID" Type="Int32" Nullable="false" />
+          <Property Name="TeamID" Type="Int32" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="DOB" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Height" Type="Int32" />
+          <Property Name="Weight" Type="Int32" />
+          <Property Name="POS" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="QAB" Type="Int32" />
+          <Property Name="COD" Type="Int32" />
+          <Property Name="QBDropQuickness" Type="Int32" />
+          <Property Name="QBSetupQuickness" Type="Int32" />
+          <Property Name="QBReleaseQuickness" Type="Int32" />
+          <Property Name="QBShortAcc" Type="Int32" />
+          <Property Name="QBMedAcc" Type="Int32" />
+          <Property Name="QBLongAcc" Type="Int32" />
+          <Property Name="QBDecMaking" Type="Int32" />
+          <Property Name="QBFieldVision" Type="Int32" />
+          <Property Name="QBDeliveryQuickness" Type="Int32" />
+          <Property Name="QBPoise" Type="Int32" />
+          <Property Name="QBBallHandling" Type="Int32" />
+          <Property Name="QBTiming" Type="Int32" />
+          <Property Name="QBDelivery" Type="Int32" />
+          <Property Name="QBFollowThrough" Type="Int32" />
+          <Property Name="QBAvoidRush" Type="Int32" />
+          <Property Name="QBEscape" Type="Int32" />
+          <Property Name="QBScrambling" Type="Int32" />
+          <Property Name="QBRolloutRight" Type="Int32" />
+          <Property Name="QBRolloutLeft" Type="Int32" />
+          <Property Name="QBArmStrength" Type="Int32" />
+          <Property Name="QBZip" Type="Int32" />
+          <Property Name="QBTouchScreenPass" Type="Int32" />
+          <Property Name="QBTouchSwingPass" Type="Int32" />
+          <Property Name="QBEffectiveShortOut" Type="Int32" />
+          <Property Name="QBEffectiveGoRoute" Type="Int32" />
+          <Property Name="QBEffectivePostRoute" Type="Int32" />
+          <Property Name="QBEffectiveCornerRoute" Type="Int32" />
+          <Property Name="QBEffectiveDeepOut" Type="Int32" />
+          <Property Name="RBEffortBlocking" Type="Int32" />
+          <Property Name="RBDurability" Type="Int32" />
+          <Property Name="RBPassBlocking" Type="Int32" />
+          <Property Name="RBHands" Type="Int32" />
+          <Property Name="RBStart" Type="Int32" />
+          <Property Name="RBRunVision" Type="Int32" />
+          <Property Name="RBInsideAbility" Type="Int32" />
+          <Property Name="RBBallAdjust" Type="Int32" />
+          <Property Name="RBOutsideAbility" Type="Int32" />
+          <Property Name="RBElusiveAbility" Type="Int32" />
+          <Property Name="RBPowerAbility" Type="Int32" />
+          <Property Name="RBRunBlocking" Type="Int32" />
+          <Property Name="RBRouteRunning" Type="Int32" />
+          <Property Name="RBRunningStyle" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Athleticism" Type="Int32" />
+          <Property Name="WRShortRoute" Type="Int32" />
+          <Property Name="WRCrowdReaction" Type="Int32" />
+          <Property Name="WRConcentration" Type="Int32" />
+          <Property Name="WRRunDBOff" Type="Int32" />
+          <Property Name="WRAcrobaticCatches" Type="Int32" />
+          <Property Name="WRFieldAwareness" Type="Int32" />
+          <Property Name="WRBodyCatch" Type="Int32" />
+          <Property Name="WRBlocking" Type="Int32" />
+          <Property Name="WRRelease" Type="Int32" />
+          <Property Name="WRStart" Type="Int32" />
+          <Property Name="WRPatterns" Type="Int32" />
+          <Property Name="WRMedRoute" Type="Int32" />
+          <Property Name="WRDeepRoute" Type="Int32" />
+          <Property Name="WRBallAdjust" Type="Int32" />
+          <Property Name="WRHandCatch" Type="Int32" />
+          <Property Name="WRRAC" Type="Int32" />
+          <Property Name="WRCatchWhenHit" Type="Int32" />
+          <Property Name="TEGetOffLineRunBlock" Type="Int32" />
+          <Property Name="TEOneOnOneBlocking" Type="Int32" />
+          <Property Name="TEDoubleTeamBlocking" Type="Int32" />
+          <Property Name="TEDownBlocking" Type="Int32" />
+          <Property Name="TETurnAndWallBlocking" Type="Int32" />
+          <Property Name="TEsustainBlocking" Type="Int32" />
+          <Property Name="TECrowdReaction" Type="Int32" />
+          <Property Name="TECatchWhenHit" Type="Int32" />
+          <Property Name="TEConcentration" Type="Int32" />
+          <Property Name="TEBodyCatch" Type="Int32" />
+          <Property Name="TEFieldAwareness" Type="Int32" />
+          <Property Name="TEPassProtect" Type="Int32" />
+          <Property Name="TEDriveIntoPassRoute" Type="Int32" />
+          <Property Name="TEPatterns" Type="Int32" />
+          <Property Name="TEShortRoute" Type="Int32" />
+          <Property Name="TEMedRoute" Type="Int32" />
+          <Property Name="TEDeepRoute" Type="Int32" />
+          <Property Name="TEBallAdjust" Type="Int32" />
+          <Property Name="TEHandCatch" Type="Int32" />
+          <Property Name="TERAC" Type="Int32" />
+          <Property Name="OLGetOutside" Type="Int32" />
+          <Property Name="OLReachBlock" Type="Int32" />
+          <Property Name="OLTurnDefender" Type="Int32" />
+          <Property Name="OLPulling" Type="Int32" />
+          <Property Name="OLTrapBlock" Type="Int32" />
+          <Property Name="OL2ndLevelPull" Type="Int32" />
+          <Property Name="OLAdjusttoLB" Type="Int32" />
+          <Property Name="OLSlide" Type="Int32" />
+          <Property Name="OLHandUse" Type="Int32" />
+          <Property Name="OLHandPop" Type="Int32" />
+          <Property Name="OLLongSnapPotential" Type="Int32" />
+          <Property Name="OLGetOffLineRunBlock" Type="Int32" />
+          <Property Name="OLOneOnOneBlocking" Type="Int32" />
+          <Property Name="OLDriveBlocking" Type="Int32" />
+          <Property Name="OLDownBlocking" Type="Int32" />
+          <Property Name="OLSustainBlock" Type="Int32" />
+          <Property Name="OLPassBlocking" Type="Int32" />
+          <Property Name="OLPassDrops" Type="Int32" />
+          <Property Name="OLFeetSetup" Type="Int32" />
+          <Property Name="OLInSpace" Type="Int32" />
+          <Property Name="OLLongSnapPot" Type="Int32" />
+          <Property Name="OLAnchorAbility" Type="Int32" />
+          <Property Name="OLRecover" Type="Int32" />
+          <Property Name="OLStrength" Type="Int32" />
+          <Property Name="DLStyle" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DLRunAtHim" Type="Int32" />
+          <Property Name="DLTackling" Type="Int32" />
+          <Property Name="DLAgainstTrapAbility" Type="Int32" />
+          <Property Name="DLSlideAbility" Type="Int32" />
+          <Property Name="DLRunPursuit" Type="Int32" />
+          <Property Name="DLPassRushTechnique" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DLHandUse" Type="Int32" />
+          <Property Name="DLShedVsRunAway" Type="Int32" />
+          <Property Name="DLShedRunBlock" Type="Int32" />
+          <Property Name="DLTackleVsRunAway" Type="Int32" />
+          <Property Name="DLChangeDirection" Type="Int32" />
+          <Property Name="DLReleaseOffBall" Type="Int32" />
+          <Property Name="DLOneOnOneAbility" Type="Int32" />
+          <Property Name="DLDoubleTeamAbility" Type="Int32" />
+          <Property Name="DLDefeatBlock" Type="Int32" />
+          <Property Name="DLFirstStepPassRush" Type="Int32" />
+          <Property Name="DLShedPassBlock" Type="Int32" />
+          <Property Name="DLBurst" Type="Int32" />
+          <Property Name="DLPressure" Type="Int32" />
+          <Property Name="DLFinish" Type="Int32" />
+          <Property Name="LBDropDepth" Type="Int32" />
+          <Property Name="LBCoverage" Type="Int32" />
+          <Property Name="LBHands" Type="Int32" />
+          <Property Name="LBBlitz" Type="Int32" />
+          <Property Name="LBPassRushType" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="LBFillGaps" Type="Int32" />
+          <Property Name="LBContain" Type="Int32" />
+          <Property Name="LBRead" Type="Int32" />
+          <Property Name="LBInstincts" Type="Int32" />
+          <Property Name="LBDefeatBlocks" Type="Int32" />
+          <Property Name="LBShedBlocks" Type="Int32" />
+          <Property Name="LBInsideTackle" Type="Int32" />
+          <Property Name="LBOutsideTackle" Type="Int32" />
+          <Property Name="DBPressBailCoverage" Type="Int32" />
+          <Property Name="DBBallReaction" Type="Int32" />
+          <Property Name="DBTackling" Type="Int32" />
+          <Property Name="DBZoneCoverage" Type="Int32" />
+          <Property Name="DBRuncontain" Type="Int32" />
+          <Property Name="DBWardOffBlockers" Type="Int32" />
+          <Property Name="DBRunTackling" Type="Int32" />
+          <Property Name="DBHands" Type="Int32" />
+          <Property Name="DBTurnAndRun" Type="Int32" />
+          <Property Name="DBBump" Type="Int32" />
+          <Property Name="DDBRunContain" Type="Int32" />
+          <Property Name="DBBlitz" Type="Int32" />
+          <Property Name="DBRead" Type="Int32" />
+          <Property Name="DBInstincts" Type="Int32" />
+          <Property Name="DBBackpedal" Type="Int32" />
+          <Property Name="DBTurn" Type="Int32" />
+          <Property Name="DBClose" Type="Int32" />
+          <Property Name="DBRange" Type="Int32" />
+          <Property Name="DBCatchUpSpeed" Type="Int32" />
+          <Property Name="DBManToManCoverage" Type="Int32" />
+          <Property Name="DBBurst" Type="Int32" />
+          <Property Name="DBCOBP" Type="Int32" />
+          <Property Name="DBFeet" Type="Int32" />
+          <Property Name="KPlantRelationship" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="KApproachAngle" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="KBallFlight" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="KSteppingPattern" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="KKickingStyle" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="KHandlingWind" Type="Int32" />
+          <Property Name="KTackling" Type="Int32" />
+          <Property Name="KRunAndPassAbility" Type="Int32" />
+          <Property Name="KKOFootSpeed" Type="Int32" />
+          <Property Name="KFGOperationTimes" Type="Int32" />
+          <Property Name="KAccuracy" Type="Int32" />
+          <Property Name="KHandlingPressure" Type="Int32" />
+          <Property Name="KFootSpeed" Type="Int32" />
+          <Property Name="KKickQuickness" Type="Int32" />
+          <Property Name="KKickRise" Type="Int32" />
+          <Property Name="KKOProduction" Type="Int32" />
+          <Property Name="KKOMentalStability" Type="Int32" />
+          <Property Name="PFootSpeed" Type="Int32" />
+          <Property Name="PApproachLine" Type="Int32" />
+          <Property Name="PHandlingTime" Type="Int32" />
+          <Property Name="PSteppingPattern" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="PHands" Type="Int32" />
+          <Property Name="PTackling" Type="Int32" />
+          <Property Name="PRunAndPassAbility" Type="Int32" />
+          <Property Name="PDistance" Type="Int32" />
+          <Property Name="PHangTime" Type="Int32" />
+          <Property Name="PPressureKicking" Type="Int32" />
+          <Property Name="PBlockZone" Type="Int32" />
+          <Property Name="PHandToFootTime" Type="Int32" />
+          <Property Name="PTiming" Type="Int32" />
+          <Property Name="STCoverage" Type="Int32" />
+          <Property Name="STWillingness" Type="Int32" />
+          <Property Name="STAssignment" Type="Int32" />
+          <Property Name="STDiscipline" Type="Int32" />
+          <Property Name="Flexibility" Type="Int32" />
+          <Property Name="Clutch" Type="Int32" />
+          <Property Name="Production" Type="Int32" />
+          <Property Name="Consistency" Type="Int32" />
+          <Property Name="TeamPlayer" Type="Int32" />
+          <Property Name="Instincts" Type="Int32" />
+          <Property Name="Focus" Type="Int32" />
+          <Property Name="RETKickReturn" Type="Int32" />
+          <Property Name="RETPuntReturn" Type="Int32" />
+          <Property Name="PlayStrength" Type="Int32" />
+          <Property Name="FilmStudy" Type="Int32" />
+          <Property Name="Durability" Type="Int32" />
+          <Property Name="Explosion" Type="Int32" />
+          <Property Name="JumpingAbility" Type="Int32" />
+          <Property Name="DeliversBlow" Type="Int32" />
+          <Property Name="Leadership" Type="Int32" />
+          <Property Name="Character" Type="Int32" />
+          <Property Name="Toughness" Type="Int32" />
+          <Property Name="InjuryProne" Type="Int32" />
+          <Property Name="WorkEthic" Type="Int32" />
+          <Property Name="Aggressive" Type="Int32" />
+          <Property Name="Fearless" Type="Int32" />
+          <Property Name="FieldAwareness" Type="Int32" />
+          <Property Name="PlaybookKnowledge" Type="Int32" />
+          <Property Name="RiskTaker" Type="Int32" />
+          <Property Name="LSSnapAccuracy" Type="Int32" />
+          <Property Name="LSSnapTime" Type="Int32" />
+          <Property Name="BallSecurity" Type="Int32" />
+          <Property Name="Timing" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Scout">
+          <Key>
+            <PropertyRef Name="ScoutID" />
+          </Key>
+          <Property Name="ScoutID" Type="Int32" Nullable="false" />
+          <Property Name="TeamID" Type="Int32" />
+          <Property Name="FName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="College" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="DOB" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Experience" Type="Int32" />
+          <Property Name="OffPhil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DefPhil" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="JudgingAct" Type="Int32" />
+          <Property Name="JudgingPot" Type="Int32" />
+          <Property Name="JudgingQB" Type="Int32" />
+          <Property Name="JudgingRB" Type="Int32" />
+          <Property Name="JudgingRec" Type="Int32" />
+          <Property Name="JudgingOL" Type="Int32" />
+          <Property Name="JudgingDL" Type="Int32" />
+          <Property Name="JudgingLB" Type="Int32" />
+          <Property Name="JudgingCB" Type="Int32" />
+          <Property Name="JudgingSF" Type="Int32" />
+          <Property Name="FBInt" Type="Int32" />
+          <Property Name="ValuesCharacter" Type="Int32" />
+          <Property Name="ProductionVsCombine" Type="Int32" />
+          <Property Name="AthleticismVsMental" Type="Int32" />
+          <Property Name="WorkEthic" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="FootballEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Coaches" EntityType="Self.Coach" />
+          <EntitySet Name="DraftPlayers" EntityType="Self.DraftPlayer" />
+          <EntitySet Name="GMs" EntityType="Self.GM" />
+          <EntitySet Name="Owners" EntityType="Self.Owner" />
+          <EntitySet Name="Players" EntityType="Self.Player" />
+          <EntitySet Name="Scouts" EntityType="Self.Scout" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FootballModelStoreContainer" CdmEntityContainer="FootballEntities">
+          <EntitySetMapping Name="Coaches">
+            <EntityTypeMapping TypeName="FootballModel.Coach">
+              <MappingFragment StoreEntitySet="Coaches">
+                <ScalarProperty Name="CoachID" ColumnName="CoachID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="OffPhil" ColumnName="OffPhil" />
+                <ScalarProperty Name="DefPhil" ColumnName="DefPhil" />
+                <ScalarProperty Name="LoyaltyPlayers" ColumnName="LoyaltyPlayers" />
+                <ScalarProperty Name="LoyaltyCoaches" ColumnName="LoyaltyCoaches" />
+                <ScalarProperty Name="Ego" ColumnName="Ego" />
+                <ScalarProperty Name="OffAbility" ColumnName="OffAbility" />
+                <ScalarProperty Name="DefAbility" ColumnName="DefAbility" />
+                <ScalarProperty Name="Stability" ColumnName="Stability" />
+                <ScalarProperty Name="DevPlayers" ColumnName="DevPlayers" />
+                <ScalarProperty Name="JudgingAct" ColumnName="JudgingAct" />
+                <ScalarProperty Name="JudgingPot" ColumnName="JudgingPot" />
+                <ScalarProperty Name="JudgingQB" ColumnName="JudgingQB" />
+                <ScalarProperty Name="JudgingRB" ColumnName="JudgingRB" />
+                <ScalarProperty Name="JudgingRec" ColumnName="JudgingRec" />
+                <ScalarProperty Name="JudgingOL" ColumnName="JudgingOL" />
+                <ScalarProperty Name="JudgingDL" ColumnName="JudgingDL" />
+                <ScalarProperty Name="JudgingLB" ColumnName="JudgingLB" />
+                <ScalarProperty Name="JudgingCB" ColumnName="JudgingCB" />
+                <ScalarProperty Name="JudgingSF" ColumnName="JudgingSF" />
+                <ScalarProperty Name="Accountability" ColumnName="Accountability" />
+                <ScalarProperty Name="Motivating" ColumnName="Motivating" />
+                <ScalarProperty Name="TimeMgmt" ColumnName="TimeMgmt" />
+                <ScalarProperty Name="Clutch" ColumnName="Clutch" />
+                <ScalarProperty Name="Conservative" ColumnName="Conservative" />
+                <ScalarProperty Name="FBInt" ColumnName="FBInt" />
+                <ScalarProperty Name="Adjustments" ColumnName="Adjustments" />
+                <ScalarProperty Name="ValuesST" ColumnName="ValuesST" />
+                <ScalarProperty Name="ValuesCharacter" ColumnName="ValuesCharacter" />
+                <ScalarProperty Name="WorkEthic" ColumnName="WorkEthic" />
+                <ScalarProperty Name="Preparation" ColumnName="Preparation" />
+                <ScalarProperty Name="Focus" ColumnName="Focus" />
+                <ScalarProperty Name="PlaycallingSkill" ColumnName="PlaycallingSkill" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DraftPlayers">
+            <EntityTypeMapping TypeName="FootballModel.DraftPlayer">
+              <MappingFragment StoreEntitySet="DraftPlayers">
+                <ScalarProperty Name="DraftID" ColumnName="DraftID" />
+                <ScalarProperty Name="AgentID" ColumnName="AgentID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="ScoutRegion" ColumnName="ScoutRegion" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="CollegePOS" ColumnName="CollegePOS" />
+                <ScalarProperty Name="ActualGrade" ColumnName="ActualGrade" />
+                <ScalarProperty Name="ProjNFLPos" ColumnName="ProjNFLPos" />
+                <ScalarProperty Name="PosType" ColumnName="PosType" />
+                <ScalarProperty Name="ArmLength" ColumnName="ArmLength" />
+                <ScalarProperty Name="HandLength" ColumnName="HandLength" />
+                <ScalarProperty Name="FortyYardTime" ColumnName="FortyYardTime" />
+                <ScalarProperty Name="TwentyYardTime" ColumnName="TwentyYardTime" />
+                <ScalarProperty Name="TenYardTime" ColumnName="TenYardTime" />
+                <ScalarProperty Name="ShortShuttle" ColumnName="ShortShuttle" />
+                <ScalarProperty Name="BroadJump" ColumnName="BroadJump" />
+                <ScalarProperty Name="VertJump" ColumnName="VertJump" />
+                <ScalarProperty Name="ThreeConeDrill" ColumnName="ThreeConeDrill" />
+                <ScalarProperty Name="BenchPress" ColumnName="BenchPress" />
+                <ScalarProperty Name="InterviewSkills" ColumnName="InterviewSkills" />
+                <ScalarProperty Name="WonderlicTest" ColumnName="WonderlicTest" />
+                <ScalarProperty Name="SkillsTranslateToNFL" ColumnName="SkillsTranslateToNFL" />
+                <ScalarProperty Name="Reaction" ColumnName="Reaction" />
+                <ScalarProperty Name="QAB" ColumnName="QAB" />
+                <ScalarProperty Name="COD" ColumnName="COD" />
+                <ScalarProperty Name="Hands" ColumnName="Hands" />
+                <ScalarProperty Name="BodyCatch" ColumnName="BodyCatch" />
+                <ScalarProperty Name="StiffArm" ColumnName="StiffArm" />
+                <ScalarProperty Name="ReleaseOffLine" ColumnName="ReleaseOffLine" />
+                <ScalarProperty Name="CatchWhenHit" ColumnName="CatchWhenHit" />
+                <ScalarProperty Name="BreaksTackles" ColumnName="BreaksTackles" />
+                <ScalarProperty Name="ContactBalance" ColumnName="ContactBalance" />
+                <ScalarProperty Name="RunAfterCatch" ColumnName="RunAfterCatch" />
+                <ScalarProperty Name="LowerBodyStrength" ColumnName="LowerBodyStrength" />
+                <ScalarProperty Name="UpperBodyStrength" ColumnName="UpperBodyStrength" />
+                <ScalarProperty Name="Footwork" ColumnName="Footwork" />
+                <ScalarProperty Name="HandUse" ColumnName="HandUse" />
+                <ScalarProperty Name="JumpingAbility" ColumnName="JumpingAbility" />
+                <ScalarProperty Name="PassBlockVsPower" ColumnName="PassBlockVsPower" />
+                <ScalarProperty Name="PassBlockVsSpeed" ColumnName="PassBlockVsSpeed" />
+                <ScalarProperty Name="RunBlocking" ColumnName="RunBlocking" />
+                <ScalarProperty Name="PlaySpeed" ColumnName="PlaySpeed" />
+                <ScalarProperty Name="RouteRunning" ColumnName="RouteRunning" />
+                <ScalarProperty Name="KickAccuracy" ColumnName="KickAccuracy" />
+                <ScalarProperty Name="AdjustToBall" ColumnName="AdjustToBall" />
+                <ScalarProperty Name="Tackling" ColumnName="Tackling" />
+                <ScalarProperty Name="Blitz" ColumnName="Blitz" />
+                <ScalarProperty Name="AvoidBlockers" ColumnName="AvoidBlockers" />
+                <ScalarProperty Name="ShedBlock" ColumnName="ShedBlock" />
+                <ScalarProperty Name="DefeatBlock" ColumnName="DefeatBlock" />
+                <ScalarProperty Name="ManToManCoverage" ColumnName="ManToManCoverage" />
+                <ScalarProperty Name="ZoneCoverage" ColumnName="ZoneCoverage" />
+                <ScalarProperty Name="RETKickReturn" ColumnName="RETKickReturn" />
+                <ScalarProperty Name="RETPuntReturn" ColumnName="RETPuntReturn" />
+                <ScalarProperty Name="PlayStrength" ColumnName="PlayStrength" />
+                <ScalarProperty Name="QBMechanics" ColumnName="QBMechanics" />
+                <ScalarProperty Name="QBRelQuickness" ColumnName="QBRelQuickness" />
+                <ScalarProperty Name="QBAccuracy" ColumnName="QBAccuracy" />
+                <ScalarProperty Name="QBDecMaking" ColumnName="QBDecMaking" />
+                <ScalarProperty Name="QBBallHandling" ColumnName="QBBallHandling" />
+                <ScalarProperty Name="QBLocateRec" ColumnName="QBLocateRec" />
+                <ScalarProperty Name="QBPocketPresence" ColumnName="QBPocketPresence" />
+                <ScalarProperty Name="QBEscape" ColumnName="QBEscape" />
+                <ScalarProperty Name="QBScrambling" ColumnName="QBScrambling" />
+                <ScalarProperty Name="QBRolloutRight" ColumnName="QBRolloutRight" />
+                <ScalarProperty Name="QBRolloutLeft" ColumnName="QBRolloutLeft" />
+                <ScalarProperty Name="QBArmStrength" ColumnName="QBArmStrength" />
+                <ScalarProperty Name="QBTouch" ColumnName="QBTouch" />
+                <ScalarProperty Name="QBPlayAction" ColumnName="QBPlayAction" />
+                <ScalarProperty Name="RBRunVision" ColumnName="RBRunVision" />
+                <ScalarProperty Name="RBSetsUpBlocks" ColumnName="RBSetsUpBlocks" />
+                <ScalarProperty Name="RBPatience" ColumnName="RBPatience" />
+                <ScalarProperty Name="WRRunDBOff" ColumnName="WRRunDBOff" />
+                <ScalarProperty Name="WRDisguiseRoute" ColumnName="WRDisguiseRoute" />
+                <ScalarProperty Name="OLPulling" ColumnName="OLPulling" />
+                <ScalarProperty Name="OLSlide" ColumnName="OLSlide" />
+                <ScalarProperty Name="OLMoveInSpace" ColumnName="OLMoveInSpace" />
+                <ScalarProperty Name="OLSnapAbility" ColumnName="OLSnapAbility" />
+                <ScalarProperty Name="OLLongSnapAbility" ColumnName="OLLongSnapAbility" />
+                <ScalarProperty Name="OLAnchorAbility" ColumnName="OLAnchorAbility" />
+                <ScalarProperty Name="OLRecover" ColumnName="OLRecover" />
+                <ScalarProperty Name="DLPrimaryTech" ColumnName="DLPrimaryTech" />
+                <ScalarProperty Name="DLSecondaryTech" ColumnName="DLSecondaryTech" />
+                <ScalarProperty Name="DLPassRushTech" ColumnName="DLPassRushTech" />
+                <ScalarProperty Name="DLRunAtHim" ColumnName="DLRunAtHim" />
+                <ScalarProperty Name="DLAgainstPullAbility" ColumnName="DLAgainstPullAbility" />
+                <ScalarProperty Name="DLSlideABility" ColumnName="DLSlideABility" />
+                <ScalarProperty Name="DLRunPursuit" ColumnName="DLRunPursuit" />
+                <ScalarProperty Name="DLCanTakeDoubleTeam" ColumnName="DLCanTakeDoubleTeam" />
+                <ScalarProperty Name="DLFinish" ColumnName="DLFinish" />
+                <ScalarProperty Name="DLsetUpPassRush" ColumnName="DLsetUpPassRush" />
+                <ScalarProperty Name="LBDropDepth" ColumnName="LBDropDepth" />
+                <ScalarProperty Name="LBFillGaps" ColumnName="LBFillGaps" />
+                <ScalarProperty Name="DBPressBailCoverage" ColumnName="DBPressBailCoverage" />
+                <ScalarProperty Name="DBRunContain" ColumnName="DBRunContain" />
+                <ScalarProperty Name="DBBump" ColumnName="DBBump" />
+                <ScalarProperty Name="DBBaitQB" ColumnName="DBBaitQB" />
+                <ScalarProperty Name="DBCatchUpSpeed" ColumnName="DBCatchUpSpeed" />
+                <ScalarProperty Name="DBTechnique" ColumnName="DBTechnique" />
+                <ScalarProperty Name="KFakeAbility" ColumnName="KFakeAbility" />
+                <ScalarProperty Name="KKickRise" ColumnName="KKickRise" />
+                <ScalarProperty Name="PFakeAbility" ColumnName="PFakeAbility" />
+                <ScalarProperty Name="PDistance" ColumnName="PDistance" />
+                <ScalarProperty Name="PHangTime" ColumnName="PHangTime" />
+                <ScalarProperty Name="STCoverage" ColumnName="STCoverage" />
+                <ScalarProperty Name="STWillingness" ColumnName="STWillingness" />
+                <ScalarProperty Name="STAssignment" ColumnName="STAssignment" />
+                <ScalarProperty Name="STDiscipline" ColumnName="STDiscipline" />
+                <ScalarProperty Name="Flexibility" ColumnName="Flexibility" />
+                <ScalarProperty Name="Consistency" ColumnName="Consistency" />
+                <ScalarProperty Name="Instincts" ColumnName="Instincts" />
+                <ScalarProperty Name="Coachability" ColumnName="Coachability" />
+                <ScalarProperty Name="Leadership" ColumnName="Leadership" />
+                <ScalarProperty Name="Confidence" ColumnName="Confidence" />
+                <ScalarProperty Name="Clutch" ColumnName="Clutch" />
+                <ScalarProperty Name="WorkEthic" ColumnName="WorkEthic" />
+                <ScalarProperty Name="FilmStudy" ColumnName="FilmStudy" />
+                <ScalarProperty Name="Durability" ColumnName="Durability" />
+                <ScalarProperty Name="Explosion" ColumnName="Explosion" />
+                <ScalarProperty Name="DeliversBlow" ColumnName="DeliversBlow" />
+                <ScalarProperty Name="Toughness" ColumnName="Toughness" />
+                <ScalarProperty Name="ReadKeys" ColumnName="ReadKeys" />
+                <ScalarProperty Name="FieldAwareness" ColumnName="FieldAwareness" />
+                <ScalarProperty Name="PlaybookKnowledge" ColumnName="PlaybookKnowledge" />
+                <ScalarProperty Name="BallSecurity" ColumnName="BallSecurity" />
+                <ScalarProperty Name="LovesFootball" ColumnName="LovesFootball" />
+                <ScalarProperty Name="Concentration" ColumnName="Concentration" />
+                <ScalarProperty Name="HandlesElements" ColumnName="HandlesElements" />
+                <ScalarProperty Name="Potential" ColumnName="Potential" />
+                <ScalarProperty Name="Raw" ColumnName="Raw" />
+                <ScalarProperty Name="AbsentMinded" ColumnName="AbsentMinded" />
+                <ScalarProperty Name="AbstractReasoning" ColumnName="AbstractReasoning" />
+                <ScalarProperty Name="AbstractThinker" ColumnName="AbstractThinker" />
+                <ScalarProperty Name="Adaptable" ColumnName="Adaptable" />
+                <ScalarProperty Name="Adventurous" ColumnName="Adventurous" />
+                <ScalarProperty Name="Aggressive" ColumnName="Aggressive" />
+                <ScalarProperty Name="Analytical" ColumnName="Analytical" />
+                <ScalarProperty Name="Astute" ColumnName="Astute" />
+                <ScalarProperty Name="Bossy" ColumnName="Bossy" />
+                <ScalarProperty Name="CalmUnderPressure" ColumnName="CalmUnderPressure" />
+                <ScalarProperty Name="Caring" ColumnName="Caring" />
+                <ScalarProperty Name="Competitive" ColumnName="Competitive" />
+                <ScalarProperty Name="Conforming" ColumnName="Conforming" />
+                <ScalarProperty Name="Controlling" ColumnName="Controlling" />
+                <ScalarProperty Name="Critical" ColumnName="Critical" />
+                <ScalarProperty Name="Diplomatic" ColumnName="Diplomatic" />
+                <ScalarProperty Name="Driven" ColumnName="Driven" />
+                <ScalarProperty Name="Dutiful" ColumnName="Dutiful" />
+                <ScalarProperty Name="EmotionallyStable" ColumnName="EmotionallyStable" />
+                <ScalarProperty Name="Enthusiastic" ColumnName="Enthusiastic" />
+                <ScalarProperty Name="Expermiental" ColumnName="Expermiental" />
+                <ScalarProperty Name="Expressive" ColumnName="Expressive" />
+                <ScalarProperty Name="Fairness" ColumnName="Fairness" />
+                <ScalarProperty Name="Fearful" ColumnName="Fearful" />
+                <ScalarProperty Name="FollowsRules" ColumnName="FollowsRules" />
+                <ScalarProperty Name="Friendly" ColumnName="Friendly" />
+                <ScalarProperty Name="FunLoving" ColumnName="FunLoving" />
+                <ScalarProperty Name="GuiltProne" ColumnName="GuiltProne" />
+                <ScalarProperty Name="GreedAvoidance" ColumnName="GreedAvoidance" />
+                <ScalarProperty Name="HighEnergy" ColumnName="HighEnergy" />
+                <ScalarProperty Name="Honesty" ColumnName="Honesty" />
+                <ScalarProperty Name="Imaginative" ColumnName="Imaginative" />
+                <ScalarProperty Name="Impatient" ColumnName="Impatient" />
+                <ScalarProperty Name="Impractical" ColumnName="Impractical" />
+                <ScalarProperty Name="Impulsive" ColumnName="Impulsive" />
+                <ScalarProperty Name="Individualistic" ColumnName="Individualistic" />
+                <ScalarProperty Name="Insecure" ColumnName="Insecure" />
+                <ScalarProperty Name="Intelligent" ColumnName="Intelligent" />
+                <ScalarProperty Name="Loner" ColumnName="Loner" />
+                <ScalarProperty Name="Mature" ColumnName="Mature" />
+                <ScalarProperty Name="MentalCapacity" ColumnName="MentalCapacity" />
+                <ScalarProperty Name="Modesty" ColumnName="Modesty" />
+                <ScalarProperty Name="Moralistic" ColumnName="Moralistic" />
+                <ScalarProperty Name="Nurturing" ColumnName="Nurturing" />
+                <ScalarProperty Name="Organized" ColumnName="Organized" />
+                <ScalarProperty Name="Participator" ColumnName="Participator" />
+                <ScalarProperty Name="Perfectionist" ColumnName="Perfectionist" />
+                <ScalarProperty Name="Polished" ColumnName="Polished" />
+                <ScalarProperty Name="Private" ColumnName="Private" />
+                <ScalarProperty Name="Resourceful" ColumnName="Resourceful" />
+                <ScalarProperty Name="SelfDoubting" ColumnName="SelfDoubting" />
+                <ScalarProperty Name="SelfSufficient" ColumnName="SelfSufficient" />
+                <ScalarProperty Name="StrongWilled" ColumnName="StrongWilled" />
+                <ScalarProperty Name="Stubborn" ColumnName="Stubborn" />
+                <ScalarProperty Name="TeamPlayer" ColumnName="TeamPlayer" />
+                <ScalarProperty Name="Tense" ColumnName="Tense" />
+                <ScalarProperty Name="Vigilant" ColumnName="Vigilant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GMs">
+            <EntityTypeMapping TypeName="FootballModel.GM">
+              <MappingFragment StoreEntitySet="GMs">
+                <ScalarProperty Name="GMID" ColumnName="GMID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="CoachPatience" ColumnName="CoachPatience" />
+                <ScalarProperty Name="Risktaker" ColumnName="Risktaker" />
+                <ScalarProperty Name="ValuesDraftPicks" ColumnName="ValuesDraftPicks" />
+                <ScalarProperty Name="ValuesCombine" ColumnName="ValuesCombine" />
+                <ScalarProperty Name="ValuesCharacter" ColumnName="ValuesCharacter" />
+                <ScalarProperty Name="ValuesProduction" ColumnName="ValuesProduction" />
+                <ScalarProperty Name="FranchiseTag" ColumnName="FranchiseTag" />
+                <ScalarProperty Name="JudgingDraft" ColumnName="JudgingDraft" />
+                <ScalarProperty Name="JudgingFA" ColumnName="JudgingFA" />
+                <ScalarProperty Name="JudgingOwn" ColumnName="JudgingOwn" />
+                <ScalarProperty Name="JudgingQB" ColumnName="JudgingQB" />
+                <ScalarProperty Name="JudgingRB" ColumnName="JudgingRB" />
+                <ScalarProperty Name="JudgingRec" ColumnName="JudgingRec" />
+                <ScalarProperty Name="JudgingOL" ColumnName="JudgingOL" />
+                <ScalarProperty Name="JudgingDL" ColumnName="JudgingDL" />
+                <ScalarProperty Name="JudgingLB" ColumnName="JudgingLB" />
+                <ScalarProperty Name="JudgingCB" ColumnName="JudgingCB" />
+                <ScalarProperty Name="JudgingSF" ColumnName="JudgingSF" />
+                <ScalarProperty Name="Loyalty" ColumnName="Loyalty" />
+                <ScalarProperty Name="Ego" ColumnName="Ego" />
+                <ScalarProperty Name="OffPhil" ColumnName="OffPhil" />
+                <ScalarProperty Name="QBImp" ColumnName="QBImp" />
+                <ScalarProperty Name="RBImp" ColumnName="RBImp" />
+                <ScalarProperty Name="FBImp" ColumnName="FBImp" />
+                <ScalarProperty Name="WRImp" ColumnName="WRImp" />
+                <ScalarProperty Name="WR2Imp" ColumnName="WR2Imp" />
+                <ScalarProperty Name="WR3Imp" ColumnName="WR3Imp" />
+                <ScalarProperty Name="LTImp" ColumnName="LTImp" />
+                <ScalarProperty Name="LGImp" ColumnName="LGImp" />
+                <ScalarProperty Name="CImp" ColumnName="CImp" />
+                <ScalarProperty Name="RGImp" ColumnName="RGImp" />
+                <ScalarProperty Name="RTImp" ColumnName="RTImp" />
+                <ScalarProperty Name="TEImp" ColumnName="TEImp" />
+                <ScalarProperty Name="DefPhil" ColumnName="DefPhil" />
+                <ScalarProperty Name="DEImp" ColumnName="DEImp" />
+                <ScalarProperty Name="DE2Imp" ColumnName="DE2Imp" />
+                <ScalarProperty Name="DTImp" ColumnName="DTImp" />
+                <ScalarProperty Name="DT2Imp" ColumnName="DT2Imp" />
+                <ScalarProperty Name="NTImp" ColumnName="NTImp" />
+                <ScalarProperty Name="MLBImp" ColumnName="MLBImp" />
+                <ScalarProperty Name="WLBImp" ColumnName="WLBImp" />
+                <ScalarProperty Name="SLBImp" ColumnName="SLBImp" />
+                <ScalarProperty Name="ROLBImp" ColumnName="ROLBImp" />
+                <ScalarProperty Name="LOLBImp" ColumnName="LOLBImp" />
+                <ScalarProperty Name="CB1Imp" ColumnName="CB1Imp" />
+                <ScalarProperty Name="CB2Imp" ColumnName="CB2Imp" />
+                <ScalarProperty Name="CB3Imp" ColumnName="CB3Imp" />
+                <ScalarProperty Name="FSImp" ColumnName="FSImp" />
+                <ScalarProperty Name="SSImp" ColumnName="SSImp" />
+                <ScalarProperty Name="DraftStrategy" ColumnName="DraftStrategy" />
+                <ScalarProperty Name="TeamBuilding" ColumnName="TeamBuilding" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Owners">
+            <EntityTypeMapping TypeName="FootballModel.Owner">
+              <MappingFragment StoreEntitySet="Owners">
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="OwnerRep" ColumnName="OwnerRep" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="GMPatience" ColumnName="GMPatience" />
+                <ScalarProperty Name="CoachPatience" ColumnName="CoachPatience" />
+                <ScalarProperty Name="Meddles" ColumnName="Meddles" />
+                <ScalarProperty Name="WantsWinner" ColumnName="WantsWinner" />
+                <ScalarProperty Name="SpendsMoney" ColumnName="SpendsMoney" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Players">
+            <EntityTypeMapping TypeName="FootballModel.Player">
+              <MappingFragment StoreEntitySet="Players">
+                <ScalarProperty Name="PlayerID" ColumnName="PlayerID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="POS" ColumnName="POS" />
+                <ScalarProperty Name="QAB" ColumnName="QAB" />
+                <ScalarProperty Name="COD" ColumnName="COD" />
+                <ScalarProperty Name="QBDropQuickness" ColumnName="QBDropQuickness" />
+                <ScalarProperty Name="QBSetupQuickness" ColumnName="QBSetupQuickness" />
+                <ScalarProperty Name="QBReleaseQuickness" ColumnName="QBReleaseQuickness" />
+                <ScalarProperty Name="QBShortAcc" ColumnName="QBShortAcc" />
+                <ScalarProperty Name="QBMedAcc" ColumnName="QBMedAcc" />
+                <ScalarProperty Name="QBLongAcc" ColumnName="QBLongAcc" />
+                <ScalarProperty Name="QBDecMaking" ColumnName="QBDecMaking" />
+                <ScalarProperty Name="QBFieldVision" ColumnName="QBFieldVision" />
+                <ScalarProperty Name="QBDeliveryQuickness" ColumnName="QBDeliveryQuickness" />
+                <ScalarProperty Name="QBPoise" ColumnName="QBPoise" />
+                <ScalarProperty Name="QBBallHandling" ColumnName="QBBallHandling" />
+                <ScalarProperty Name="QBTiming" ColumnName="QBTiming" />
+                <ScalarProperty Name="QBDelivery" ColumnName="QBDelivery" />
+                <ScalarProperty Name="QBFollowThrough" ColumnName="QBFollowThrough" />
+                <ScalarProperty Name="QBAvoidRush" ColumnName="QBAvoidRush" />
+                <ScalarProperty Name="QBEscape" ColumnName="QBEscape" />
+                <ScalarProperty Name="QBScrambling" ColumnName="QBScrambling" />
+                <ScalarProperty Name="QBRolloutRight" ColumnName="QBRolloutRight" />
+                <ScalarProperty Name="QBRolloutLeft" ColumnName="QBRolloutLeft" />
+                <ScalarProperty Name="QBArmStrength" ColumnName="QBArmStrength" />
+                <ScalarProperty Name="QBZip" ColumnName="QBZip" />
+                <ScalarProperty Name="QBTouchScreenPass" ColumnName="QBTouchScreenPass" />
+                <ScalarProperty Name="QBTouchSwingPass" ColumnName="QBTouchSwingPass" />
+                <ScalarProperty Name="QBEffectiveShortOut" ColumnName="QBEffectiveShortOut" />
+                <ScalarProperty Name="QBEffectiveGoRoute" ColumnName="QBEffectiveGoRoute" />
+                <ScalarProperty Name="QBEffectivePostRoute" ColumnName="QBEffectivePostRoute" />
+                <ScalarProperty Name="QBEffectiveCornerRoute" ColumnName="QBEffectiveCornerRoute" />
+                <ScalarProperty Name="QBEffectiveDeepOut" ColumnName="QBEffectiveDeepOut" />
+                <ScalarProperty Name="RBEffortBlocking" ColumnName="RBEffortBlocking" />
+                <ScalarProperty Name="RBDurability" ColumnName="RBDurability" />
+                <ScalarProperty Name="RBPassBlocking" ColumnName="RBPassBlocking" />
+                <ScalarProperty Name="RBHands" ColumnName="RBHands" />
+                <ScalarProperty Name="RBStart" ColumnName="RBStart" />
+                <ScalarProperty Name="RBRunVision" ColumnName="RBRunVision" />
+                <ScalarProperty Name="RBInsideAbility" ColumnName="RBInsideAbility" />
+                <ScalarProperty Name="RBBallAdjust" ColumnName="RBBallAdjust" />
+                <ScalarProperty Name="RBOutsideAbility" ColumnName="RBOutsideAbility" />
+                <ScalarProperty Name="RBElusiveAbility" ColumnName="RBElusiveAbility" />
+                <ScalarProperty Name="RBPowerAbility" ColumnName="RBPowerAbility" />
+                <ScalarProperty Name="RBRunBlocking" ColumnName="RBRunBlocking" />
+                <ScalarProperty Name="RBRouteRunning" ColumnName="RBRouteRunning" />
+                <ScalarProperty Name="RBRunningStyle" ColumnName="RBRunningStyle" />
+                <ScalarProperty Name="Athleticism" ColumnName="Athleticism" />
+                <ScalarProperty Name="WRShortRoute" ColumnName="WRShortRoute" />
+                <ScalarProperty Name="WRCrowdReaction" ColumnName="WRCrowdReaction" />
+                <ScalarProperty Name="WRConcentration" ColumnName="WRConcentration" />
+                <ScalarProperty Name="WRRunDBOff" ColumnName="WRRunDBOff" />
+                <ScalarProperty Name="WRAcrobaticCatches" ColumnName="WRAcrobaticCatches" />
+                <ScalarProperty Name="WRFieldAwareness" ColumnName="WRFieldAwareness" />
+                <ScalarProperty Name="WRBodyCatch" ColumnName="WRBodyCatch" />
+                <ScalarProperty Name="WRBlocking" ColumnName="WRBlocking" />
+                <ScalarProperty Name="WRRelease" ColumnName="WRRelease" />
+                <ScalarProperty Name="WRStart" ColumnName="WRStart" />
+                <ScalarProperty Name="WRPatterns" ColumnName="WRPatterns" />
+                <ScalarProperty Name="WRMedRoute" ColumnName="WRMedRoute" />
+                <ScalarProperty Name="WRDeepRoute" ColumnName="WRDeepRoute" />
+                <ScalarProperty Name="WRBallAdjust" ColumnName="WRBallAdjust" />
+                <ScalarProperty Name="WRHandCatch" ColumnName="WRHandCatch" />
+                <ScalarProperty Name="WRRAC" ColumnName="WRRAC" />
+                <ScalarProperty Name="WRCatchWhenHit" ColumnName="WRCatchWhenHit" />
+                <ScalarProperty Name="TEGetOffLineRunBlock" ColumnName="TEGetOffLineRunBlock" />
+                <ScalarProperty Name="TEOneOnOneBlocking" ColumnName="TEOneOnOneBlocking" />
+                <ScalarProperty Name="TEDoubleTeamBlocking" ColumnName="TEDoubleTeamBlocking" />
+                <ScalarProperty Name="TEDownBlocking" ColumnName="TEDownBlocking" />
+                <ScalarProperty Name="TETurnAndWallBlocking" ColumnName="TETurnAndWallBlocking" />
+                <ScalarProperty Name="TEsustainBlocking" ColumnName="TEsustainBlocking" />
+                <ScalarProperty Name="TECrowdReaction" ColumnName="TECrowdReaction" />
+                <ScalarProperty Name="TECatchWhenHit" ColumnName="TECatchWhenHit" />
+                <ScalarProperty Name="TEConcentration" ColumnName="TEConcentration" />
+                <ScalarProperty Name="TEBodyCatch" ColumnName="TEBodyCatch" />
+                <ScalarProperty Name="TEFieldAwareness" ColumnName="TEFieldAwareness" />
+                <ScalarProperty Name="TEPassProtect" ColumnName="TEPassProtect" />
+                <ScalarProperty Name="TEDriveIntoPassRoute" ColumnName="TEDriveIntoPassRoute" />
+                <ScalarProperty Name="TEPatterns" ColumnName="TEPatterns" />
+                <ScalarProperty Name="TEShortRoute" ColumnName="TEShortRoute" />
+                <ScalarProperty Name="TEMedRoute" ColumnName="TEMedRoute" />
+                <ScalarProperty Name="TEDeepRoute" ColumnName="TEDeepRoute" />
+                <ScalarProperty Name="TEBallAdjust" ColumnName="TEBallAdjust" />
+                <ScalarProperty Name="TEHandCatch" ColumnName="TEHandCatch" />
+                <ScalarProperty Name="TERAC" ColumnName="TERAC" />
+                <ScalarProperty Name="OLGetOutside" ColumnName="OLGetOutside" />
+                <ScalarProperty Name="OLReachBlock" ColumnName="OLReachBlock" />
+                <ScalarProperty Name="OLTurnDefender" ColumnName="OLTurnDefender" />
+                <ScalarProperty Name="OLPulling" ColumnName="OLPulling" />
+                <ScalarProperty Name="OLTrapBlock" ColumnName="OLTrapBlock" />
+                <ScalarProperty Name="OL2ndLevelPull" ColumnName="OL2ndLevelPull" />
+                <ScalarProperty Name="OLAdjusttoLB" ColumnName="OLAdjusttoLB" />
+                <ScalarProperty Name="OLSlide" ColumnName="OLSlide" />
+                <ScalarProperty Name="OLHandUse" ColumnName="OLHandUse" />
+                <ScalarProperty Name="OLHandPop" ColumnName="OLHandPop" />
+                <ScalarProperty Name="OLLongSnapPotential" ColumnName="OLLongSnapPotential" />
+                <ScalarProperty Name="OLGetOffLineRunBlock" ColumnName="OLGetOffLineRunBlock" />
+                <ScalarProperty Name="OLOneOnOneBlocking" ColumnName="OLOneOnOneBlocking" />
+                <ScalarProperty Name="OLDriveBlocking" ColumnName="OLDriveBlocking" />
+                <ScalarProperty Name="OLDownBlocking" ColumnName="OLDownBlocking" />
+                <ScalarProperty Name="OLSustainBlock" ColumnName="OLSustainBlock" />
+                <ScalarProperty Name="OLPassBlocking" ColumnName="OLPassBlocking" />
+                <ScalarProperty Name="OLPassDrops" ColumnName="OLPassDrops" />
+                <ScalarProperty Name="OLFeetSetup" ColumnName="OLFeetSetup" />
+                <ScalarProperty Name="OLInSpace" ColumnName="OLInSpace" />
+                <ScalarProperty Name="OLLongSnapPot" ColumnName="OLLongSnapPot" />
+                <ScalarProperty Name="OLAnchorAbility" ColumnName="OLAnchorAbility" />
+                <ScalarProperty Name="OLRecover" ColumnName="OLRecover" />
+                <ScalarProperty Name="OLStrength" ColumnName="OLStrength" />
+                <ScalarProperty Name="DLStyle" ColumnName="DLStyle" />
+                <ScalarProperty Name="DLRunAtHim" ColumnName="DLRunAtHim" />
+                <ScalarProperty Name="DLTackling" ColumnName="DLTackling" />
+                <ScalarProperty Name="DLAgainstTrapAbility" ColumnName="DLAgainstTrapAbility" />
+                <ScalarProperty Name="DLSlideAbility" ColumnName="DLSlideAbility" />
+                <ScalarProperty Name="DLRunPursuit" ColumnName="DLRunPursuit" />
+                <ScalarProperty Name="DLPassRushTechnique" ColumnName="DLPassRushTechnique" />
+                <ScalarProperty Name="DLHandUse" ColumnName="DLHandUse" />
+                <ScalarProperty Name="DLShedVsRunAway" ColumnName="DLShedVsRunAway" />
+                <ScalarProperty Name="DLShedRunBlock" ColumnName="DLShedRunBlock" />
+                <ScalarProperty Name="DLTackleVsRunAway" ColumnName="DLTackleVsRunAway" />
+                <ScalarProperty Name="DLChangeDirection" ColumnName="DLChangeDirection" />
+                <ScalarProperty Name="DLReleaseOffBall" ColumnName="DLReleaseOffBall" />
+                <ScalarProperty Name="DLOneOnOneAbility" ColumnName="DLOneOnOneAbility" />
+                <ScalarProperty Name="DLDoubleTeamAbility" ColumnName="DLDoubleTeamAbility" />
+                <ScalarProperty Name="DLDefeatBlock" ColumnName="DLDefeatBlock" />
+                <ScalarProperty Name="DLFirstStepPassRush" ColumnName="DLFirstStepPassRush" />
+                <ScalarProperty Name="DLShedPassBlock" ColumnName="DLShedPassBlock" />
+                <ScalarProperty Name="DLBurst" ColumnName="DLBurst" />
+                <ScalarProperty Name="DLPressure" ColumnName="DLPressure" />
+                <ScalarProperty Name="DLFinish" ColumnName="DLFinish" />
+                <ScalarProperty Name="LBDropDepth" ColumnName="LBDropDepth" />
+                <ScalarProperty Name="LBCoverage" ColumnName="LBCoverage" />
+                <ScalarProperty Name="LBHands" ColumnName="LBHands" />
+                <ScalarProperty Name="LBBlitz" ColumnName="LBBlitz" />
+                <ScalarProperty Name="LBPassRushType" ColumnName="LBPassRushType" />
+                <ScalarProperty Name="LBFillGaps" ColumnName="LBFillGaps" />
+                <ScalarProperty Name="LBContain" ColumnName="LBContain" />
+                <ScalarProperty Name="LBRead" ColumnName="LBRead" />
+                <ScalarProperty Name="LBInstincts" ColumnName="LBInstincts" />
+                <ScalarProperty Name="LBDefeatBlocks" ColumnName="LBDefeatBlocks" />
+                <ScalarProperty Name="LBShedBlocks" ColumnName="LBShedBlocks" />
+                <ScalarProperty Name="LBInsideTackle" ColumnName="LBInsideTackle" />
+                <ScalarProperty Name="LBOutsideTackle" ColumnName="LBOutsideTackle" />
+                <ScalarProperty Name="DBPressBailCoverage" ColumnName="DBPressBailCoverage" />
+                <ScalarProperty Name="DBBallReaction" ColumnName="DBBallReaction" />
+                <ScalarProperty Name="DBTackling" ColumnName="DBTackling" />
+                <ScalarProperty Name="DBZoneCoverage" ColumnName="DBZoneCoverage" />
+                <ScalarProperty Name="DBRuncontain" ColumnName="DBRuncontain" />
+                <ScalarProperty Name="DBWardOffBlockers" ColumnName="DBWardOffBlockers" />
+                <ScalarProperty Name="DBRunTackling" ColumnName="DBRunTackling" />
+                <ScalarProperty Name="DBHands" ColumnName="DBHands" />
+                <ScalarProperty Name="DBTurnAndRun" ColumnName="DBTurnAndRun" />
+                <ScalarProperty Name="DBBump" ColumnName="DBBump" />
+                <ScalarProperty Name="DDBRunContain" ColumnName="DDBRunContain" />
+                <ScalarProperty Name="DBBlitz" ColumnName="DBBlitz" />
+                <ScalarProperty Name="DBRead" ColumnName="DBRead" />
+                <ScalarProperty Name="DBInstincts" ColumnName="DBInstincts" />
+                <ScalarProperty Name="DBBackpedal" ColumnName="DBBackpedal" />
+                <ScalarProperty Name="DBTurn" ColumnName="DBTurn" />
+                <ScalarProperty Name="DBClose" ColumnName="DBClose" />
+                <ScalarProperty Name="DBRange" ColumnName="DBRange" />
+                <ScalarProperty Name="DBCatchUpSpeed" ColumnName="DBCatchUpSpeed" />
+                <ScalarProperty Name="DBManToManCoverage" ColumnName="DBManToManCoverage" />
+                <ScalarProperty Name="DBBurst" ColumnName="DBBurst" />
+                <ScalarProperty Name="DBCOBP" ColumnName="DBCOBP" />
+                <ScalarProperty Name="DBFeet" ColumnName="DBFeet" />
+                <ScalarProperty Name="KPlantRelationship" ColumnName="KPlantRelationship" />
+                <ScalarProperty Name="KApproachAngle" ColumnName="KApproachAngle" />
+                <ScalarProperty Name="KBallFlight" ColumnName="KBallFlight" />
+                <ScalarProperty Name="KSteppingPattern" ColumnName="KSteppingPattern" />
+                <ScalarProperty Name="KKickingStyle" ColumnName="KKickingStyle" />
+                <ScalarProperty Name="KHandlingWind" ColumnName="KHandlingWind" />
+                <ScalarProperty Name="KTackling" ColumnName="KTackling" />
+                <ScalarProperty Name="KRunAndPassAbility" ColumnName="KRunAndPassAbility" />
+                <ScalarProperty Name="KKOFootSpeed" ColumnName="KKOFootSpeed" />
+                <ScalarProperty Name="KFGOperationTimes" ColumnName="KFGOperationTimes" />
+                <ScalarProperty Name="KAccuracy" ColumnName="KAccuracy" />
+                <ScalarProperty Name="KHandlingPressure" ColumnName="KHandlingPressure" />
+                <ScalarProperty Name="KFootSpeed" ColumnName="KFootSpeed" />
+                <ScalarProperty Name="KKickQuickness" ColumnName="KKickQuickness" />
+                <ScalarProperty Name="KKickRise" ColumnName="KKickRise" />
+                <ScalarProperty Name="KKOProduction" ColumnName="KKOProduction" />
+                <ScalarProperty Name="KKOMentalStability" ColumnName="KKOMentalStability" />
+                <ScalarProperty Name="PFootSpeed" ColumnName="PFootSpeed" />
+                <ScalarProperty Name="PApproachLine" ColumnName="PApproachLine" />
+                <ScalarProperty Name="PHandlingTime" ColumnName="PHandlingTime" />
+                <ScalarProperty Name="PSteppingPattern" ColumnName="PSteppingPattern" />
+                <ScalarProperty Name="PHands" ColumnName="PHands" />
+                <ScalarProperty Name="PTackling" ColumnName="PTackling" />
+                <ScalarProperty Name="PRunAndPassAbility" ColumnName="PRunAndPassAbility" />
+                <ScalarProperty Name="PDistance" ColumnName="PDistance" />
+                <ScalarProperty Name="PHangTime" ColumnName="PHangTime" />
+                <ScalarProperty Name="PPressureKicking" ColumnName="PPressureKicking" />
+                <ScalarProperty Name="PBlockZone" ColumnName="PBlockZone" />
+                <ScalarProperty Name="PHandToFootTime" ColumnName="PHandToFootTime" />
+                <ScalarProperty Name="PTiming" ColumnName="PTiming" />
+                <ScalarProperty Name="STCoverage" ColumnName="STCoverage" />
+                <ScalarProperty Name="STWillingness" ColumnName="STWillingness" />
+                <ScalarProperty Name="STAssignment" ColumnName="STAssignment" />
+                <ScalarProperty Name="STDiscipline" ColumnName="STDiscipline" />
+                <ScalarProperty Name="Flexibility" ColumnName="Flexibility" />
+                <ScalarProperty Name="Clutch" ColumnName="Clutch" />
+                <ScalarProperty Name="Production" ColumnName="Production" />
+                <ScalarProperty Name="Consistency" ColumnName="Consistency" />
+                <ScalarProperty Name="TeamPlayer" ColumnName="TeamPlayer" />
+                <ScalarProperty Name="Instincts" ColumnName="Instincts" />
+                <ScalarProperty Name="Focus" ColumnName="Focus" />
+                <ScalarProperty Name="RETKickReturn" ColumnName="RETKickReturn" />
+                <ScalarProperty Name="RETPuntReturn" ColumnName="RETPuntReturn" />
+                <ScalarProperty Name="PlayStrength" ColumnName="PlayStrength" />
+                <ScalarProperty Name="FilmStudy" ColumnName="FilmStudy" />
+                <ScalarProperty Name="Durability" ColumnName="Durability" />
+                <ScalarProperty Name="Explosion" ColumnName="Explosion" />
+                <ScalarProperty Name="JumpingAbility" ColumnName="JumpingAbility" />
+                <ScalarProperty Name="DeliversBlow" ColumnName="DeliversBlow" />
+                <ScalarProperty Name="Leadership" ColumnName="Leadership" />
+                <ScalarProperty Name="Character" ColumnName="Character" />
+                <ScalarProperty Name="Toughness" ColumnName="Toughness" />
+                <ScalarProperty Name="InjuryProne" ColumnName="InjuryProne" />
+                <ScalarProperty Name="WorkEthic" ColumnName="WorkEthic" />
+                <ScalarProperty Name="Aggressive" ColumnName="Aggressive" />
+                <ScalarProperty Name="Fearless" ColumnName="Fearless" />
+                <ScalarProperty Name="FieldAwareness" ColumnName="FieldAwareness" />
+                <ScalarProperty Name="PlaybookKnowledge" ColumnName="PlaybookKnowledge" />
+                <ScalarProperty Name="RiskTaker" ColumnName="RiskTaker" />
+                <ScalarProperty Name="LSSnapAccuracy" ColumnName="LSSnapAccuracy" />
+                <ScalarProperty Name="LSSnapTime" ColumnName="LSSnapTime" />
+                <ScalarProperty Name="BallSecurity" ColumnName="BallSecurity" />
+                <ScalarProperty Name="Timing" ColumnName="Timing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Scouts">
+            <EntityTypeMapping TypeName="FootballModel.Scout">
+              <MappingFragment StoreEntitySet="Scouts">
+                <ScalarProperty Name="ScoutID" ColumnName="ScoutID" />
+                <ScalarProperty Name="TeamID" ColumnName="TeamID" />
+                <ScalarProperty Name="FName" ColumnName="FName" />
+                <ScalarProperty Name="LName" ColumnName="LName" />
+                <ScalarProperty Name="College" ColumnName="College" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="Experience" ColumnName="Experience" />
+                <ScalarProperty Name="OffPhil" ColumnName="OffPhil" />
+                <ScalarProperty Name="DefPhil" ColumnName="DefPhil" />
+                <ScalarProperty Name="JudgingAct" ColumnName="JudgingAct" />
+                <ScalarProperty Name="JudgingPot" ColumnName="JudgingPot" />
+                <ScalarProperty Name="JudgingQB" ColumnName="JudgingQB" />
+                <ScalarProperty Name="JudgingRB" ColumnName="JudgingRB" />
+                <ScalarProperty Name="JudgingRec" ColumnName="JudgingRec" />
+                <ScalarProperty Name="JudgingOL" ColumnName="JudgingOL" />
+                <ScalarProperty Name="JudgingDL" ColumnName="JudgingDL" />
+                <ScalarProperty Name="JudgingLB" ColumnName="JudgingLB" />
+                <ScalarProperty Name="JudgingCB" ColumnName="JudgingCB" />
+                <ScalarProperty Name="JudgingSF" ColumnName="JudgingSF" />
+                <ScalarProperty Name="FBInt" ColumnName="FBInt" />
+                <ScalarProperty Name="ValuesCharacter" ColumnName="ValuesCharacter" />
+                <ScalarProperty Name="ProductionVsCombine" ColumnName="ProductionVsCombine" />
+                <ScalarProperty Name="AthleticismVsMental" ColumnName="AthleticismVsMental" />
+                <ScalarProperty Name="WorkEthic" ColumnName="WorkEthic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
