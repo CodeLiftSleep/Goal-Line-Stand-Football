@@ -11,6 +11,7 @@ Class GenerationDraft
     Dim MyMsgBox As Windows.MessageBox '
     Dim ex As Exception
     Dim GenDraftPage2 As New GenerationDraft2
+    Dim DraftPlayersTable As New DraftPlayersTable
 
     Public Sub New()
 
@@ -697,5 +698,9 @@ Class GenerationDraft
         CInt(GenDraftPage2.R3Totals.Text) + CInt(GenDraftPage2.R4Totals.Text) + CInt(GenDraftPage2.R5Totals.Text) + CInt(GenDraftPage2.R6Totals.Text) + CInt(GenDraftPage2.R7Totals.Text) + CInt(GenDraftPage2.PUFATotals.Text) + CInt(GenDraftPage2.LUFATotals.Text) +
         CInt(GenDraftPage2.PracSquadTotals.Text) + CInt(GenDraftPage2.RejectTotals.Text)
         Me.NavigationService.Navigate(GenDraftPage2)
+    End Sub
+
+    Private Sub Btn_PlayersTable(sender As Object, e As RoutedEventArgs) Handles PlayersTable.Click
+        Me.NavigationService.Navigate(DraftPlayersTable)
     End Sub
 End Class

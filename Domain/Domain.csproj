@@ -69,6 +69,7 @@
     <Compile Include="Coach.cs">
       <DependentUpon>GLSEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="DomainFactory.cs" />
     <Compile Include="DraftPlayer.cs">
       <DependentUpon>GLSEntities.tt</DependentUpon>
     </Compile>

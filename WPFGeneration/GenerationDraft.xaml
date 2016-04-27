@@ -46,7 +46,7 @@
             <TextBlock x:Name="WRStats" FontSize="11" FontFamily="Times New Roman Bold" HorizontalAlignment="Left" Margin="5,3,0,0"  Width="Auto" Height="Auto" Background="LightSteelBlue" Opacity="0.6"></TextBlock>
             <TextBlock x:Name="TEStats" FontSize="11" FontFamily="Times New Roman Bold" HorizontalAlignment="Left" Margin="5,3,0,0"  Width="Auto" Height="Auto" Background="DeepSkyBlue" Opacity="0.6"></TextBlock>
             <TextBlock x:Name="OTStats" FontSize="11" FontFamily="Times New Roman Bold" HorizontalAlignment="Left" Margin="5,3,0,0"  Width="Auto" Height="Auto" Background="LightSteelBlue" Opacity="0.6"></TextBlock>
-            
+
         </StackPanel>
         <DataGrid x:Name="DraftGrid" ItemsSource="{Binding}"  AlternatingRowBackground="DodgerBlue"  AlternationCount="2" Height="Auto" Width="Auto"  ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="0,475,0,0" Grid.ColumnSpan="4">
         </DataGrid>
@@ -57,7 +57,7 @@
             <TextBlock x:Name="DTStats" FontSize="11" FontFamily="Times New Roman Bold" HorizontalAlignment="Left" Margin="5,3,0,0" Width="Auto" Height="Auto" Background="LightSteelBlue" Opacity="0.6"></TextBlock>
             <TextBlock x:Name="OLBStats" FontSize="11" FontFamily="Times New Roman Bold" HorizontalAlignment="Left" Margin="5,3,0,0" Width="Auto" Height="Auto" Background="DeepSkyBlue" Opacity="0.6"></TextBlock>
             <TextBlock x:Name="ILBStats" FontSize="11" FontFamily="Times New Roman Bold" HorizontalAlignment="Left" Margin="5,3,0,0" Width="Auto" Height="Auto" Background="LightSteelBlue" Opacity="0.6"></TextBlock>
-            
+
         </StackPanel>
         <StackPanel x:Name="Stats3StackPanel" Grid.Column="3" Width="Auto" Height="Auto" Margin="0,0,0,0">
             <TextBlock x:Name="CBStats" FontSize="11" FontFamily="Times New Roman Bold" HorizontalAlignment="Left" Margin="0,3,0,0" Width="Auto" Height="Auto" Background="DeepSkyBlue" Opacity="0.6"></TextBlock>
@@ -67,6 +67,14 @@
             <TextBlock x:Name="PStats" FontSize="11" FontFamily="Times New Roman Bold" HorizontalAlignment="Left" Margin="0,3,3,0" Width="Auto" Height="Auto" Background="DeepSkyBlue" Opacity="0.6"/>
         </StackPanel>
         <Button x:Name="NextPage" Content="Next Page" FontFamily="Times New Roman" FontSize="24" HorizontalAlignment="Left" Style="{DynamicResource SimpleButton}" Margin="363,3,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" Opacity="0.7">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFEEEEEE" Offset="0" />
+                    <GradientStop Color="#FF1A21B4" Offset="1" />
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="PlayersTable" Content="Players Table" FontFamily="Times New Roman" FontSize="24" HorizontalAlignment="Left" Style="{DynamicResource SimpleButton}" Margin="483,3,0,0" VerticalAlignment="Top" Height="Auto" Width="Auto" Opacity="0.7" Grid.ColumnSpan="2">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFEEEEEE" Offset="0" />
